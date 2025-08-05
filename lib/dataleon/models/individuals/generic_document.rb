@@ -3,6 +3,7 @@
 module Dataleon
   module Models
     module Individuals
+      # @see Dataleon::Resources::Individuals::Documents#upload
       class GenericDocument < Dataleon::Internal::Type::BaseModel
         # @!attribute id
         #   Unique identifier of the document.
