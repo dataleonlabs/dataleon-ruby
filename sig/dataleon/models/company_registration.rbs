@@ -216,6 +216,7 @@ module Dataleon
         {
           address: String,
           commercial_name: String,
+          contact: Dataleon::CompanyRegistration::Company::Contact,
           country: String,
           email: String,
           employer_identification_number: String,
@@ -239,6 +240,12 @@ module Dataleon
         attr_reader commercial_name: String?
 
         def commercial_name=: (String) -> String
+
+        attr_reader contact: Dataleon::CompanyRegistration::Company::Contact?
+
+        def contact=: (
+          Dataleon::CompanyRegistration::Company::Contact
+        ) -> Dataleon::CompanyRegistration::Company::Contact
 
         attr_reader country: String?
 
@@ -295,6 +302,7 @@ module Dataleon
         def initialize: (
           ?address: String,
           ?commercial_name: String,
+          ?contact: Dataleon::CompanyRegistration::Company::Contact,
           ?country: String,
           ?email: String,
           ?employer_identification_number: String,
@@ -313,6 +321,7 @@ module Dataleon
         def to_hash: -> {
           address: String,
           commercial_name: String,
+          contact: Dataleon::CompanyRegistration::Company::Contact,
           country: String,
           email: String,
           employer_identification_number: String,
@@ -327,6 +336,53 @@ module Dataleon
           type: String,
           website_url: String
         }
+
+        type contact =
+          {
+            department: String,
+            email: String,
+            first_name: String,
+            last_name: String,
+            phone_number: String
+          }
+
+        class Contact < Dataleon::Internal::Type::BaseModel
+          attr_reader department: String?
+
+          def department=: (String) -> String
+
+          attr_reader email: String?
+
+          def email=: (String) -> String
+
+          attr_reader first_name: String?
+
+          def first_name=: (String) -> String
+
+          attr_reader last_name: String?
+
+          def last_name=: (String) -> String
+
+          attr_reader phone_number: String?
+
+          def phone_number=: (String) -> String
+
+          def initialize: (
+            ?department: String,
+            ?email: String,
+            ?first_name: String,
+            ?last_name: String,
+            ?phone_number: String
+          ) -> void
+
+          def to_hash: -> {
+            department: String,
+            email: String,
+            first_name: String,
+            last_name: String,
+            phone_number: String
+          }
+        end
       end
 
       type member =
@@ -594,6 +650,7 @@ module Dataleon
           need_review_at: Time?,
           notification_confirmation: bool,
           qr_code: String,
+          raw_data: bool,
           rejected_at: Time?,
           started_at: Time,
           transfer_at: Time,
@@ -653,6 +710,10 @@ module Dataleon
 
         def qr_code=: (String) -> String
 
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
         attr_accessor rejected_at: Time?
 
         attr_reader started_at: Time?
@@ -682,6 +743,7 @@ module Dataleon
           ?need_review_at: Time?,
           ?notification_confirmation: bool,
           ?qr_code: String,
+          ?raw_data: bool,
           ?rejected_at: Time?,
           ?started_at: Time,
           ?transfer_at: Time,
@@ -703,6 +765,7 @@ module Dataleon
           need_review_at: Time?,
           notification_confirmation: bool,
           qr_code: String,
+          raw_data: bool,
           rejected_at: Time?,
           started_at: Time,
           transfer_at: Time,
