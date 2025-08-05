@@ -1,17 +1,31 @@
 module Dataleon
   class Check = Dataleon::Models::Check
 
+  module Companies = Dataleon::Models::Companies
+
   class CompanyCreateParams = Dataleon::Models::CompanyCreateParams
+
+  class CompanyDeleteParams = Dataleon::Models::CompanyDeleteParams
 
   class CompanyListParams = Dataleon::Models::CompanyListParams
 
   class CompanyRegistration = Dataleon::Models::CompanyRegistration
 
+  class CompanyRetrieveParams = Dataleon::Models::CompanyRetrieveParams
+
+  class CompanyUpdateParams = Dataleon::Models::CompanyUpdateParams
+
   class Individual = Dataleon::Models::Individual
 
   class IndividualCreateParams = Dataleon::Models::IndividualCreateParams
 
+  class IndividualDeleteParams = Dataleon::Models::IndividualDeleteParams
+
   class IndividualListParams = Dataleon::Models::IndividualListParams
 
+  class IndividualRetrieveParams = Dataleon::Models::IndividualRetrieveParams
+
   module Individuals = Dataleon::Models::Individuals
+
+  class IndividualUpdateParams = Dataleon::Models::IndividualUpdateParams
 end

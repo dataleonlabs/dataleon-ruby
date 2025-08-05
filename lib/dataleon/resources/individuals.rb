@@ -37,6 +37,65 @@ module Dataleon
         )
       end
 
+      # Get an individual by ID
+      #
+      # @overload retrieve(individual_id, document: nil, scope: nil, request_options: {})
+      #
+      # @param individual_id [String] ID of the individual
+      #
+      # @param document [Boolean] Include document information
+      #
+      # @param scope [String] Scope filter (id or scope)
+      #
+      # @param request_options [Dataleon::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Dataleon::Models::Individual]
+      #
+      # @see Dataleon::Models::IndividualRetrieveParams
+      def retrieve(individual_id, params = {})
+        parsed, options = Dataleon::IndividualRetrieveParams.dump_request(params)
+        @client.request(
+          method: :get,
+          path: ["individuals/%1$s", individual_id],
+          query: parsed,
+          model: Dataleon::Individual,
+          options: options
+        )
+      end
+
+      # Some parameter documentations has been truncated, see
+      # {Dataleon::Models::IndividualUpdateParams} for more details.
+      #
+      # Update an individual by ID
+      #
+      # @overload update(individual_id, workspace_id:, person: nil, source_id: nil, technical_data: nil, request_options: {})
+      #
+      # @param individual_id [String] ID of the individual to update
+      #
+      # @param workspace_id [String] Unique identifier of the workspace where the individual is being registered.
+      #
+      # @param person [Dataleon::Models::IndividualUpdateParams::Person] Personal information about the individual.
+      #
+      # @param source_id [String] Optional identifier for tracking the source system or integration from your syst
+      #
+      # @param technical_data [Dataleon::Models::IndividualUpdateParams::TechnicalData] Technical metadata related to the request or processing.
+      #
+      # @param request_options [Dataleon::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Dataleon::Models::Individual]
+      #
+      # @see Dataleon::Models::IndividualUpdateParams
+      def update(individual_id, params)
+        parsed, options = Dataleon::IndividualUpdateParams.dump_request(params)
+        @client.request(
+          method: :put,
+          path: ["individuals/%1$s", individual_id],
+          body: parsed,
+          model: Dataleon::Individual,
+          options: options
+        )
+      end
+
       # Get all individuals
       #
       # @overload list(end_date: nil, limit: nil, offset: nil, source_id: nil, start_date: nil, state: nil, status: nil, workspace_id: nil, request_options: {})
@@ -70,6 +129,26 @@ module Dataleon
           query: parsed,
           model: Dataleon::Internal::Type::ArrayOf[Dataleon::Individual],
           options: options
+        )
+      end
+
+      # Delete an individual by ID
+      #
+      # @overload delete(individual_id, request_options: {})
+      #
+      # @param individual_id [String] ID of the individual to delete
+      #
+      # @param request_options [Dataleon::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [nil]
+      #
+      # @see Dataleon::Models::IndividualDeleteParams
+      def delete(individual_id, params = {})
+        @client.request(
+          method: :delete,
+          path: ["individuals/%1$s", individual_id],
+          model: NilClass,
+          options: params[:request_options]
         )
       end
 
