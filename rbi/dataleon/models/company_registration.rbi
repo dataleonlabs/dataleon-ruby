@@ -467,19 +467,6 @@ module Dataleon
         sig { params(commercial_name: String).void }
         attr_writer :commercial_name
 
-        # Contact information for the company, including email, phone number, and address.
-        sig do
-          returns(T.nilable(Dataleon::CompanyRegistration::Company::Contact))
-        end
-        attr_reader :contact
-
-        sig do
-          params(
-            contact: Dataleon::CompanyRegistration::Company::Contact::OrHash
-          ).void
-        end
-        attr_writer :contact
-
         # Country code where the company is registered.
         sig { returns(T.nilable(String)) }
         attr_reader :country
@@ -577,7 +564,6 @@ module Dataleon
           params(
             address: String,
             commercial_name: String,
-            contact: Dataleon::CompanyRegistration::Company::Contact::OrHash,
             country: String,
             email: String,
             employer_identification_number: String,
@@ -598,8 +584,6 @@ module Dataleon
           address: nil,
           # Trade or commercial name of the company.
           commercial_name: nil,
-          # Contact information for the company, including email, phone number, and address.
-          contact: nil,
           # Country code where the company is registered.
           country: nil,
           # Contact email address for the company.
@@ -634,7 +618,6 @@ module Dataleon
             {
               address: String,
               commercial_name: String,
-              contact: Dataleon::CompanyRegistration::Company::Contact,
               country: String,
               email: String,
               employer_identification_number: String,
@@ -652,89 +635,6 @@ module Dataleon
           )
         end
         def to_hash
-        end
-
-        class Contact < Dataleon::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                Dataleon::CompanyRegistration::Company::Contact,
-                Dataleon::Internal::AnyHash
-              )
-            end
-
-          # Department of the contact person.
-          sig { returns(T.nilable(String)) }
-          attr_reader :department
-
-          sig { params(department: String).void }
-          attr_writer :department
-
-          # Email address of the contact person.
-          sig { returns(T.nilable(String)) }
-          attr_reader :email
-
-          sig { params(email: String).void }
-          attr_writer :email
-
-          # First name of the contact person.
-          sig { returns(T.nilable(String)) }
-          attr_reader :first_name
-
-          sig { params(first_name: String).void }
-          attr_writer :first_name
-
-          # Last name of the contact person.
-          sig { returns(T.nilable(String)) }
-          attr_reader :last_name
-
-          sig { params(last_name: String).void }
-          attr_writer :last_name
-
-          # Phone number of the contact person.
-          sig { returns(T.nilable(String)) }
-          attr_reader :phone_number
-
-          sig { params(phone_number: String).void }
-          attr_writer :phone_number
-
-          # Contact information for the company, including email, phone number, and address.
-          sig do
-            params(
-              department: String,
-              email: String,
-              first_name: String,
-              last_name: String,
-              phone_number: String
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            # Department of the contact person.
-            department: nil,
-            # Email address of the contact person.
-            email: nil,
-            # First name of the contact person.
-            first_name: nil,
-            # Last name of the contact person.
-            last_name: nil,
-            # Phone number of the contact person.
-            phone_number: nil
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                department: String,
-                email: String,
-                first_name: String,
-                last_name: String,
-                phone_number: String
-              }
-            )
-          end
-          def to_hash
-          end
         end
       end
 
@@ -1353,13 +1253,6 @@ module Dataleon
         sig { params(qr_code: String).void }
         attr_writer :qr_code
 
-        # Flag indicating whether to include raw data in the response.
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :raw_data
-
-        sig { params(raw_data: T::Boolean).void }
-        attr_writer :raw_data
-
         # Timestamp when the request or process was rejected; null if not rejected.
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
@@ -1403,7 +1296,6 @@ module Dataleon
             need_review_at: T.nilable(Time),
             notification_confirmation: T::Boolean,
             qr_code: String,
-            raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
             started_at: Time,
             transfer_at: Time,
@@ -1439,8 +1331,6 @@ module Dataleon
           notification_confirmation: nil,
           # Indicates whether QR code is enabled ("true" or "false").
           qr_code: nil,
-          # Flag indicating whether to include raw data in the response.
-          raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
           # Timestamp when the process started.
@@ -1469,7 +1359,6 @@ module Dataleon
               need_review_at: T.nilable(Time),
               notification_confirmation: T::Boolean,
               qr_code: String,
-              raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
               started_at: Time,
               transfer_at: Time,

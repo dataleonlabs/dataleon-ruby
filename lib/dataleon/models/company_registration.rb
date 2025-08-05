@@ -247,12 +247,6 @@ module Dataleon
         #   @return [String, nil]
         optional :commercial_name, String
 
-        # @!attribute contact
-        #   Contact information for the company, including email, phone number, and address.
-        #
-        #   @return [Dataleon::Models::CompanyRegistration::Company::Contact, nil]
-        optional :contact, -> { Dataleon::CompanyRegistration::Company::Contact }
-
         # @!attribute country
         #   Country code where the company is registered.
         #
@@ -331,18 +325,13 @@ module Dataleon
         #   @return [String, nil]
         optional :website_url, String
 
-        # @!method initialize(address: nil, commercial_name: nil, contact: nil, country: nil, email: nil, employer_identification_number: nil, legal_form: nil, name: nil, phone_number: nil, registration_date: nil, registration_id: nil, share_capital: nil, status: nil, tax_identification_number: nil, type: nil, website_url: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {Dataleon::Models::CompanyRegistration::Company} for more details.
-        #
+        # @!method initialize(address: nil, commercial_name: nil, country: nil, email: nil, employer_identification_number: nil, legal_form: nil, name: nil, phone_number: nil, registration_date: nil, registration_id: nil, share_capital: nil, status: nil, tax_identification_number: nil, type: nil, website_url: nil)
         #   Main information about the company being registered, including legal name,
         #   registration ID, and address.
         #
         #   @param address [String] Full registered address of the company.
         #
         #   @param commercial_name [String] Trade or commercial name of the company.
-        #
-        #   @param contact [Dataleon::Models::CompanyRegistration::Company::Contact] Contact information for the company, including email, phone number, and address.
         #
         #   @param country [String] Country code where the company is registered.
         #
@@ -369,52 +358,6 @@ module Dataleon
         #   @param type [String] Type of company within the workspace, e.g., main or affiliated.
         #
         #   @param website_url [String] Official website URL of the company.
-
-        # @see Dataleon::Models::CompanyRegistration::Company#contact
-        class Contact < Dataleon::Internal::Type::BaseModel
-          # @!attribute department
-          #   Department of the contact person.
-          #
-          #   @return [String, nil]
-          optional :department, String
-
-          # @!attribute email
-          #   Email address of the contact person.
-          #
-          #   @return [String, nil]
-          optional :email, String
-
-          # @!attribute first_name
-          #   First name of the contact person.
-          #
-          #   @return [String, nil]
-          optional :first_name, String
-
-          # @!attribute last_name
-          #   Last name of the contact person.
-          #
-          #   @return [String, nil]
-          optional :last_name, String
-
-          # @!attribute phone_number
-          #   Phone number of the contact person.
-          #
-          #   @return [String, nil]
-          optional :phone_number, String
-
-          # @!method initialize(department: nil, email: nil, first_name: nil, last_name: nil, phone_number: nil)
-          #   Contact information for the company, including email, phone number, and address.
-          #
-          #   @param department [String] Department of the contact person.
-          #
-          #   @param email [String] Email address of the contact person.
-          #
-          #   @param first_name [String] First name of the contact person.
-          #
-          #   @param last_name [String] Last name of the contact person.
-          #
-          #   @param phone_number [String] Phone number of the contact person.
-        end
       end
 
       class Member < Dataleon::Internal::Type::BaseModel
@@ -803,12 +746,6 @@ module Dataleon
         #   @return [String, nil]
         optional :qr_code, String
 
-        # @!attribute raw_data
-        #   Flag indicating whether to include raw data in the response.
-        #
-        #   @return [Boolean, nil]
-        optional :raw_data, Dataleon::Internal::Type::Boolean
-
         # @!attribute rejected_at
         #   Timestamp when the request or process was rejected; null if not rejected.
         #
@@ -833,7 +770,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Technical metadata related to the request, such as IP address, QR code settings,
         #   and callback URLs.
         #
@@ -864,8 +801,6 @@ module Dataleon
         #   @param notification_confirmation [Boolean] Flag indicating if notification confirmation is required or received.
         #
         #   @param qr_code [String] Indicates whether QR code is enabled ("true" or "false").
-        #
-        #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
         #
         #   @param rejected_at [Time, nil] Timestamp when the request or process was rejected; null if not rejected.
         #
