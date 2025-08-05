@@ -1,0 +1,22 @@
+module Dataleon
+  module Resources
+    class Companies
+      class Documents
+        def list: (
+          String company_id,
+          ?request_options: Dataleon::request_opts
+        ) -> Dataleon::Individuals::DocumentResponse
+
+        def upload: (
+          String company_id,
+          document_type: Dataleon::Models::Companies::DocumentUploadParams::document_type,
+          ?file: Dataleon::Internal::file_input,
+          ?url: String,
+          ?request_options: Dataleon::request_opts
+        ) -> Dataleon::Individuals::GenericDocument
+
+        def initialize: (client: Dataleon::Client) -> void
+      end
+    end
+  end
+end

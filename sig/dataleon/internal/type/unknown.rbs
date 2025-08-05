@@ -1,0 +1,26 @@
+module Dataleon
+  module Internal
+    module Type
+      class Unknown
+        extend Dataleon::Internal::Type::Converter
+        extend Dataleon::Internal::Util::SorbetRuntimeSupport
+
+        def self.===: (top other) -> bool
+
+        def self.==: (top other) -> bool
+
+        def self.coerce: (
+          top value,
+          state: Dataleon::Internal::Type::Converter::coerce_state
+        ) -> top
+
+        def self.dump: (
+          top value,
+          state: Dataleon::Internal::Type::Converter::dump_state
+        ) -> top
+
+        def self.to_sorbet_type: -> top
+      end
+    end
+  end
+end

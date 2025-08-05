@@ -1,0 +1,132 @@
+module Dataleon
+  module Models
+    module Individuals
+      type generic_document =
+        {
+          id: String,
+          checks: ::Array[Dataleon::Check],
+          created_at: Time,
+          document_type: String,
+          name: String,
+          signed_url: String,
+          state: String,
+          status: String,
+          tables: ::Array[Dataleon::Individuals::GenericDocument::Table],
+          values: ::Array[Dataleon::Individuals::GenericDocument::Value]
+        }
+
+      class GenericDocument < Dataleon::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader checks: ::Array[Dataleon::Check]?
+
+        def checks=: (::Array[Dataleon::Check]) -> ::Array[Dataleon::Check]
+
+        attr_reader created_at: Time?
+
+        def created_at=: (Time) -> Time
+
+        attr_reader document_type: String?
+
+        def document_type=: (String) -> String
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader signed_url: String?
+
+        def signed_url=: (String) -> String
+
+        attr_reader state: String?
+
+        def state=: (String) -> String
+
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader tables: ::Array[Dataleon::Individuals::GenericDocument::Table]?
+
+        def tables=: (
+          ::Array[Dataleon::Individuals::GenericDocument::Table]
+        ) -> ::Array[Dataleon::Individuals::GenericDocument::Table]
+
+        attr_reader values: ::Array[Dataleon::Individuals::GenericDocument::Value]?
+
+        def values=: (
+          ::Array[Dataleon::Individuals::GenericDocument::Value]
+        ) -> ::Array[Dataleon::Individuals::GenericDocument::Value]
+
+        def initialize: (
+          ?id: String,
+          ?checks: ::Array[Dataleon::Check],
+          ?created_at: Time,
+          ?document_type: String,
+          ?name: String,
+          ?signed_url: String,
+          ?state: String,
+          ?status: String,
+          ?tables: ::Array[Dataleon::Individuals::GenericDocument::Table],
+          ?values: ::Array[Dataleon::Individuals::GenericDocument::Value]
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          checks: ::Array[Dataleon::Check],
+          created_at: Time,
+          document_type: String,
+          name: String,
+          signed_url: String,
+          state: String,
+          status: String,
+          tables: ::Array[Dataleon::Individuals::GenericDocument::Table],
+          values: ::Array[Dataleon::Individuals::GenericDocument::Value]
+        }
+
+        type table = { operation: ::Array[top] }
+
+        class Table < Dataleon::Internal::Type::BaseModel
+          attr_reader operation: ::Array[top]?
+
+          def operation=: (::Array[top]) -> ::Array[top]
+
+          def initialize: (?operation: ::Array[top]) -> void
+
+          def to_hash: -> { operation: ::Array[top] }
+        end
+
+        type value =
+          { confidence: Float, name: String, value: ::Array[Integer] }
+
+        class Value < Dataleon::Internal::Type::BaseModel
+          attr_reader confidence: Float?
+
+          def confidence=: (Float) -> Float
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader value: ::Array[Integer]?
+
+          def value=: (::Array[Integer]) -> ::Array[Integer]
+
+          def initialize: (
+            ?confidence: Float,
+            ?name: String,
+            ?value: ::Array[Integer]
+          ) -> void
+
+          def to_hash: -> {
+            confidence: Float,
+            name: String,
+            value: ::Array[Integer]
+          }
+        end
+      end
+    end
+  end
+end

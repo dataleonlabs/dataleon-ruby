@@ -1,0 +1,675 @@
+module Dataleon
+  module Models
+    type individual =
+      {
+        id: String,
+        aml_suspicions: ::Array[Dataleon::Individual::AmlSuspicion],
+        auth_url: String,
+        certificat: Dataleon::Individual::Certificat,
+        checks: ::Array[Dataleon::Check],
+        created_at: Time,
+        documents: ::Array[Dataleon::Individuals::GenericDocument],
+        identity_card: Dataleon::Individual::IdentityCard,
+        number: Integer,
+        person: Dataleon::Individual::Person,
+        portal_url: String,
+        properties: ::Array[Dataleon::Individual::Property],
+        risk: Dataleon::Individual::Risk,
+        source_id: String,
+        state: String,
+        status: String,
+        tags: ::Array[Dataleon::Individual::Tag],
+        technical_data: Dataleon::Individual::TechnicalData,
+        webview_url: String,
+        workspace_id: String
+      }
+
+    class Individual < Dataleon::Internal::Type::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader aml_suspicions: ::Array[Dataleon::Individual::AmlSuspicion]?
+
+      def aml_suspicions=: (
+        ::Array[Dataleon::Individual::AmlSuspicion]
+      ) -> ::Array[Dataleon::Individual::AmlSuspicion]
+
+      attr_reader auth_url: String?
+
+      def auth_url=: (String) -> String
+
+      attr_reader certificat: Dataleon::Individual::Certificat?
+
+      def certificat=: (
+        Dataleon::Individual::Certificat
+      ) -> Dataleon::Individual::Certificat
+
+      attr_reader checks: ::Array[Dataleon::Check]?
+
+      def checks=: (::Array[Dataleon::Check]) -> ::Array[Dataleon::Check]
+
+      attr_reader created_at: Time?
+
+      def created_at=: (Time) -> Time
+
+      attr_reader documents: ::Array[Dataleon::Individuals::GenericDocument]?
+
+      def documents=: (
+        ::Array[Dataleon::Individuals::GenericDocument]
+      ) -> ::Array[Dataleon::Individuals::GenericDocument]
+
+      attr_reader identity_card: Dataleon::Individual::IdentityCard?
+
+      def identity_card=: (
+        Dataleon::Individual::IdentityCard
+      ) -> Dataleon::Individual::IdentityCard
+
+      attr_reader number: Integer?
+
+      def number=: (Integer) -> Integer
+
+      attr_reader person: Dataleon::Individual::Person?
+
+      def person=: (
+        Dataleon::Individual::Person
+      ) -> Dataleon::Individual::Person
+
+      attr_reader portal_url: String?
+
+      def portal_url=: (String) -> String
+
+      attr_reader properties: ::Array[Dataleon::Individual::Property]?
+
+      def properties=: (
+        ::Array[Dataleon::Individual::Property]
+      ) -> ::Array[Dataleon::Individual::Property]
+
+      attr_reader risk: Dataleon::Individual::Risk?
+
+      def risk=: (Dataleon::Individual::Risk) -> Dataleon::Individual::Risk
+
+      attr_reader source_id: String?
+
+      def source_id=: (String) -> String
+
+      attr_reader state: String?
+
+      def state=: (String) -> String
+
+      attr_reader status: String?
+
+      def status=: (String) -> String
+
+      attr_reader tags: ::Array[Dataleon::Individual::Tag]?
+
+      def tags=: (
+        ::Array[Dataleon::Individual::Tag]
+      ) -> ::Array[Dataleon::Individual::Tag]
+
+      attr_reader technical_data: Dataleon::Individual::TechnicalData?
+
+      def technical_data=: (
+        Dataleon::Individual::TechnicalData
+      ) -> Dataleon::Individual::TechnicalData
+
+      attr_reader webview_url: String?
+
+      def webview_url=: (String) -> String
+
+      attr_reader workspace_id: String?
+
+      def workspace_id=: (String) -> String
+
+      def initialize: (
+        ?id: String,
+        ?aml_suspicions: ::Array[Dataleon::Individual::AmlSuspicion],
+        ?auth_url: String,
+        ?certificat: Dataleon::Individual::Certificat,
+        ?checks: ::Array[Dataleon::Check],
+        ?created_at: Time,
+        ?documents: ::Array[Dataleon::Individuals::GenericDocument],
+        ?identity_card: Dataleon::Individual::IdentityCard,
+        ?number: Integer,
+        ?person: Dataleon::Individual::Person,
+        ?portal_url: String,
+        ?properties: ::Array[Dataleon::Individual::Property],
+        ?risk: Dataleon::Individual::Risk,
+        ?source_id: String,
+        ?state: String,
+        ?status: String,
+        ?tags: ::Array[Dataleon::Individual::Tag],
+        ?technical_data: Dataleon::Individual::TechnicalData,
+        ?webview_url: String,
+        ?workspace_id: String
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        aml_suspicions: ::Array[Dataleon::Individual::AmlSuspicion],
+        auth_url: String,
+        certificat: Dataleon::Individual::Certificat,
+        checks: ::Array[Dataleon::Check],
+        created_at: Time,
+        documents: ::Array[Dataleon::Individuals::GenericDocument],
+        identity_card: Dataleon::Individual::IdentityCard,
+        number: Integer,
+        person: Dataleon::Individual::Person,
+        portal_url: String,
+        properties: ::Array[Dataleon::Individual::Property],
+        risk: Dataleon::Individual::Risk,
+        source_id: String,
+        state: String,
+        status: String,
+        tags: ::Array[Dataleon::Individual::Tag],
+        technical_data: Dataleon::Individual::TechnicalData,
+        webview_url: String,
+        workspace_id: String
+      }
+
+      type aml_suspicion =
+        {
+          caption: String,
+          checked: bool,
+          relation: String,
+          schema: String,
+          score: Float,
+          source: String,
+          type: Dataleon::Models::Individual::AmlSuspicion::type_
+        }
+
+      class AmlSuspicion < Dataleon::Internal::Type::BaseModel
+        attr_reader caption: String?
+
+        def caption=: (String) -> String
+
+        attr_reader checked: bool?
+
+        def checked=: (bool) -> bool
+
+        attr_reader relation: String?
+
+        def relation=: (String) -> String
+
+        attr_reader schema: String?
+
+        def schema=: (String) -> String
+
+        attr_reader score: Float?
+
+        def score=: (Float) -> Float
+
+        attr_reader source: String?
+
+        def source=: (String) -> String
+
+        attr_reader type: Dataleon::Models::Individual::AmlSuspicion::type_?
+
+        def type=: (
+          Dataleon::Models::Individual::AmlSuspicion::type_
+        ) -> Dataleon::Models::Individual::AmlSuspicion::type_
+
+        def initialize: (
+          ?caption: String,
+          ?checked: bool,
+          ?relation: String,
+          ?schema: String,
+          ?score: Float,
+          ?source: String,
+          ?type: Dataleon::Models::Individual::AmlSuspicion::type_
+        ) -> void
+
+        def to_hash: -> {
+          caption: String,
+          checked: bool,
+          relation: String,
+          schema: String,
+          score: Float,
+          source: String,
+          type: Dataleon::Models::Individual::AmlSuspicion::type_
+        }
+
+        type type_ = :Watchlist | :PEP | :Sanctions | :RiskyEntity | :Crime
+
+        module Type
+          extend Dataleon::Internal::Type::Enum
+
+          WATCHLIST: :Watchlist
+          PEP: :PEP
+          SANCTIONS: :Sanctions
+          RISKY_ENTITY: :RiskyEntity
+          CRIME: :Crime
+
+          def self?.values: -> ::Array[Dataleon::Models::Individual::AmlSuspicion::type_]
+        end
+      end
+
+      type certificat = { id: String, created_at: Time, filename: String }
+
+      class Certificat < Dataleon::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader created_at: Time?
+
+        def created_at=: (Time) -> Time
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?created_at: Time,
+          ?filename: String
+        ) -> void
+
+        def to_hash: -> { id: String, created_at: Time, filename: String }
+      end
+
+      type identity_card =
+        {
+          id: String,
+          back_document_signed_url: String,
+          birth_place: String,
+          birthday: String,
+          country: String,
+          expiration_date: String,
+          first_name: String,
+          front_document_signed_url: String,
+          gender: String,
+          issue_date: String,
+          last_name: String,
+          :mrz_line_1 => String,
+          :mrz_line_2 => String,
+          :mrz_line_3 => String?,
+          type: String
+        }
+
+      class IdentityCard < Dataleon::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader back_document_signed_url: String?
+
+        def back_document_signed_url=: (String) -> String
+
+        attr_reader birth_place: String?
+
+        def birth_place=: (String) -> String
+
+        attr_reader birthday: String?
+
+        def birthday=: (String) -> String
+
+        attr_reader country: String?
+
+        def country=: (String) -> String
+
+        attr_reader expiration_date: String?
+
+        def expiration_date=: (String) -> String
+
+        attr_reader first_name: String?
+
+        def first_name=: (String) -> String
+
+        attr_reader front_document_signed_url: String?
+
+        def front_document_signed_url=: (String) -> String
+
+        attr_reader gender: String?
+
+        def gender=: (String) -> String
+
+        attr_reader issue_date: String?
+
+        def issue_date=: (String) -> String
+
+        attr_reader last_name: String?
+
+        def last_name=: (String) -> String
+
+        attr_reader mrz_line_1: String?
+
+        def mrz_line_1=: (String) -> String
+
+        attr_reader mrz_line_2: String?
+
+        def mrz_line_2=: (String) -> String
+
+        attr_accessor mrz_line_3: String?
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?back_document_signed_url: String,
+          ?birth_place: String,
+          ?birthday: String,
+          ?country: String,
+          ?expiration_date: String,
+          ?first_name: String,
+          ?front_document_signed_url: String,
+          ?gender: String,
+          ?issue_date: String,
+          ?last_name: String,
+          ?mrz_line_1: String,
+          ?mrz_line_2: String,
+          ?mrz_line_3: String?,
+          ?type: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          back_document_signed_url: String,
+          birth_place: String,
+          birthday: String,
+          country: String,
+          expiration_date: String,
+          first_name: String,
+          front_document_signed_url: String,
+          gender: String,
+          issue_date: String,
+          last_name: String,
+          :mrz_line_1 => String,
+          :mrz_line_2 => String,
+          :mrz_line_3 => String?,
+          type: String
+        }
+      end
+
+      type person =
+        {
+          birthday: String,
+          email: String,
+          face_image_signed_url: String,
+          first_name: String,
+          full_name: String,
+          gender: String,
+          last_name: String,
+          maiden_name: String,
+          phone_number: String
+        }
+
+      class Person < Dataleon::Internal::Type::BaseModel
+        attr_reader birthday: String?
+
+        def birthday=: (String) -> String
+
+        attr_reader email: String?
+
+        def email=: (String) -> String
+
+        attr_reader face_image_signed_url: String?
+
+        def face_image_signed_url=: (String) -> String
+
+        attr_reader first_name: String?
+
+        def first_name=: (String) -> String
+
+        attr_reader full_name: String?
+
+        def full_name=: (String) -> String
+
+        attr_reader gender: String?
+
+        def gender=: (String) -> String
+
+        attr_reader last_name: String?
+
+        def last_name=: (String) -> String
+
+        attr_reader maiden_name: String?
+
+        def maiden_name=: (String) -> String
+
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        def initialize: (
+          ?birthday: String,
+          ?email: String,
+          ?face_image_signed_url: String,
+          ?first_name: String,
+          ?full_name: String,
+          ?gender: String,
+          ?last_name: String,
+          ?maiden_name: String,
+          ?phone_number: String
+        ) -> void
+
+        def to_hash: -> {
+          birthday: String,
+          email: String,
+          face_image_signed_url: String,
+          first_name: String,
+          full_name: String,
+          gender: String,
+          last_name: String,
+          maiden_name: String,
+          phone_number: String
+        }
+      end
+
+      type property = { name: String, type: String, value: String }
+
+      class Property < Dataleon::Internal::Type::BaseModel
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader value: String?
+
+        def value=: (String) -> String
+
+        def initialize: (?name: String, ?type: String, ?value: String) -> void
+
+        def to_hash: -> { name: String, type: String, value: String }
+      end
+
+      type risk = { code: String, reason: String, score: Float }
+
+      class Risk < Dataleon::Internal::Type::BaseModel
+        attr_reader code: String?
+
+        def code=: (String) -> String
+
+        attr_reader reason: String?
+
+        def reason=: (String) -> String
+
+        attr_reader score: Float?
+
+        def score=: (Float) -> Float
+
+        def initialize: (?code: String, ?reason: String, ?score: Float) -> void
+
+        def to_hash: -> { code: String, reason: String, score: Float }
+      end
+
+      type tag = { key: String, private: bool, type: String, value: String }
+
+      class Tag < Dataleon::Internal::Type::BaseModel
+        attr_reader key: String?
+
+        def key=: (String) -> String
+
+        attr_reader private: bool?
+
+        def private=: (bool) -> bool
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader value: String?
+
+        def value=: (String) -> String
+
+        def initialize: (
+          ?key: String,
+          ?private: bool,
+          ?type: String,
+          ?value: String
+        ) -> void
+
+        def to_hash: -> {
+          key: String,
+          private: bool,
+          type: String,
+          value: String
+        }
+      end
+
+      type technical_data =
+        {
+          api_version: Integer,
+          approved_at: Time,
+          callback_url: String,
+          callback_url_notification: String,
+          disable_notification: bool,
+          disable_notification_date: Time?,
+          export_type: String,
+          finished_at: Time,
+          ip: String,
+          language: String,
+          location_ip: String,
+          need_review_at: Time?,
+          notification_confirmation: bool,
+          qr_code: String,
+          raw_data: bool,
+          rejected_at: Time?,
+          started_at: Time,
+          transfer_at: Time,
+          transfer_mode: String
+        }
+
+      class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader api_version: Integer?
+
+        def api_version=: (Integer) -> Integer
+
+        attr_reader approved_at: Time?
+
+        def approved_at=: (Time) -> Time
+
+        attr_reader callback_url: String?
+
+        def callback_url=: (String) -> String
+
+        attr_reader callback_url_notification: String?
+
+        def callback_url_notification=: (String) -> String
+
+        attr_reader disable_notification: bool?
+
+        def disable_notification=: (bool) -> bool
+
+        attr_accessor disable_notification_date: Time?
+
+        attr_reader export_type: String?
+
+        def export_type=: (String) -> String
+
+        attr_reader finished_at: Time?
+
+        def finished_at=: (Time) -> Time
+
+        attr_reader ip: String?
+
+        def ip=: (String) -> String
+
+        attr_reader language: String?
+
+        def language=: (String) -> String
+
+        attr_reader location_ip: String?
+
+        def location_ip=: (String) -> String
+
+        attr_accessor need_review_at: Time?
+
+        attr_reader notification_confirmation: bool?
+
+        def notification_confirmation=: (bool) -> bool
+
+        attr_reader qr_code: String?
+
+        def qr_code=: (String) -> String
+
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
+        attr_accessor rejected_at: Time?
+
+        attr_reader started_at: Time?
+
+        def started_at=: (Time) -> Time
+
+        attr_reader transfer_at: Time?
+
+        def transfer_at=: (Time) -> Time
+
+        attr_reader transfer_mode: String?
+
+        def transfer_mode=: (String) -> String
+
+        def initialize: (
+          ?api_version: Integer,
+          ?approved_at: Time,
+          ?callback_url: String,
+          ?callback_url_notification: String,
+          ?disable_notification: bool,
+          ?disable_notification_date: Time?,
+          ?export_type: String,
+          ?finished_at: Time,
+          ?ip: String,
+          ?language: String,
+          ?location_ip: String,
+          ?need_review_at: Time?,
+          ?notification_confirmation: bool,
+          ?qr_code: String,
+          ?raw_data: bool,
+          ?rejected_at: Time?,
+          ?started_at: Time,
+          ?transfer_at: Time,
+          ?transfer_mode: String
+        ) -> void
+
+        def to_hash: -> {
+          api_version: Integer,
+          approved_at: Time,
+          callback_url: String,
+          callback_url_notification: String,
+          disable_notification: bool,
+          disable_notification_date: Time?,
+          export_type: String,
+          finished_at: Time,
+          ip: String,
+          language: String,
+          location_ip: String,
+          need_review_at: Time?,
+          notification_confirmation: bool,
+          qr_code: String,
+          raw_data: bool,
+          rejected_at: Time?,
+          started_at: Time,
+          transfer_at: Time,
+          transfer_mode: String
+        }
+      end
+    end
+  end
+end

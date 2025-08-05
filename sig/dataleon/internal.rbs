@@ -1,0 +1,9 @@
+module Dataleon
+  module Internal
+    extend Dataleon::Internal::Util::SorbetRuntimeSupport
+
+    type file_input = Pathname | StringIO | IO | String | Dataleon::FilePart
+
+    OMIT: Object
+  end
+end

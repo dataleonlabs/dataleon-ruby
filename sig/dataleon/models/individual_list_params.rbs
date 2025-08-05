@@ -1,0 +1,120 @@
+module Dataleon
+  module Models
+    type individual_list_params =
+      {
+        end_date: Date,
+        limit: Integer,
+        offset: Integer,
+        source_id: String,
+        start_date: Date,
+        state: Dataleon::Models::IndividualListParams::state,
+        status: Dataleon::Models::IndividualListParams::status,
+        workspace_id: String
+      }
+      & Dataleon::Internal::Type::request_parameters
+
+    class IndividualListParams < Dataleon::Internal::Type::BaseModel
+      extend Dataleon::Internal::Type::RequestParameters::Converter
+      include Dataleon::Internal::Type::RequestParameters
+
+      attr_reader end_date: Date?
+
+      def end_date=: (Date) -> Date
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_reader source_id: String?
+
+      def source_id=: (String) -> String
+
+      attr_reader start_date: Date?
+
+      def start_date=: (Date) -> Date
+
+      attr_reader state: Dataleon::Models::IndividualListParams::state?
+
+      def state=: (
+        Dataleon::Models::IndividualListParams::state
+      ) -> Dataleon::Models::IndividualListParams::state
+
+      attr_reader status: Dataleon::Models::IndividualListParams::status?
+
+      def status=: (
+        Dataleon::Models::IndividualListParams::status
+      ) -> Dataleon::Models::IndividualListParams::status
+
+      attr_reader workspace_id: String?
+
+      def workspace_id=: (String) -> String
+
+      def initialize: (
+        ?end_date: Date,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?source_id: String,
+        ?start_date: Date,
+        ?state: Dataleon::Models::IndividualListParams::state,
+        ?status: Dataleon::Models::IndividualListParams::status,
+        ?workspace_id: String,
+        ?request_options: Dataleon::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        end_date: Date,
+        limit: Integer,
+        offset: Integer,
+        source_id: String,
+        start_date: Date,
+        state: Dataleon::Models::IndividualListParams::state,
+        status: Dataleon::Models::IndividualListParams::status,
+        workspace_id: String,
+        request_options: Dataleon::RequestOptions
+      }
+
+      type state =
+        :VOID
+        | :WAITING
+        | :STARTED
+        | :RUNNING
+        | :PROCESSED
+        | :FAILED
+        | :ABORTED
+        | :EXPIRED
+        | :DELETED
+
+      module State
+        extend Dataleon::Internal::Type::Enum
+
+        VOID: :VOID
+        WAITING: :WAITING
+        STARTED: :STARTED
+        RUNNING: :RUNNING
+        PROCESSED: :PROCESSED
+        FAILED: :FAILED
+        ABORTED: :ABORTED
+        EXPIRED: :EXPIRED
+        DELETED: :DELETED
+
+        def self?.values: -> ::Array[Dataleon::Models::IndividualListParams::state]
+      end
+
+      type status = :rejected | :need_review | :approved
+
+      module Status
+        extend Dataleon::Internal::Type::Enum
+
+        REJECTED: :rejected
+        NEED_REVIEW: :need_review
+        APPROVED: :approved
+
+        def self?.values: -> ::Array[Dataleon::Models::IndividualListParams::status]
+      end
+    end
+  end
+end
