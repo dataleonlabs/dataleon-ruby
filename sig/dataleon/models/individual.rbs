@@ -548,6 +548,7 @@ module Dataleon
           need_review_at: Time?,
           notification_confirmation: bool,
           qr_code: String,
+          raw_data: bool,
           rejected_at: Time?,
           started_at: Time,
           transfer_at: Time,
@@ -607,6 +608,10 @@ module Dataleon
 
         def qr_code=: (String) -> String
 
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
         attr_accessor rejected_at: Time?
 
         attr_reader started_at: Time?
@@ -636,6 +641,7 @@ module Dataleon
           ?need_review_at: Time?,
           ?notification_confirmation: bool,
           ?qr_code: String,
+          ?raw_data: bool,
           ?rejected_at: Time?,
           ?started_at: Time,
           ?transfer_at: Time,
@@ -657,6 +663,7 @@ module Dataleon
           need_review_at: Time?,
           notification_confirmation: bool,
           qr_code: String,
+          raw_data: bool,
           rejected_at: Time?,
           started_at: Time,
           transfer_at: Time,
