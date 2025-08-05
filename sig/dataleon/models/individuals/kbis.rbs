@@ -1,0 +1,303 @@
+module Dataleon
+  module Models
+    module Individuals
+      type kbis =
+        {
+          activities: String,
+          address: String,
+          capital_social: String,
+          closure_date: Date,
+          company_name: String,
+          document_date: Date,
+          document_type: String,
+          first_closure_date: Date,
+          from_greffe: String,
+          legal_form: String,
+          members: ::Array[Dataleon::Individuals::Kbis::Member],
+          ngestion: String,
+          rcs_number: String,
+          registration_date: Date,
+          siren_info: String
+        }
+
+      class Kbis < Dataleon::Internal::Type::BaseModel
+        attr_reader activities: String?
+
+        def activities=: (String) -> String
+
+        attr_reader address: String?
+
+        def address=: (String) -> String
+
+        attr_reader capital_social: String?
+
+        def capital_social=: (String) -> String
+
+        attr_reader closure_date: Date?
+
+        def closure_date=: (Date) -> Date
+
+        attr_reader company_name: String?
+
+        def company_name=: (String) -> String
+
+        attr_reader document_date: Date?
+
+        def document_date=: (Date) -> Date
+
+        attr_reader document_type: String?
+
+        def document_type=: (String) -> String
+
+        attr_reader first_closure_date: Date?
+
+        def first_closure_date=: (Date) -> Date
+
+        attr_reader from_greffe: String?
+
+        def from_greffe=: (String) -> String
+
+        attr_reader legal_form: String?
+
+        def legal_form=: (String) -> String
+
+        attr_reader members: ::Array[Dataleon::Individuals::Kbis::Member]?
+
+        def members=: (
+          ::Array[Dataleon::Individuals::Kbis::Member]
+        ) -> ::Array[Dataleon::Individuals::Kbis::Member]
+
+        attr_reader ngestion: String?
+
+        def ngestion=: (String) -> String
+
+        attr_reader rcs_number: String?
+
+        def rcs_number=: (String) -> String
+
+        attr_reader registration_date: Date?
+
+        def registration_date=: (Date) -> Date
+
+        attr_reader siren_info: String?
+
+        def siren_info=: (String) -> String
+
+        def initialize: (
+          ?activities: String,
+          ?address: String,
+          ?capital_social: String,
+          ?closure_date: Date,
+          ?company_name: String,
+          ?document_date: Date,
+          ?document_type: String,
+          ?first_closure_date: Date,
+          ?from_greffe: String,
+          ?legal_form: String,
+          ?members: ::Array[Dataleon::Individuals::Kbis::Member],
+          ?ngestion: String,
+          ?rcs_number: String,
+          ?registration_date: Date,
+          ?siren_info: String
+        ) -> void
+
+        def to_hash: -> {
+          activities: String,
+          address: String,
+          capital_social: String,
+          closure_date: Date,
+          company_name: String,
+          document_date: Date,
+          document_type: String,
+          first_closure_date: Date,
+          from_greffe: String,
+          legal_form: String,
+          members: ::Array[Dataleon::Individuals::Kbis::Member],
+          ngestion: String,
+          rcs_number: String,
+          registration_date: Date,
+          siren_info: String
+        }
+
+        type member =
+          {
+            id: String,
+            address: String,
+            birthday: Time,
+            birthplace: String,
+            country: String,
+            email: String,
+            first_name: String,
+            is_beneficial_owner: bool,
+            is_delegator: bool,
+            last_name: String,
+            liveness_verification: bool,
+            name: String,
+            ownership_percentage: Integer,
+            phone_number: String,
+            postal_code: String,
+            registration_id: String,
+            relation: String,
+            roles: String,
+            source: String,
+            status: String,
+            type: Dataleon::Models::Individuals::Kbis::Member::type_,
+            workspace_id: String
+          }
+
+        class Member < Dataleon::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader address: String?
+
+          def address=: (String) -> String
+
+          attr_reader birthday: Time?
+
+          def birthday=: (Time) -> Time
+
+          attr_reader birthplace: String?
+
+          def birthplace=: (String) -> String
+
+          attr_reader country: String?
+
+          def country=: (String) -> String
+
+          attr_reader email: String?
+
+          def email=: (String) -> String
+
+          attr_reader first_name: String?
+
+          def first_name=: (String) -> String
+
+          attr_reader is_beneficial_owner: bool?
+
+          def is_beneficial_owner=: (bool) -> bool
+
+          attr_reader is_delegator: bool?
+
+          def is_delegator=: (bool) -> bool
+
+          attr_reader last_name: String?
+
+          def last_name=: (String) -> String
+
+          attr_reader liveness_verification: bool?
+
+          def liveness_verification=: (bool) -> bool
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader ownership_percentage: Integer?
+
+          def ownership_percentage=: (Integer) -> Integer
+
+          attr_reader phone_number: String?
+
+          def phone_number=: (String) -> String
+
+          attr_reader postal_code: String?
+
+          def postal_code=: (String) -> String
+
+          attr_reader registration_id: String?
+
+          def registration_id=: (String) -> String
+
+          attr_reader relation: String?
+
+          def relation=: (String) -> String
+
+          attr_reader roles: String?
+
+          def roles=: (String) -> String
+
+          attr_reader source: String?
+
+          def source=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          attr_reader type: Dataleon::Models::Individuals::Kbis::Member::type_?
+
+          def type=: (
+            Dataleon::Models::Individuals::Kbis::Member::type_
+          ) -> Dataleon::Models::Individuals::Kbis::Member::type_
+
+          attr_reader workspace_id: String?
+
+          def workspace_id=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?address: String,
+            ?birthday: Time,
+            ?birthplace: String,
+            ?country: String,
+            ?email: String,
+            ?first_name: String,
+            ?is_beneficial_owner: bool,
+            ?is_delegator: bool,
+            ?last_name: String,
+            ?liveness_verification: bool,
+            ?name: String,
+            ?ownership_percentage: Integer,
+            ?phone_number: String,
+            ?postal_code: String,
+            ?registration_id: String,
+            ?relation: String,
+            ?roles: String,
+            ?source: String,
+            ?status: String,
+            ?type: Dataleon::Models::Individuals::Kbis::Member::type_,
+            ?workspace_id: String
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            address: String,
+            birthday: Time,
+            birthplace: String,
+            country: String,
+            email: String,
+            first_name: String,
+            is_beneficial_owner: bool,
+            is_delegator: bool,
+            last_name: String,
+            liveness_verification: bool,
+            name: String,
+            ownership_percentage: Integer,
+            phone_number: String,
+            postal_code: String,
+            registration_id: String,
+            relation: String,
+            roles: String,
+            source: String,
+            status: String,
+            type: Dataleon::Models::Individuals::Kbis::Member::type_,
+            workspace_id: String
+          }
+
+          type type_ = :company | :person
+
+          module Type
+            extend Dataleon::Internal::Type::Enum
+
+            COMPANY: :company
+            PERSON: :person
+
+            def self?.values: -> ::Array[Dataleon::Models::Individuals::Kbis::Member::type_]
+          end
+        end
+      end
+    end
+  end
+end
