@@ -1,0 +1,101 @@
+module Dataleon
+  module Models
+    module Individuals
+      type document_response =
+        {
+          documents: ::Array[Dataleon::Individuals::DocumentResponse::Document],
+          total_document: Integer
+        }
+
+      class DocumentResponse < Dataleon::Internal::Type::BaseModel
+        attr_reader documents: ::Array[Dataleon::Individuals::DocumentResponse::Document]?
+
+        def documents=: (
+          ::Array[Dataleon::Individuals::DocumentResponse::Document]
+        ) -> ::Array[Dataleon::Individuals::DocumentResponse::Document]
+
+        attr_reader total_document: Integer?
+
+        def total_document=: (Integer) -> Integer
+
+        def initialize: (
+          ?documents: ::Array[Dataleon::Individuals::DocumentResponse::Document],
+          ?total_document: Integer
+        ) -> void
+
+        def to_hash: -> {
+          documents: ::Array[Dataleon::Individuals::DocumentResponse::Document],
+          total_document: Integer
+        }
+
+        type document =
+          {
+            id: String,
+            document_type: String,
+            filename: String,
+            name: String,
+            signed_url: String,
+            state: String,
+            status: String,
+            workspace_id: String
+          }
+
+        class Document < Dataleon::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader document_type: String?
+
+          def document_type=: (String) -> String
+
+          attr_reader filename: String?
+
+          def filename=: (String) -> String
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader signed_url: String?
+
+          def signed_url=: (String) -> String
+
+          attr_reader state: String?
+
+          def state=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          attr_reader workspace_id: String?
+
+          def workspace_id=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?document_type: String,
+            ?filename: String,
+            ?name: String,
+            ?signed_url: String,
+            ?state: String,
+            ?status: String,
+            ?workspace_id: String
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            document_type: String,
+            filename: String,
+            name: String,
+            signed_url: String,
+            state: String,
+            status: String,
+            workspace_id: String
+          }
+        end
+      end
+    end
+  end
+end

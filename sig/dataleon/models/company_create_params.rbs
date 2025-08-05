@@ -1,0 +1,202 @@
+module Dataleon
+  module Models
+    type company_create_params =
+      {
+        company: Dataleon::CompanyCreateParams::Company,
+        workspace_id: String,
+        source_id: String,
+        technical_data: Dataleon::CompanyCreateParams::TechnicalData
+      }
+      & Dataleon::Internal::Type::request_parameters
+
+    class CompanyCreateParams < Dataleon::Internal::Type::BaseModel
+      extend Dataleon::Internal::Type::RequestParameters::Converter
+      include Dataleon::Internal::Type::RequestParameters
+
+      attr_accessor company: Dataleon::CompanyCreateParams::Company
+
+      attr_accessor workspace_id: String
+
+      attr_reader source_id: String?
+
+      def source_id=: (String) -> String
+
+      attr_reader technical_data: Dataleon::CompanyCreateParams::TechnicalData?
+
+      def technical_data=: (
+        Dataleon::CompanyCreateParams::TechnicalData
+      ) -> Dataleon::CompanyCreateParams::TechnicalData
+
+      def initialize: (
+        company: Dataleon::CompanyCreateParams::Company,
+        workspace_id: String,
+        ?source_id: String,
+        ?technical_data: Dataleon::CompanyCreateParams::TechnicalData,
+        ?request_options: Dataleon::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        company: Dataleon::CompanyCreateParams::Company,
+        workspace_id: String,
+        source_id: String,
+        technical_data: Dataleon::CompanyCreateParams::TechnicalData,
+        request_options: Dataleon::RequestOptions
+      }
+
+      type company =
+        {
+          name: String,
+          address: String,
+          commercial_name: String,
+          country: String,
+          email: String,
+          employer_identification_number: String,
+          legal_form: String,
+          phone_number: String,
+          registration_date: String,
+          registration_id: String,
+          share_capital: String,
+          status: String,
+          tax_identification_number: String,
+          type: String,
+          website_url: String
+        }
+
+      class Company < Dataleon::Internal::Type::BaseModel
+        attr_accessor name: String
+
+        attr_reader address: String?
+
+        def address=: (String) -> String
+
+        attr_reader commercial_name: String?
+
+        def commercial_name=: (String) -> String
+
+        attr_reader country: String?
+
+        def country=: (String) -> String
+
+        attr_reader email: String?
+
+        def email=: (String) -> String
+
+        attr_reader employer_identification_number: String?
+
+        def employer_identification_number=: (String) -> String
+
+        attr_reader legal_form: String?
+
+        def legal_form=: (String) -> String
+
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        attr_reader registration_date: String?
+
+        def registration_date=: (String) -> String
+
+        attr_reader registration_id: String?
+
+        def registration_id=: (String) -> String
+
+        attr_reader share_capital: String?
+
+        def share_capital=: (String) -> String
+
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader tax_identification_number: String?
+
+        def tax_identification_number=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader website_url: String?
+
+        def website_url=: (String) -> String
+
+        def initialize: (
+          name: String,
+          ?address: String,
+          ?commercial_name: String,
+          ?country: String,
+          ?email: String,
+          ?employer_identification_number: String,
+          ?legal_form: String,
+          ?phone_number: String,
+          ?registration_date: String,
+          ?registration_id: String,
+          ?share_capital: String,
+          ?status: String,
+          ?tax_identification_number: String,
+          ?type: String,
+          ?website_url: String
+        ) -> void
+
+        def to_hash: -> {
+          name: String,
+          address: String,
+          commercial_name: String,
+          country: String,
+          email: String,
+          employer_identification_number: String,
+          legal_form: String,
+          phone_number: String,
+          registration_date: String,
+          registration_id: String,
+          share_capital: String,
+          status: String,
+          tax_identification_number: String,
+          type: String,
+          website_url: String
+        }
+      end
+
+      type technical_data =
+        {
+          callback_url: String,
+          callback_url_notification: String,
+          language: String,
+          raw_data: bool
+        }
+
+      class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader callback_url: String?
+
+        def callback_url=: (String) -> String
+
+        attr_reader callback_url_notification: String?
+
+        def callback_url_notification=: (String) -> String
+
+        attr_reader language: String?
+
+        def language=: (String) -> String
+
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
+        def initialize: (
+          ?callback_url: String,
+          ?callback_url_notification: String,
+          ?language: String,
+          ?raw_data: bool
+        ) -> void
+
+        def to_hash: -> {
+          callback_url: String,
+          callback_url_notification: String,
+          language: String,
+          raw_data: bool
+        }
+      end
+    end
+  end
+end

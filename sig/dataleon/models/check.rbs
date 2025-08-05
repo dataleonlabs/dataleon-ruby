@@ -1,0 +1,50 @@
+module Dataleon
+  module Models
+    type check =
+      {
+        masked: bool,
+        message: String,
+        name: String,
+        validate: bool,
+        weight: Integer
+      }
+
+    class Check < Dataleon::Internal::Type::BaseModel
+      attr_reader masked: bool?
+
+      def masked=: (bool) -> bool
+
+      attr_reader message: String?
+
+      def message=: (String) -> String
+
+      attr_reader name: String?
+
+      def name=: (String) -> String
+
+      attr_reader validate: bool?
+
+      def validate=: (bool) -> bool
+
+      attr_reader weight: Integer?
+
+      def weight=: (Integer) -> Integer
+
+      def initialize: (
+        ?masked: bool,
+        ?message: String,
+        ?name: String,
+        ?validate: bool,
+        ?weight: Integer
+      ) -> void
+
+      def to_hash: -> {
+        masked: bool,
+        message: String,
+        name: String,
+        validate: bool,
+        weight: Integer
+      }
+    end
+  end
+end

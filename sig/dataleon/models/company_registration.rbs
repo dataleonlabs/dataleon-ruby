@@ -1,0 +1,777 @@
+module Dataleon
+  module Models
+    type company_registration =
+      {
+        aml_suspicions: ::Array[Dataleon::CompanyRegistration::AmlSuspicion],
+        certificat: Dataleon::CompanyRegistration::Certificat,
+        checks: ::Array[Dataleon::Check],
+        company: Dataleon::CompanyRegistration::Company,
+        documents: ::Array[Dataleon::Individuals::GenericDocument],
+        members: ::Array[Dataleon::CompanyRegistration::Member],
+        portal_url: String,
+        properties: ::Array[Dataleon::CompanyRegistration::Property],
+        risk: Dataleon::CompanyRegistration::Risk,
+        source_id: String,
+        technical_data: Dataleon::CompanyRegistration::TechnicalData,
+        webview_url: String
+      }
+
+    class CompanyRegistration < Dataleon::Internal::Type::BaseModel
+      attr_reader aml_suspicions: ::Array[Dataleon::CompanyRegistration::AmlSuspicion]?
+
+      def aml_suspicions=: (
+        ::Array[Dataleon::CompanyRegistration::AmlSuspicion]
+      ) -> ::Array[Dataleon::CompanyRegistration::AmlSuspicion]
+
+      attr_reader certificat: Dataleon::CompanyRegistration::Certificat?
+
+      def certificat=: (
+        Dataleon::CompanyRegistration::Certificat
+      ) -> Dataleon::CompanyRegistration::Certificat
+
+      attr_reader checks: ::Array[Dataleon::Check]?
+
+      def checks=: (::Array[Dataleon::Check]) -> ::Array[Dataleon::Check]
+
+      attr_reader company: Dataleon::CompanyRegistration::Company?
+
+      def company=: (
+        Dataleon::CompanyRegistration::Company
+      ) -> Dataleon::CompanyRegistration::Company
+
+      attr_reader documents: ::Array[Dataleon::Individuals::GenericDocument]?
+
+      def documents=: (
+        ::Array[Dataleon::Individuals::GenericDocument]
+      ) -> ::Array[Dataleon::Individuals::GenericDocument]
+
+      attr_reader members: ::Array[Dataleon::CompanyRegistration::Member]?
+
+      def members=: (
+        ::Array[Dataleon::CompanyRegistration::Member]
+      ) -> ::Array[Dataleon::CompanyRegistration::Member]
+
+      attr_reader portal_url: String?
+
+      def portal_url=: (String) -> String
+
+      attr_reader properties: ::Array[Dataleon::CompanyRegistration::Property]?
+
+      def properties=: (
+        ::Array[Dataleon::CompanyRegistration::Property]
+      ) -> ::Array[Dataleon::CompanyRegistration::Property]
+
+      attr_reader risk: Dataleon::CompanyRegistration::Risk?
+
+      def risk=: (
+        Dataleon::CompanyRegistration::Risk
+      ) -> Dataleon::CompanyRegistration::Risk
+
+      attr_reader source_id: String?
+
+      def source_id=: (String) -> String
+
+      attr_reader technical_data: Dataleon::CompanyRegistration::TechnicalData?
+
+      def technical_data=: (
+        Dataleon::CompanyRegistration::TechnicalData
+      ) -> Dataleon::CompanyRegistration::TechnicalData
+
+      attr_reader webview_url: String?
+
+      def webview_url=: (String) -> String
+
+      def initialize: (
+        ?aml_suspicions: ::Array[Dataleon::CompanyRegistration::AmlSuspicion],
+        ?certificat: Dataleon::CompanyRegistration::Certificat,
+        ?checks: ::Array[Dataleon::Check],
+        ?company: Dataleon::CompanyRegistration::Company,
+        ?documents: ::Array[Dataleon::Individuals::GenericDocument],
+        ?members: ::Array[Dataleon::CompanyRegistration::Member],
+        ?portal_url: String,
+        ?properties: ::Array[Dataleon::CompanyRegistration::Property],
+        ?risk: Dataleon::CompanyRegistration::Risk,
+        ?source_id: String,
+        ?technical_data: Dataleon::CompanyRegistration::TechnicalData,
+        ?webview_url: String
+      ) -> void
+
+      def to_hash: -> {
+        aml_suspicions: ::Array[Dataleon::CompanyRegistration::AmlSuspicion],
+        certificat: Dataleon::CompanyRegistration::Certificat,
+        checks: ::Array[Dataleon::Check],
+        company: Dataleon::CompanyRegistration::Company,
+        documents: ::Array[Dataleon::Individuals::GenericDocument],
+        members: ::Array[Dataleon::CompanyRegistration::Member],
+        portal_url: String,
+        properties: ::Array[Dataleon::CompanyRegistration::Property],
+        risk: Dataleon::CompanyRegistration::Risk,
+        source_id: String,
+        technical_data: Dataleon::CompanyRegistration::TechnicalData,
+        webview_url: String
+      }
+
+      type aml_suspicion =
+        {
+          caption: String,
+          checked: bool,
+          relation: String,
+          schema: String,
+          score: Float,
+          source: String,
+          type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
+        }
+
+      class AmlSuspicion < Dataleon::Internal::Type::BaseModel
+        attr_reader caption: String?
+
+        def caption=: (String) -> String
+
+        attr_reader checked: bool?
+
+        def checked=: (bool) -> bool
+
+        attr_reader relation: String?
+
+        def relation=: (String) -> String
+
+        attr_reader schema: String?
+
+        def schema=: (String) -> String
+
+        attr_reader score: Float?
+
+        def score=: (Float) -> Float
+
+        attr_reader source: String?
+
+        def source=: (String) -> String
+
+        attr_reader type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_?
+
+        def type=: (
+          Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
+        ) -> Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
+
+        def initialize: (
+          ?caption: String,
+          ?checked: bool,
+          ?relation: String,
+          ?schema: String,
+          ?score: Float,
+          ?source: String,
+          ?type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
+        ) -> void
+
+        def to_hash: -> {
+          caption: String,
+          checked: bool,
+          relation: String,
+          schema: String,
+          score: Float,
+          source: String,
+          type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
+        }
+
+        type type_ = :Watchlist | :PEP | :Sanctions | :RiskyEntity | :Crime
+
+        module Type
+          extend Dataleon::Internal::Type::Enum
+
+          WATCHLIST: :Watchlist
+          PEP: :PEP
+          SANCTIONS: :Sanctions
+          RISKY_ENTITY: :RiskyEntity
+          CRIME: :Crime
+
+          def self?.values: -> ::Array[Dataleon::Models::CompanyRegistration::AmlSuspicion::type_]
+        end
+      end
+
+      type certificat = { id: String, created_at: Time, filename: String }
+
+      class Certificat < Dataleon::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader created_at: Time?
+
+        def created_at=: (Time) -> Time
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?created_at: Time,
+          ?filename: String
+        ) -> void
+
+        def to_hash: -> { id: String, created_at: Time, filename: String }
+      end
+
+      type company =
+        {
+          address: String,
+          commercial_name: String,
+          contact: Dataleon::CompanyRegistration::Company::Contact,
+          country: String,
+          email: String,
+          employer_identification_number: String,
+          legal_form: String,
+          name: String,
+          phone_number: String,
+          registration_date: Date,
+          registration_id: String,
+          share_capital: String,
+          status: String,
+          tax_identification_number: String,
+          type: String,
+          website_url: String
+        }
+
+      class Company < Dataleon::Internal::Type::BaseModel
+        attr_reader address: String?
+
+        def address=: (String) -> String
+
+        attr_reader commercial_name: String?
+
+        def commercial_name=: (String) -> String
+
+        attr_reader contact: Dataleon::CompanyRegistration::Company::Contact?
+
+        def contact=: (
+          Dataleon::CompanyRegistration::Company::Contact
+        ) -> Dataleon::CompanyRegistration::Company::Contact
+
+        attr_reader country: String?
+
+        def country=: (String) -> String
+
+        attr_reader email: String?
+
+        def email=: (String) -> String
+
+        attr_reader employer_identification_number: String?
+
+        def employer_identification_number=: (String) -> String
+
+        attr_reader legal_form: String?
+
+        def legal_form=: (String) -> String
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        attr_reader registration_date: Date?
+
+        def registration_date=: (Date) -> Date
+
+        attr_reader registration_id: String?
+
+        def registration_id=: (String) -> String
+
+        attr_reader share_capital: String?
+
+        def share_capital=: (String) -> String
+
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader tax_identification_number: String?
+
+        def tax_identification_number=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader website_url: String?
+
+        def website_url=: (String) -> String
+
+        def initialize: (
+          ?address: String,
+          ?commercial_name: String,
+          ?contact: Dataleon::CompanyRegistration::Company::Contact,
+          ?country: String,
+          ?email: String,
+          ?employer_identification_number: String,
+          ?legal_form: String,
+          ?name: String,
+          ?phone_number: String,
+          ?registration_date: Date,
+          ?registration_id: String,
+          ?share_capital: String,
+          ?status: String,
+          ?tax_identification_number: String,
+          ?type: String,
+          ?website_url: String
+        ) -> void
+
+        def to_hash: -> {
+          address: String,
+          commercial_name: String,
+          contact: Dataleon::CompanyRegistration::Company::Contact,
+          country: String,
+          email: String,
+          employer_identification_number: String,
+          legal_form: String,
+          name: String,
+          phone_number: String,
+          registration_date: Date,
+          registration_id: String,
+          share_capital: String,
+          status: String,
+          tax_identification_number: String,
+          type: String,
+          website_url: String
+        }
+
+        type contact =
+          {
+            department: String,
+            email: String,
+            first_name: String,
+            last_name: String,
+            phone_number: String
+          }
+
+        class Contact < Dataleon::Internal::Type::BaseModel
+          attr_reader department: String?
+
+          def department=: (String) -> String
+
+          attr_reader email: String?
+
+          def email=: (String) -> String
+
+          attr_reader first_name: String?
+
+          def first_name=: (String) -> String
+
+          attr_reader last_name: String?
+
+          def last_name=: (String) -> String
+
+          attr_reader phone_number: String?
+
+          def phone_number=: (String) -> String
+
+          def initialize: (
+            ?department: String,
+            ?email: String,
+            ?first_name: String,
+            ?last_name: String,
+            ?phone_number: String
+          ) -> void
+
+          def to_hash: -> {
+            department: String,
+            email: String,
+            first_name: String,
+            last_name: String,
+            phone_number: String
+          }
+        end
+      end
+
+      type member =
+        {
+          id: String,
+          address: String,
+          birthday: Time,
+          birthplace: String,
+          country: String,
+          documents: ::Array[Dataleon::Individuals::GenericDocument],
+          email: String,
+          first_name: String,
+          is_beneficial_owner: bool,
+          is_delegator: bool,
+          last_name: String,
+          liveness_verification: bool,
+          name: String,
+          ownership_percentage: Integer,
+          phone_number: String,
+          postal_code: String,
+          registration_id: String,
+          relation: String,
+          roles: String,
+          source: Dataleon::Models::CompanyRegistration::Member::source,
+          state: String,
+          status: String,
+          type: Dataleon::Models::CompanyRegistration::Member::type_,
+          workspace_id: String
+        }
+
+      class Member < Dataleon::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader address: String?
+
+        def address=: (String) -> String
+
+        attr_reader birthday: Time?
+
+        def birthday=: (Time) -> Time
+
+        attr_reader birthplace: String?
+
+        def birthplace=: (String) -> String
+
+        attr_reader country: String?
+
+        def country=: (String) -> String
+
+        attr_reader documents: ::Array[Dataleon::Individuals::GenericDocument]?
+
+        def documents=: (
+          ::Array[Dataleon::Individuals::GenericDocument]
+        ) -> ::Array[Dataleon::Individuals::GenericDocument]
+
+        attr_reader email: String?
+
+        def email=: (String) -> String
+
+        attr_reader first_name: String?
+
+        def first_name=: (String) -> String
+
+        attr_reader is_beneficial_owner: bool?
+
+        def is_beneficial_owner=: (bool) -> bool
+
+        attr_reader is_delegator: bool?
+
+        def is_delegator=: (bool) -> bool
+
+        attr_reader last_name: String?
+
+        def last_name=: (String) -> String
+
+        attr_reader liveness_verification: bool?
+
+        def liveness_verification=: (bool) -> bool
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader ownership_percentage: Integer?
+
+        def ownership_percentage=: (Integer) -> Integer
+
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        attr_reader postal_code: String?
+
+        def postal_code=: (String) -> String
+
+        attr_reader registration_id: String?
+
+        def registration_id=: (String) -> String
+
+        attr_reader relation: String?
+
+        def relation=: (String) -> String
+
+        attr_reader roles: String?
+
+        def roles=: (String) -> String
+
+        attr_reader source: Dataleon::Models::CompanyRegistration::Member::source?
+
+        def source=: (
+          Dataleon::Models::CompanyRegistration::Member::source
+        ) -> Dataleon::Models::CompanyRegistration::Member::source
+
+        attr_reader state: String?
+
+        def state=: (String) -> String
+
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader type: Dataleon::Models::CompanyRegistration::Member::type_?
+
+        def type=: (
+          Dataleon::Models::CompanyRegistration::Member::type_
+        ) -> Dataleon::Models::CompanyRegistration::Member::type_
+
+        attr_reader workspace_id: String?
+
+        def workspace_id=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?address: String,
+          ?birthday: Time,
+          ?birthplace: String,
+          ?country: String,
+          ?documents: ::Array[Dataleon::Individuals::GenericDocument],
+          ?email: String,
+          ?first_name: String,
+          ?is_beneficial_owner: bool,
+          ?is_delegator: bool,
+          ?last_name: String,
+          ?liveness_verification: bool,
+          ?name: String,
+          ?ownership_percentage: Integer,
+          ?phone_number: String,
+          ?postal_code: String,
+          ?registration_id: String,
+          ?relation: String,
+          ?roles: String,
+          ?source: Dataleon::Models::CompanyRegistration::Member::source,
+          ?state: String,
+          ?status: String,
+          ?type: Dataleon::Models::CompanyRegistration::Member::type_,
+          ?workspace_id: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          address: String,
+          birthday: Time,
+          birthplace: String,
+          country: String,
+          documents: ::Array[Dataleon::Individuals::GenericDocument],
+          email: String,
+          first_name: String,
+          is_beneficial_owner: bool,
+          is_delegator: bool,
+          last_name: String,
+          liveness_verification: bool,
+          name: String,
+          ownership_percentage: Integer,
+          phone_number: String,
+          postal_code: String,
+          registration_id: String,
+          relation: String,
+          roles: String,
+          source: Dataleon::Models::CompanyRegistration::Member::source,
+          state: String,
+          status: String,
+          type: Dataleon::Models::CompanyRegistration::Member::type_,
+          workspace_id: String
+        }
+
+        type source = :gouve | :user | :company
+
+        module Source
+          extend Dataleon::Internal::Type::Enum
+
+          GOUVE: :gouve
+          USER: :user
+          COMPANY: :company
+
+          def self?.values: -> ::Array[Dataleon::Models::CompanyRegistration::Member::source]
+        end
+
+        type type_ = :person | :company
+
+        module Type
+          extend Dataleon::Internal::Type::Enum
+
+          PERSON: :person
+          COMPANY: :company
+
+          def self?.values: -> ::Array[Dataleon::Models::CompanyRegistration::Member::type_]
+        end
+      end
+
+      type property = { name: String, type: String, value: String }
+
+      class Property < Dataleon::Internal::Type::BaseModel
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader value: String?
+
+        def value=: (String) -> String
+
+        def initialize: (?name: String, ?type: String, ?value: String) -> void
+
+        def to_hash: -> { name: String, type: String, value: String }
+      end
+
+      type risk = { code: String, reason: String, score: Float }
+
+      class Risk < Dataleon::Internal::Type::BaseModel
+        attr_reader code: String?
+
+        def code=: (String) -> String
+
+        attr_reader reason: String?
+
+        def reason=: (String) -> String
+
+        attr_reader score: Float?
+
+        def score=: (Float) -> Float
+
+        def initialize: (?code: String, ?reason: String, ?score: Float) -> void
+
+        def to_hash: -> { code: String, reason: String, score: Float }
+      end
+
+      type technical_data =
+        {
+          api_version: Integer,
+          approved_at: Time,
+          callback_url: String,
+          callback_url_notification: String,
+          disable_notification: bool,
+          disable_notification_date: Time?,
+          export_type: String,
+          finished_at: Time,
+          ip: String,
+          language: String,
+          location_ip: String,
+          need_review_at: Time?,
+          notification_confirmation: bool,
+          qr_code: String,
+          raw_data: bool,
+          rejected_at: Time?,
+          started_at: Time,
+          transfer_at: Time,
+          transfer_mode: String
+        }
+
+      class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader api_version: Integer?
+
+        def api_version=: (Integer) -> Integer
+
+        attr_reader approved_at: Time?
+
+        def approved_at=: (Time) -> Time
+
+        attr_reader callback_url: String?
+
+        def callback_url=: (String) -> String
+
+        attr_reader callback_url_notification: String?
+
+        def callback_url_notification=: (String) -> String
+
+        attr_reader disable_notification: bool?
+
+        def disable_notification=: (bool) -> bool
+
+        attr_accessor disable_notification_date: Time?
+
+        attr_reader export_type: String?
+
+        def export_type=: (String) -> String
+
+        attr_reader finished_at: Time?
+
+        def finished_at=: (Time) -> Time
+
+        attr_reader ip: String?
+
+        def ip=: (String) -> String
+
+        attr_reader language: String?
+
+        def language=: (String) -> String
+
+        attr_reader location_ip: String?
+
+        def location_ip=: (String) -> String
+
+        attr_accessor need_review_at: Time?
+
+        attr_reader notification_confirmation: bool?
+
+        def notification_confirmation=: (bool) -> bool
+
+        attr_reader qr_code: String?
+
+        def qr_code=: (String) -> String
+
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
+        attr_accessor rejected_at: Time?
+
+        attr_reader started_at: Time?
+
+        def started_at=: (Time) -> Time
+
+        attr_reader transfer_at: Time?
+
+        def transfer_at=: (Time) -> Time
+
+        attr_reader transfer_mode: String?
+
+        def transfer_mode=: (String) -> String
+
+        def initialize: (
+          ?api_version: Integer,
+          ?approved_at: Time,
+          ?callback_url: String,
+          ?callback_url_notification: String,
+          ?disable_notification: bool,
+          ?disable_notification_date: Time?,
+          ?export_type: String,
+          ?finished_at: Time,
+          ?ip: String,
+          ?language: String,
+          ?location_ip: String,
+          ?need_review_at: Time?,
+          ?notification_confirmation: bool,
+          ?qr_code: String,
+          ?raw_data: bool,
+          ?rejected_at: Time?,
+          ?started_at: Time,
+          ?transfer_at: Time,
+          ?transfer_mode: String
+        ) -> void
+
+        def to_hash: -> {
+          api_version: Integer,
+          approved_at: Time,
+          callback_url: String,
+          callback_url_notification: String,
+          disable_notification: bool,
+          disable_notification_date: Time?,
+          export_type: String,
+          finished_at: Time,
+          ip: String,
+          language: String,
+          location_ip: String,
+          need_review_at: Time?,
+          notification_confirmation: bool,
+          qr_code: String,
+          raw_data: bool,
+          rejected_at: Time?,
+          started_at: Time,
+          transfer_at: Time,
+          transfer_mode: String
+        }
+      end
+    end
+  end
+end

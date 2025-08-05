@@ -1,0 +1,7 @@
+module Dataleon
+  module Models
+    type company_list_response = ::Array[Dataleon::CompanyRegistration]
+
+    CompanyListResponse: Dataleon::Internal::Type::Converter
+  end
+end

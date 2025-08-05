@@ -1,0 +1,7 @@
+module Dataleon
+  module Models
+    type individual_list_response = ::Array[Dataleon::Individual]
+
+    IndividualListResponse: Dataleon::Internal::Type::Converter
+  end
+end

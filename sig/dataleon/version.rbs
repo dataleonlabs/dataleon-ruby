@@ -1,0 +1,3 @@
+module Dataleon
+  VERSION: String
+end

@@ -1,0 +1,50 @@
+module Dataleon
+  module Resources
+    class Individuals
+      attr_reader documents: Dataleon::Resources::Individuals::Documents
+
+      def create: (
+        workspace_id: String,
+        ?person: Dataleon::IndividualCreateParams::Person,
+        ?source_id: String,
+        ?technical_data: Dataleon::IndividualCreateParams::TechnicalData,
+        ?request_options: Dataleon::request_opts
+      ) -> Dataleon::Individual
+
+      def retrieve: (
+        String individual_id,
+        ?document: bool,
+        ?scope: String,
+        ?request_options: Dataleon::request_opts
+      ) -> Dataleon::Individual
+
+      def update: (
+        String individual_id,
+        workspace_id: String,
+        ?person: Dataleon::IndividualUpdateParams::Person,
+        ?source_id: String,
+        ?technical_data: Dataleon::IndividualUpdateParams::TechnicalData,
+        ?request_options: Dataleon::request_opts
+      ) -> Dataleon::Individual
+
+      def list: (
+        ?end_date: Date,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?source_id: String,
+        ?start_date: Date,
+        ?state: Dataleon::Models::IndividualListParams::state,
+        ?status: Dataleon::Models::IndividualListParams::status,
+        ?workspace_id: String,
+        ?request_options: Dataleon::request_opts
+      ) -> Dataleon::Models::individual_list_response
+
+      def delete: (
+        String individual_id,
+        ?request_options: Dataleon::request_opts
+      ) -> nil
+
+      def initialize: (client: Dataleon::Client) -> void
+    end
+  end
+end
