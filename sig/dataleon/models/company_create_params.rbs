@@ -162,7 +162,8 @@ module Dataleon
         {
           callback_url: String,
           callback_url_notification: String,
-          language: String
+          language: String,
+          raw_data: bool
         }
 
       class TechnicalData < Dataleon::Internal::Type::BaseModel
@@ -178,16 +179,22 @@ module Dataleon
 
         def language=: (String) -> String
 
+        attr_reader raw_data: bool?
+
+        def raw_data=: (bool) -> bool
+
         def initialize: (
           ?callback_url: String,
           ?callback_url_notification: String,
-          ?language: String
+          ?language: String,
+          ?raw_data: bool
         ) -> void
 
         def to_hash: -> {
           callback_url: String,
           callback_url_notification: String,
-          language: String
+          language: String,
+          raw_data: bool
         }
       end
     end
