@@ -30,53 +30,6 @@ module Dataleon
       )
       end
 
-      # Get a company by ID
-      sig do
-        params(
-          company_id: String,
-          document: T::Boolean,
-          scope: String,
-          request_options: Dataleon::RequestOptions::OrHash
-        ).returns(Dataleon::CompanyRegistration)
-      end
-      def retrieve(
-        # ID of the company
-        company_id,
-        # Include document signed url
-        document: nil,
-        # Scope filter (id or scope)
-        scope: nil,
-        request_options: {}
-      )
-      end
-
-      # Update a company by ID
-      sig do
-        params(
-          company_id: String,
-          company: Dataleon::CompanyUpdateParams::Company::OrHash,
-          workspace_id: String,
-          source_id: String,
-          technical_data: Dataleon::CompanyUpdateParams::TechnicalData::OrHash,
-          request_options: Dataleon::RequestOptions::OrHash
-        ).returns(Dataleon::CompanyRegistration)
-      end
-      def update(
-        # ID of the company to update
-        company_id,
-        # Main information about the company being registered.
-        company:,
-        # Unique identifier of the workspace in which the company is being created.
-        workspace_id:,
-        # Optional identifier to track the origin of the request or integration from your
-        # system.
-        source_id: nil,
-        # Technical metadata and callback configuration.
-        technical_data: nil,
-        request_options: {}
-      )
-      end
-
       # Get all companies
       sig do
         params(
@@ -108,20 +61,6 @@ module Dataleon
         status: nil,
         # Filter by workspace ID
         workspace_id: nil,
-        request_options: {}
-      )
-      end
-
-      # Delete a company by ID
-      sig do
-        params(
-          company_id: String,
-          request_options: Dataleon::RequestOptions::OrHash
-        ).void
-      end
-      def delete(
-        # ID of the company to delete
-        company_id,
         request_options: {}
       )
       end

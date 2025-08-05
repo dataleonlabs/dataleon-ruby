@@ -262,20 +262,12 @@ module Dataleon
         sig { params(language: String).void }
         attr_writer :language
 
-        # Flag indicating whether to include raw data in the response.
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :raw_data
-
-        sig { params(raw_data: T::Boolean).void }
-        attr_writer :raw_data
-
         # Technical metadata related to the request or processing.
         sig do
           params(
             callback_url: String,
             callback_url_notification: String,
-            language: String,
-            raw_data: T::Boolean
+            language: String
           ).returns(T.attached_class)
         end
         def self.new(
@@ -284,9 +276,7 @@ module Dataleon
           # URL for receive notifications about the processing state or status.
           callback_url_notification: nil,
           # Preferred language for communication (e.g., "eng", "fra").
-          language: nil,
-          # Flag indicating whether to include raw data in the response.
-          raw_data: nil
+          language: nil
         )
         end
 
@@ -295,8 +285,7 @@ module Dataleon
             {
               callback_url: String,
               callback_url_notification: String,
-              language: String,
-              raw_data: T::Boolean
+              language: String
             }
           )
         end
