@@ -2,6 +2,19 @@ module Dataleon
   module Resources
     class Individuals
       class Documents
+        def list: (
+          String individual_id,
+          ?request_options: Dataleon::request_opts
+        ) -> Dataleon::Individuals::DocumentResponse
+
+        def upload: (
+          String individual_id,
+          document_type: Dataleon::Models::Individuals::DocumentUploadParams::document_type,
+          ?file: Dataleon::Internal::file_input,
+          ?url: String,
+          ?request_options: Dataleon::request_opts
+        ) -> Dataleon::Individuals::GenericDocument
+
         def initialize: (client: Dataleon::Client) -> void
       end
     end
