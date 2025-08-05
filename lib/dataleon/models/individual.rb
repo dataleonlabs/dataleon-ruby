@@ -677,12 +677,6 @@ module Dataleon
         #   @return [String, nil]
         optional :qr_code, String
 
-        # @!attribute raw_data
-        #   Flag indicating whether to include raw data in the response.
-        #
-        #   @return [Boolean, nil]
-        optional :raw_data, Dataleon::Internal::Type::Boolean
-
         # @!attribute rejected_at
         #   Timestamp when the request or process was rejected; null if not rejected.
         #
@@ -707,7 +701,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Technical metadata related to the request (e.g., QR code settings, language).
         #
         #   @param api_version [Integer] Version number of the API used.
@@ -737,8 +731,6 @@ module Dataleon
         #   @param notification_confirmation [Boolean] Flag indicating if notification confirmation is required or received.
         #
         #   @param qr_code [String] Indicates whether QR code is enabled ("true" or "false").
-        #
-        #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
         #
         #   @param rejected_at [Time, nil] Timestamp when the request or process was rejected; null if not rejected.
         #
