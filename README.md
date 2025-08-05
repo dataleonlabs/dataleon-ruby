@@ -1,6 +1,6 @@
 # Dataleon Ruby API library
 
-The Dataleon Ruby library provides convenient access to the Dataleon REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/stainless-sdks/dataleon-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
+The Dataleon Ruby library provides convenient access to the Dataleon REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/dataleonlabs/dataleon-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -12,9 +12,13 @@ Documentation for releases of this gem can be found [on RubyDoc](https://gemdocs
 
 To use this gem, install via Bundler by adding the following to your application's `Gemfile`:
 
+<!-- x-release-please-start-version -->
+
 ```ruby
 gem "dataleon", "~> 0.0.1.pre.alpha.0"
 ```
+
+<!-- x-release-please-end -->
 
 ## Usage
 
@@ -248,4 +252,4 @@ Ruby 3.2.0 or higher.
 
 ## Contributing
 
-See [the contributing documentation](https://github.com/stainless-sdks/dataleon-ruby/tree/main/CONTRIBUTING.md).
+See [the contributing documentation](https://github.com/dataleonlabs/dataleon-ruby/tree/main/CONTRIBUTING.md).

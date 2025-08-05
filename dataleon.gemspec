@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = "support@dataleon.ai"
   s.homepage = "https://gemdocs.org/gems/dataleon"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/dataleon-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/dataleonlabs/dataleon-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.2.0"
 
