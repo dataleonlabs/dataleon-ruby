@@ -1058,6 +1058,13 @@ module Dataleon
         sig { params(qr_code: String).void }
         attr_writer :qr_code
 
+        # Flag indicating whether to include raw data in the response.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :raw_data
+
+        sig { params(raw_data: T::Boolean).void }
+        attr_writer :raw_data
+
         # Timestamp when the request or process was rejected; null if not rejected.
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
@@ -1100,6 +1107,7 @@ module Dataleon
             need_review_at: T.nilable(Time),
             notification_confirmation: T::Boolean,
             qr_code: String,
+            raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
             started_at: Time,
             transfer_at: Time,
@@ -1135,6 +1143,8 @@ module Dataleon
           notification_confirmation: nil,
           # Indicates whether QR code is enabled ("true" or "false").
           qr_code: nil,
+          # Flag indicating whether to include raw data in the response.
+          raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
           # Timestamp when the process started.
@@ -1163,6 +1173,7 @@ module Dataleon
               need_review_at: T.nilable(Time),
               notification_confirmation: T::Boolean,
               qr_code: String,
+              raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
               started_at: Time,
               transfer_at: Time,

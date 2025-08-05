@@ -31,6 +31,54 @@ module Dataleon
       )
       end
 
+      # Get an individual by ID
+      sig do
+        params(
+          individual_id: String,
+          document: T::Boolean,
+          scope: String,
+          request_options: Dataleon::RequestOptions::OrHash
+        ).returns(Dataleon::Individual)
+      end
+      def retrieve(
+        # ID of the individual
+        individual_id,
+        # Include document information
+        document: nil,
+        # Scope filter (id or scope)
+        scope: nil,
+        request_options: {}
+      )
+      end
+
+      # Update an individual by ID
+      sig do
+        params(
+          individual_id: String,
+          workspace_id: String,
+          person: Dataleon::IndividualUpdateParams::Person::OrHash,
+          source_id: String,
+          technical_data:
+            Dataleon::IndividualUpdateParams::TechnicalData::OrHash,
+          request_options: Dataleon::RequestOptions::OrHash
+        ).returns(Dataleon::Individual)
+      end
+      def update(
+        # ID of the individual to update
+        individual_id,
+        # Unique identifier of the workspace where the individual is being registered.
+        workspace_id:,
+        # Personal information about the individual.
+        person: nil,
+        # Optional identifier for tracking the source system or integration from your
+        # system.
+        source_id: nil,
+        # Technical metadata related to the request or processing.
+        technical_data: nil,
+        request_options: {}
+      )
+      end
+
       # Get all individuals
       sig do
         params(
@@ -62,6 +110,20 @@ module Dataleon
         status: nil,
         # Filter by workspace ID
         workspace_id: nil,
+        request_options: {}
+      )
+      end
+
+      # Delete an individual by ID
+      sig do
+        params(
+          individual_id: String,
+          request_options: Dataleon::RequestOptions::OrHash
+        ).void
+      end
+      def delete(
+        # ID of the individual to delete
+        individual_id,
         request_options: {}
       )
       end
