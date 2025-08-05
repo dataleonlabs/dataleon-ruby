@@ -139,13 +139,7 @@ module Dataleon
         #   @return [String, nil]
         optional :language, String
 
-        # @!attribute raw_data
-        #   Flag indicating whether to include raw data in the response.
-        #
-        #   @return [Boolean, nil]
-        optional :raw_data, Dataleon::Internal::Type::Boolean
-
-        # @!method initialize(callback_url: nil, callback_url_notification: nil, language: nil, raw_data: nil)
+        # @!method initialize(callback_url: nil, callback_url_notification: nil, language: nil)
         #   Technical metadata related to the request or processing.
         #
         #   @param callback_url [String] URL to call back upon completion of processing.
@@ -153,8 +147,6 @@ module Dataleon
         #   @param callback_url_notification [String] URL for receive notifications about the processing state or status.
         #
         #   @param language [String] Preferred language for communication (e.g., "eng", "fra").
-        #
-        #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
       end
     end
   end

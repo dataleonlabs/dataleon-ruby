@@ -3,7 +3,6 @@
 module Dataleon
   module Models
     module Individuals
-      # @see Dataleon::Resources::Individuals::Documents#list
       class DocumentResponse < Dataleon::Internal::Type::BaseModel
         # @!attribute documents
         #   List of documents associated with the response.

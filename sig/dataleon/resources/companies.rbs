@@ -11,22 +11,6 @@ module Dataleon
         ?request_options: Dataleon::request_opts
       ) -> Dataleon::CompanyRegistration
 
-      def retrieve: (
-        String company_id,
-        ?document: bool,
-        ?scope: String,
-        ?request_options: Dataleon::request_opts
-      ) -> Dataleon::CompanyRegistration
-
-      def update: (
-        String company_id,
-        company: Dataleon::CompanyUpdateParams::Company,
-        workspace_id: String,
-        ?source_id: String,
-        ?technical_data: Dataleon::CompanyUpdateParams::TechnicalData,
-        ?request_options: Dataleon::request_opts
-      ) -> Dataleon::CompanyRegistration
-
       def list: (
         ?end_date: Date,
         ?limit: Integer,
@@ -38,11 +22,6 @@ module Dataleon
         ?workspace_id: String,
         ?request_options: Dataleon::request_opts
       ) -> Dataleon::Models::company_list_response
-
-      def delete: (
-        String company_id,
-        ?request_options: Dataleon::request_opts
-      ) -> nil
 
       def initialize: (client: Dataleon::Client) -> void
     end
