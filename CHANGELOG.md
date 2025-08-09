@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.1-alpha.2 (2025-08-09)
+
+Full Changelog: [v0.0.1-alpha.1...v0.0.1-alpha.2](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.0.1-alpha.1...v0.0.1-alpha.2)
+
+### Chores
+
+* **internal:** update comment in script ([6f351c5](https://github.com/dataleonlabs/dataleon-ruby/commit/6f351c59c5ee7055b8f7151e032309c20d5e6b61))
+* update @stainless-api/prism-cli to v5.15.0 ([de93c62](https://github.com/dataleonlabs/dataleon-ruby/commit/de93c6281e8ebe1ead9a1705017e11c7b46a4358))
+
 ## 0.0.1-alpha.1 (2025-08-05)
 
 Full Changelog: [v0.0.1-alpha.0...v0.0.1-alpha.1](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.0.1-alpha.0...v0.0.1-alpha.1)
