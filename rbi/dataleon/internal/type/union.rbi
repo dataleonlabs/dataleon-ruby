@@ -16,7 +16,8 @@ module Dataleon
             T::Array[
               [
                 T.nilable(Symbol),
-                T.proc.returns(Dataleon::Internal::Type::Converter::Input)
+                T.proc.returns(Dataleon::Internal::Type::Converter::Input),
+                Dataleon::Internal::AnyHash
               ]
             ]
           )
@@ -25,7 +26,13 @@ module Dataleon
         end
 
         # @api private
-        sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+        sig do
+          returns(
+            T::Array[
+              [T.nilable(Symbol), T.anything, Dataleon::Internal::AnyHash]
+            ]
+          )
+        end
         protected def derefed_variants
         end
 
