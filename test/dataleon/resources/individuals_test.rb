@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Dataleon::Test::Resources::IndividualsTest < Dataleon::Test::ResourceTest
   def test_create_required_params
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @dataleon.individuals.create(workspace_id: "wk_123")
 
@@ -39,7 +39,7 @@ class Dataleon::Test::Resources::IndividualsTest < Dataleon::Test::ResourceTest
   end
 
   def test_retrieve
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @dataleon.individuals.retrieve("individual_id")
 
@@ -74,7 +74,7 @@ class Dataleon::Test::Resources::IndividualsTest < Dataleon::Test::ResourceTest
   end
 
   def test_update_required_params
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @dataleon.individuals.update("individual_id", workspace_id: "wk_123")
 
@@ -109,7 +109,7 @@ class Dataleon::Test::Resources::IndividualsTest < Dataleon::Test::ResourceTest
   end
 
   def test_list
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @dataleon.individuals.list
 
@@ -119,7 +119,7 @@ class Dataleon::Test::Resources::IndividualsTest < Dataleon::Test::ResourceTest
   end
 
   def test_delete
-    skip("skipped: tests are disabled for the time being")
+    skip("Prism tests are disabled")
 
     response = @dataleon.individuals.delete("individual_id")
 
