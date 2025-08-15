@@ -1364,13 +1364,6 @@ module Dataleon
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
 
-        # Duration of the user session in seconds.
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :session_duration
-
-        sig { params(session_duration: Integer).void }
-        attr_writer :session_duration
-
         # Timestamp when the process started.
         sig { returns(T.nilable(Time)) }
         attr_reader :started_at
@@ -1412,7 +1405,6 @@ module Dataleon
             qr_code: String,
             raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
-            session_duration: Integer,
             started_at: Time,
             transfer_at: Time,
             transfer_mode: String
@@ -1451,8 +1443,6 @@ module Dataleon
           raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
-          # Duration of the user session in seconds.
-          session_duration: nil,
           # Timestamp when the process started.
           started_at: nil,
           # Date/time of data transfer.
@@ -1481,7 +1471,6 @@ module Dataleon
               qr_code: String,
               raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
-              session_duration: Integer,
               started_at: Time,
               transfer_at: Time,
               transfer_mode: String

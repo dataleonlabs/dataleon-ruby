@@ -550,7 +550,6 @@ module Dataleon
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
-          session_duration: Integer,
           started_at: Time,
           transfer_at: Time,
           transfer_mode: String
@@ -615,10 +614,6 @@ module Dataleon
 
         attr_accessor rejected_at: Time?
 
-        attr_reader session_duration: Integer?
-
-        def session_duration=: (Integer) -> Integer
-
         attr_reader started_at: Time?
 
         def started_at=: (Time) -> Time
@@ -648,7 +643,6 @@ module Dataleon
           ?qr_code: String,
           ?raw_data: bool,
           ?rejected_at: Time?,
-          ?session_duration: Integer,
           ?started_at: Time,
           ?transfer_at: Time,
           ?transfer_mode: String
@@ -671,7 +665,6 @@ module Dataleon
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
-          session_duration: Integer,
           started_at: Time,
           transfer_at: Time,
           transfer_mode: String
