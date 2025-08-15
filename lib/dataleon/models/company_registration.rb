@@ -815,12 +815,6 @@ module Dataleon
         #   @return [Time, nil]
         optional :rejected_at, Time, nil?: true
 
-        # @!attribute session_duration
-        #   Duration of the user session in seconds.
-        #
-        #   @return [Integer, nil]
-        optional :session_duration, Integer
-
         # @!attribute started_at
         #   Timestamp when the process started.
         #
@@ -839,7 +833,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Technical metadata related to the request, such as IP address, QR code settings,
         #   and callback URLs.
         #
@@ -874,8 +868,6 @@ module Dataleon
         #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
         #
         #   @param rejected_at [Time, nil] Timestamp when the request or process was rejected; null if not rejected.
-        #
-        #   @param session_duration [Integer] Duration of the user session in seconds.
         #
         #   @param started_at [Time] Timestamp when the process started.
         #
