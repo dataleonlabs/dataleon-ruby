@@ -460,6 +460,13 @@ module Dataleon
         sig { params(address: String).void }
         attr_writer :address
 
+        # Closure date of the company, if applicable.
+        sig { returns(T.nilable(Date)) }
+        attr_reader :closure_date
+
+        sig { params(closure_date: Date).void }
+        attr_writer :closure_date
+
         # Trade or commercial name of the company.
         sig { returns(T.nilable(String)) }
         attr_reader :commercial_name
@@ -494,12 +501,33 @@ module Dataleon
         sig { params(email: String).void }
         attr_writer :email
 
+        # Number of employees in the company.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :employees
+
+        sig { params(employees: Integer).void }
+        attr_writer :employees
+
         # Employer Identification Number (EIN) or equivalent.
         sig { returns(T.nilable(String)) }
         attr_reader :employer_identification_number
 
         sig { params(employer_identification_number: String).void }
         attr_writer :employer_identification_number
+
+        # Indicates whether an insolvency procedure exists for the company.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :insolvency_exists
+
+        sig { params(insolvency_exists: T::Boolean).void }
+        attr_writer :insolvency_exists
+
+        # Indicates whether an insolvency procedure is ongoing for the company.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :insolvency_ongoing
+
+        sig { params(insolvency_ongoing: T::Boolean).void }
+        attr_writer :insolvency_ongoing
 
         # Legal form or structure of the company (e.g., LLC, SARL).
         sig { returns(T.nilable(String)) }
@@ -576,11 +604,15 @@ module Dataleon
         sig do
           params(
             address: String,
+            closure_date: Date,
             commercial_name: String,
             contact: Dataleon::CompanyRegistration::Company::Contact::OrHash,
             country: String,
             email: String,
+            employees: Integer,
             employer_identification_number: String,
+            insolvency_exists: T::Boolean,
+            insolvency_ongoing: T::Boolean,
             legal_form: String,
             name: String,
             phone_number: String,
@@ -596,6 +628,8 @@ module Dataleon
         def self.new(
           # Full registered address of the company.
           address: nil,
+          # Closure date of the company, if applicable.
+          closure_date: nil,
           # Trade or commercial name of the company.
           commercial_name: nil,
           # Contact information for the company, including email, phone number, and address.
@@ -604,8 +638,14 @@ module Dataleon
           country: nil,
           # Contact email address for the company.
           email: nil,
+          # Number of employees in the company.
+          employees: nil,
           # Employer Identification Number (EIN) or equivalent.
           employer_identification_number: nil,
+          # Indicates whether an insolvency procedure exists for the company.
+          insolvency_exists: nil,
+          # Indicates whether an insolvency procedure is ongoing for the company.
+          insolvency_ongoing: nil,
           # Legal form or structure of the company (e.g., LLC, SARL).
           legal_form: nil,
           # Legal registered name of the company.
@@ -633,11 +673,15 @@ module Dataleon
           override.returns(
             {
               address: String,
+              closure_date: Date,
               commercial_name: String,
               contact: Dataleon::CompanyRegistration::Company::Contact,
               country: String,
               email: String,
+              employees: Integer,
               employer_identification_number: String,
+              insolvency_exists: T::Boolean,
+              insolvency_ongoing: T::Boolean,
               legal_form: String,
               name: String,
               phone_number: String,
@@ -1364,6 +1408,13 @@ module Dataleon
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
 
+        # Duration of the user session in seconds.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :session_duration
+
+        sig { params(session_duration: Integer).void }
+        attr_writer :session_duration
+
         # Timestamp when the process started.
         sig { returns(T.nilable(Time)) }
         attr_reader :started_at
@@ -1405,6 +1456,7 @@ module Dataleon
             qr_code: String,
             raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
+            session_duration: Integer,
             started_at: Time,
             transfer_at: Time,
             transfer_mode: String
@@ -1443,6 +1495,8 @@ module Dataleon
           raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
+          # Duration of the user session in seconds.
+          session_duration: nil,
           # Timestamp when the process started.
           started_at: nil,
           # Date/time of data transfer.
@@ -1471,6 +1525,7 @@ module Dataleon
               qr_code: String,
               raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
+              session_duration: Integer,
               started_at: Time,
               transfer_at: Time,
               transfer_mode: String
