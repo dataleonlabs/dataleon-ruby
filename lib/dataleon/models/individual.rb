@@ -625,6 +625,13 @@ module Dataleon
 
       # @see Dataleon::Models::Individual#technical_data
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        # @!attribute active_aml_suspicions
+        #   Flag indicating whether there are active research AML (Anti-Money Laundering)
+        #   suspicions for the object when you apply for a new entry or get an existing one.
+        #
+        #   @return [Boolean, nil]
+        optional :active_aml_suspicions, Dataleon::Internal::Type::Boolean
+
         # @!attribute api_version
         #   Version number of the API used.
         #
@@ -745,8 +752,13 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Dataleon::Models::Individual::TechnicalData} for more details.
+        #
         #   Technical metadata related to the request (e.g., QR code settings, language).
+        #
+        #   @param active_aml_suspicions [Boolean] Flag indicating whether there are active research AML (Anti-Money Laundering) su
         #
         #   @param api_version [Integer] Version number of the API used.
         #

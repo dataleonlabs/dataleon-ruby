@@ -1034,6 +1034,14 @@ module Dataleon
             )
           end
 
+        # Flag indicating whether there are active research AML (Anti-Money Laundering)
+        # suspicions for the object when you apply for a new entry or get an existing one.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :active_aml_suspicions
+
+        sig { params(active_aml_suspicions: T::Boolean).void }
+        attr_writer :active_aml_suspicions
+
         # Version number of the API used.
         sig { returns(T.nilable(Integer)) }
         attr_reader :api_version
@@ -1168,6 +1176,7 @@ module Dataleon
         # Technical metadata related to the request (e.g., QR code settings, language).
         sig do
           params(
+            active_aml_suspicions: T::Boolean,
             api_version: Integer,
             approved_at: Time,
             callback_url: String,
@@ -1191,6 +1200,9 @@ module Dataleon
           ).returns(T.attached_class)
         end
         def self.new(
+          # Flag indicating whether there are active research AML (Anti-Money Laundering)
+          # suspicions for the object when you apply for a new entry or get an existing one.
+          active_aml_suspicions: nil,
           # Version number of the API used.
           api_version: nil,
           # Timestamp when the request or process was approved.
@@ -1237,6 +1249,7 @@ module Dataleon
         sig do
           override.returns(
             {
+              active_aml_suspicions: T::Boolean,
               api_version: Integer,
               approved_at: Time,
               callback_url: String,

@@ -692,6 +692,7 @@ module Dataleon
 
       type technical_data =
         {
+          active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
           callback_url: String,
@@ -715,6 +716,10 @@ module Dataleon
         }
 
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader active_aml_suspicions: bool?
+
+        def active_aml_suspicions=: (bool) -> bool
+
         attr_reader api_version: Integer?
 
         def api_version=: (Integer) -> Integer
@@ -790,6 +795,7 @@ module Dataleon
         def transfer_mode=: (String) -> String
 
         def initialize: (
+          ?active_aml_suspicions: bool,
           ?api_version: Integer,
           ?approved_at: Time,
           ?callback_url: String,
@@ -813,6 +819,7 @@ module Dataleon
         ) -> void
 
         def to_hash: -> {
+          active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
           callback_url: String,
