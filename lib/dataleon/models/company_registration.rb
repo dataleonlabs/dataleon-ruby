@@ -150,7 +150,7 @@ module Dataleon
         optional :schema, String
 
         # @!attribute score
-        #   Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
+        #   Risk score between 0.0 and 1 indicating the severity of the suspicion.
         #
         #   @return [Float, nil]
         optional :score, Float
@@ -193,7 +193,7 @@ module Dataleon
         #
         #   @param schema [String] Version of the evaluation schema or rule engine used.
         #
-        #   @param score [Float] Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
+        #   @param score [Float] Risk score between 0.0 and 1 indicating the severity of the suspicion.
         #
         #   @param source [String] Source system or service providing this suspicion.
         #
