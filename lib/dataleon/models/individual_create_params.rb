@@ -121,6 +121,14 @@ module Dataleon
       end
 
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        # @!attribute active_aml_suspicions
+        #   Flag indicating whether there are active research AML (Anti-Money Laundering)
+        #   suspicions for the individual when you apply for a new entry or get an existing
+        #   one.
+        #
+        #   @return [Boolean, nil]
+        optional :active_aml_suspicions, Dataleon::Internal::Type::Boolean
+
         # @!attribute callback_url
         #   URL to call back upon completion of processing.
         #
@@ -145,8 +153,13 @@ module Dataleon
         #   @return [Boolean, nil]
         optional :raw_data, Dataleon::Internal::Type::Boolean
 
-        # @!method initialize(callback_url: nil, callback_url_notification: nil, language: nil, raw_data: nil)
+        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, language: nil, raw_data: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Dataleon::Models::IndividualCreateParams::TechnicalData} for more details.
+        #
         #   Technical metadata related to the request or processing.
+        #
+        #   @param active_aml_suspicions [Boolean] Flag indicating whether there are active research AML (Anti-Money Laundering) su
         #
         #   @param callback_url [String] URL to call back upon completion of processing.
         #

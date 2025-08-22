@@ -160,6 +160,7 @@ module Dataleon
 
       type technical_data =
         {
+          active_aml_suspicions: bool,
           callback_url: String,
           callback_url_notification: String,
           language: String,
@@ -167,6 +168,10 @@ module Dataleon
         }
 
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader active_aml_suspicions: bool?
+
+        def active_aml_suspicions=: (bool) -> bool
+
         attr_reader callback_url: String?
 
         def callback_url=: (String) -> String
@@ -184,6 +189,7 @@ module Dataleon
         def raw_data=: (bool) -> bool
 
         def initialize: (
+          ?active_aml_suspicions: bool,
           ?callback_url: String,
           ?callback_url_notification: String,
           ?language: String,
@@ -191,6 +197,7 @@ module Dataleon
         ) -> void
 
         def to_hash: -> {
+          active_aml_suspicions: bool,
           callback_url: String,
           callback_url_notification: String,
           language: String,

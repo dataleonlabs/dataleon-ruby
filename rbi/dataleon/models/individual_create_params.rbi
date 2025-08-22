@@ -241,6 +241,15 @@ module Dataleon
             )
           end
 
+        # Flag indicating whether there are active research AML (Anti-Money Laundering)
+        # suspicions for the individual when you apply for a new entry or get an existing
+        # one.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :active_aml_suspicions
+
+        sig { params(active_aml_suspicions: T::Boolean).void }
+        attr_writer :active_aml_suspicions
+
         # URL to call back upon completion of processing.
         sig { returns(T.nilable(String)) }
         attr_reader :callback_url
@@ -272,6 +281,7 @@ module Dataleon
         # Technical metadata related to the request or processing.
         sig do
           params(
+            active_aml_suspicions: T::Boolean,
             callback_url: String,
             callback_url_notification: String,
             language: String,
@@ -279,6 +289,10 @@ module Dataleon
           ).returns(T.attached_class)
         end
         def self.new(
+          # Flag indicating whether there are active research AML (Anti-Money Laundering)
+          # suspicions for the individual when you apply for a new entry or get an existing
+          # one.
+          active_aml_suspicions: nil,
           # URL to call back upon completion of processing.
           callback_url: nil,
           # URL for receive notifications about the processing state or status.
@@ -293,6 +307,7 @@ module Dataleon
         sig do
           override.returns(
             {
+              active_aml_suspicions: T::Boolean,
               callback_url: String,
               callback_url_notification: String,
               language: String,
