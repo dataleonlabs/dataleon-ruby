@@ -236,12 +236,19 @@ module Dataleon
         sig { params(caption: String).void }
         attr_writer :caption
 
-        # Indicates whether this suspicion has been manually reviewed or confirmed.
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :checked
+        # Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+        sig { returns(T.nilable(String)) }
+        attr_reader :country
 
-        sig { params(checked: T::Boolean).void }
-        attr_writer :checked
+        sig { params(country: String).void }
+        attr_writer :country
+
+        # Gender associated with the suspicion, if applicable.
+        sig { returns(T.nilable(String)) }
+        attr_reader :gender
+
+        sig { params(gender: String).void }
+        attr_writer :gender
 
         # Nature of the relationship between the entity and the suspicious activity (e.g.,
         # "linked", "associated").
@@ -258,22 +265,41 @@ module Dataleon
         sig { params(schema: String).void }
         attr_writer :schema
 
-        # Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        # Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
         sig { returns(T.nilable(Float)) }
         attr_reader :score
 
         sig { params(score: Float).void }
         attr_writer :score
 
-        # URL identifying the source system or service providing this suspicion.
+        # Source system or service providing this suspicion.
         sig { returns(T.nilable(String)) }
         attr_reader :source
 
         sig { params(source: String).void }
         attr_writer :source
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        sig do
+          returns(
+            T.nilable(
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          )
+        end
+        attr_reader :status
+
+        sig do
+          params(
+            status:
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::OrSymbol
+          ).void
+        end
+        attr_writer :status
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         sig do
           returns(
             T.nilable(
@@ -296,30 +322,38 @@ module Dataleon
         sig do
           params(
             caption: String,
-            checked: T::Boolean,
+            country: String,
+            gender: String,
             relation: String,
             schema: String,
             score: Float,
             source: String,
+            status:
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::OrSymbol,
             type: Dataleon::CompanyRegistration::AmlSuspicion::Type::OrSymbol
           ).returns(T.attached_class)
         end
         def self.new(
           # Human-readable description or title for the suspicious finding.
           caption: nil,
-          # Indicates whether this suspicion has been manually reviewed or confirmed.
-          checked: nil,
+          # Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+          country: nil,
+          # Gender associated with the suspicion, if applicable.
+          gender: nil,
           # Nature of the relationship between the entity and the suspicious activity (e.g.,
           # "linked", "associated").
           relation: nil,
           # Version of the evaluation schema or rule engine used.
           schema: nil,
-          # Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+          # Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
           score: nil,
-          # URL identifying the source system or service providing this suspicion.
+          # Source system or service providing this suspicion.
           source: nil,
-          # Watchlist category associated with the suspicion. Possible values include
-          # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+          # Status of the suspicion review process. Possible values: "true_positive",
+          # "false_positive", "pending".
+          status: nil,
+          # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+          # "adverse_news", "other".
           type: nil
         )
         end
@@ -328,11 +362,14 @@ module Dataleon
           override.returns(
             {
               caption: String,
-              checked: T::Boolean,
+              country: String,
+              gender: String,
               relation: String,
               schema: String,
               score: Float,
               source: String,
+              status:
+                Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol,
               type:
                 Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             }
@@ -341,8 +378,46 @@ module Dataleon
         def to_hash
         end
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Dataleon::CompanyRegistration::AmlSuspicion::Status)
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          TRUE_POSITIVE =
+            T.let(
+              :true_positive,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          FALSE_POSITIVE =
+            T.let(
+              :false_positive,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          PENDING =
+            T.let(
+              :pending,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         module Type
           extend Dataleon::Internal::Type::Enum
 
@@ -352,29 +427,29 @@ module Dataleon
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          WATCHLIST =
+          CRIME =
             T.let(
-              :Watchlist,
+              :crime,
+              Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
+            )
+          SANCTION =
+            T.let(
+              :sanction,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
           PEP =
             T.let(
-              :PEP,
+              :pep,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
-          SANCTIONS =
+          ADVERSE_NEWS =
             T.let(
-              :Sanctions,
+              :adverse_news,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
-          RISKY_ENTITY =
+          OTHER =
             T.let(
-              :RiskyEntity,
-              Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
-            )
-          CRIME =
-            T.let(
-              :Crime,
+              :other,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
 

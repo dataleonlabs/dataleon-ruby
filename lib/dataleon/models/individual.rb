@@ -181,11 +181,17 @@ module Dataleon
         #   @return [String, nil]
         optional :caption, String
 
-        # @!attribute checked
-        #   Indicates whether this suspicion has been manually reviewed or confirmed.
+        # @!attribute country
+        #   Country associated with the suspicion (ISO 3166-1 alpha-2 code).
         #
-        #   @return [Boolean, nil]
-        optional :checked, Dataleon::Internal::Type::Boolean
+        #   @return [String, nil]
+        optional :country, String
+
+        # @!attribute gender
+        #   Gender associated with the suspicion, if applicable.
+        #
+        #   @return [String, nil]
+        optional :gender, String
 
         # @!attribute relation
         #   Nature of the relationship between the entity and the suspicious activity (e.g.,
@@ -201,25 +207,32 @@ module Dataleon
         optional :schema, String
 
         # @!attribute score
-        #   Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        #   Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
         #
         #   @return [Float, nil]
         optional :score, Float
 
         # @!attribute source
-        #   URL identifying the source system or service providing this suspicion.
+        #   Source system or service providing this suspicion.
         #
         #   @return [String, nil]
         optional :source, String
 
+        # @!attribute status
+        #   Status of the suspicion review process. Possible values: "true_positive",
+        #   "false_positive", "pending".
+        #
+        #   @return [Symbol, Dataleon::Models::Individual::AmlSuspicion::Status, nil]
+        optional :status, enum: -> { Dataleon::Individual::AmlSuspicion::Status }
+
         # @!attribute type
-        #   Watchlist category associated with the suspicion. Possible values include
-        #   Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        #   Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        #   "adverse_news", "other".
         #
         #   @return [Symbol, Dataleon::Models::Individual::AmlSuspicion::Type, nil]
         optional :type, enum: -> { Dataleon::Individual::AmlSuspicion::Type }
 
-        # @!method initialize(caption: nil, checked: nil, relation: nil, schema: nil, score: nil, source: nil, type: nil)
+        # @!method initialize(caption: nil, country: nil, gender: nil, relation: nil, schema: nil, score: nil, source: nil, status: nil, type: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::Individual::AmlSuspicion} for more details.
         #
@@ -229,30 +242,49 @@ module Dataleon
         #
         #   @param caption [String] Human-readable description or title for the suspicious finding.
         #
-        #   @param checked [Boolean] Indicates whether this suspicion has been manually reviewed or confirmed.
+        #   @param country [String] Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+        #
+        #   @param gender [String] Gender associated with the suspicion, if applicable.
         #
         #   @param relation [String] Nature of the relationship between the entity and the suspicious activity (e.g.,
         #
         #   @param schema [String] Version of the evaluation schema or rule engine used.
         #
-        #   @param score [Float] Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        #   @param score [Float] Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
         #
-        #   @param source [String] URL identifying the source system or service providing this suspicion.
+        #   @param source [String] Source system or service providing this suspicion.
         #
-        #   @param type [Symbol, Dataleon::Models::Individual::AmlSuspicion::Type] Watchlist category associated with the suspicion. Possible values include Watchl
+        #   @param status [Symbol, Dataleon::Models::Individual::AmlSuspicion::Status] Status of the suspicion review process. Possible values: "true_positive", "false
+        #
+        #   @param type [Symbol, Dataleon::Models::Individual::AmlSuspicion::Type] Category of the suspicion. Possible values: "crime", "sanction", "pep", "adverse
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        #
+        # @see Dataleon::Models::Individual::AmlSuspicion#status
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TRUE_POSITIVE = :true_positive
+          FALSE_POSITIVE = :false_positive
+          PENDING = :pending
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         #
         # @see Dataleon::Models::Individual::AmlSuspicion#type
         module Type
           extend Dataleon::Internal::Type::Enum
 
-          WATCHLIST = :Watchlist
-          PEP = :PEP
-          SANCTIONS = :Sanctions
-          RISKY_ENTITY = :RiskyEntity
-          CRIME = :Crime
+          CRIME = :crime
+          SANCTION = :sanction
+          PEP = :pep
+          ADVERSE_NEWS = :adverse_news
+          OTHER = :other
 
           # @!method self.values
           #   @return [Array<Symbol>]
