@@ -170,11 +170,13 @@ module Dataleon
       type aml_suspicion =
         {
           caption: String,
-          checked: bool,
+          country: String,
+          gender: String,
           relation: String,
           schema: String,
           score: Float,
           source: String,
+          status: Dataleon::Models::Individual::AmlSuspicion::status,
           type: Dataleon::Models::Individual::AmlSuspicion::type_
         }
 
@@ -183,9 +185,13 @@ module Dataleon
 
         def caption=: (String) -> String
 
-        attr_reader checked: bool?
+        attr_reader country: String?
 
-        def checked=: (bool) -> bool
+        def country=: (String) -> String
+
+        attr_reader gender: String?
+
+        def gender=: (String) -> String
 
         attr_reader relation: String?
 
@@ -203,6 +209,12 @@ module Dataleon
 
         def source=: (String) -> String
 
+        attr_reader status: Dataleon::Models::Individual::AmlSuspicion::status?
+
+        def status=: (
+          Dataleon::Models::Individual::AmlSuspicion::status
+        ) -> Dataleon::Models::Individual::AmlSuspicion::status
+
         attr_reader type: Dataleon::Models::Individual::AmlSuspicion::type_?
 
         def type=: (
@@ -211,34 +223,50 @@ module Dataleon
 
         def initialize: (
           ?caption: String,
-          ?checked: bool,
+          ?country: String,
+          ?gender: String,
           ?relation: String,
           ?schema: String,
           ?score: Float,
           ?source: String,
+          ?status: Dataleon::Models::Individual::AmlSuspicion::status,
           ?type: Dataleon::Models::Individual::AmlSuspicion::type_
         ) -> void
 
         def to_hash: -> {
           caption: String,
-          checked: bool,
+          country: String,
+          gender: String,
           relation: String,
           schema: String,
           score: Float,
           source: String,
+          status: Dataleon::Models::Individual::AmlSuspicion::status,
           type: Dataleon::Models::Individual::AmlSuspicion::type_
         }
 
-        type type_ = :Watchlist | :PEP | :Sanctions | :RiskyEntity | :Crime
+        type status = :true_positive | :false_positive | :pending
+
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TRUE_POSITIVE: :true_positive
+          FALSE_POSITIVE: :false_positive
+          PENDING: :pending
+
+          def self?.values: -> ::Array[Dataleon::Models::Individual::AmlSuspicion::status]
+        end
+
+        type type_ = :crime | :sanction | :pep | :adverse_news | :other
 
         module Type
           extend Dataleon::Internal::Type::Enum
 
-          WATCHLIST: :Watchlist
-          PEP: :PEP
-          SANCTIONS: :Sanctions
-          RISKY_ENTITY: :RiskyEntity
-          CRIME: :Crime
+          CRIME: :crime
+          SANCTION: :sanction
+          PEP: :pep
+          ADVERSE_NEWS: :adverse_news
+          OTHER: :other
 
           def self?.values: -> ::Array[Dataleon::Models::Individual::AmlSuspicion::type_]
         end
