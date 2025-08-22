@@ -265,7 +265,7 @@ module Dataleon
         sig { params(schema: String).void }
         attr_writer :schema
 
-        # Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
+        # Risk score between 0.0 and 1 indicating the severity of the suspicion.
         sig { returns(T.nilable(Float)) }
         attr_reader :score
 
@@ -345,7 +345,7 @@ module Dataleon
           relation: nil,
           # Version of the evaluation schema or rule engine used.
           schema: nil,
-          # Risk score between 0.0 and 0.85 indicating the severity of the suspicion.
+          # Risk score between 0.0 and 1 indicating the severity of the suspicion.
           score: nil,
           # Source system or service providing this suspicion.
           source: nil,
