@@ -124,11 +124,17 @@ module Dataleon
         #   @return [String, nil]
         optional :caption, String
 
-        # @!attribute checked
-        #   Indicates whether this suspicion has been manually reviewed or confirmed.
+        # @!attribute country
+        #   Country associated with the suspicion (ISO 3166-1 alpha-2 code).
         #
-        #   @return [Boolean, nil]
-        optional :checked, Dataleon::Internal::Type::Boolean
+        #   @return [String, nil]
+        optional :country, String
+
+        # @!attribute gender
+        #   Gender associated with the suspicion, if applicable.
+        #
+        #   @return [String, nil]
+        optional :gender, String
 
         # @!attribute relation
         #   Nature of the relationship between the entity and the suspicious activity (e.g.,
@@ -144,25 +150,32 @@ module Dataleon
         optional :schema, String
 
         # @!attribute score
-        #   Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        #   Risk score between 0.0 and 1 indicating the severity of the suspicion.
         #
         #   @return [Float, nil]
         optional :score, Float
 
         # @!attribute source
-        #   URL identifying the source system or service providing this suspicion.
+        #   Source system or service providing this suspicion.
         #
         #   @return [String, nil]
         optional :source, String
 
+        # @!attribute status
+        #   Status of the suspicion review process. Possible values: "true_positive",
+        #   "false_positive", "pending".
+        #
+        #   @return [Symbol, Dataleon::Models::CompanyRegistration::AmlSuspicion::Status, nil]
+        optional :status, enum: -> { Dataleon::CompanyRegistration::AmlSuspicion::Status }
+
         # @!attribute type
-        #   Watchlist category associated with the suspicion. Possible values include
-        #   Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        #   Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        #   "adverse_news", "other".
         #
         #   @return [Symbol, Dataleon::Models::CompanyRegistration::AmlSuspicion::Type, nil]
         optional :type, enum: -> { Dataleon::CompanyRegistration::AmlSuspicion::Type }
 
-        # @!method initialize(caption: nil, checked: nil, relation: nil, schema: nil, score: nil, source: nil, type: nil)
+        # @!method initialize(caption: nil, country: nil, gender: nil, relation: nil, schema: nil, score: nil, source: nil, status: nil, type: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::CompanyRegistration::AmlSuspicion} for more details.
         #
@@ -172,30 +185,49 @@ module Dataleon
         #
         #   @param caption [String] Human-readable description or title for the suspicious finding.
         #
-        #   @param checked [Boolean] Indicates whether this suspicion has been manually reviewed or confirmed.
+        #   @param country [String] Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+        #
+        #   @param gender [String] Gender associated with the suspicion, if applicable.
         #
         #   @param relation [String] Nature of the relationship between the entity and the suspicious activity (e.g.,
         #
         #   @param schema [String] Version of the evaluation schema or rule engine used.
         #
-        #   @param score [Float] Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        #   @param score [Float] Risk score between 0.0 and 1 indicating the severity of the suspicion.
         #
-        #   @param source [String] URL identifying the source system or service providing this suspicion.
+        #   @param source [String] Source system or service providing this suspicion.
         #
-        #   @param type [Symbol, Dataleon::Models::CompanyRegistration::AmlSuspicion::Type] Watchlist category associated with the suspicion. Possible values include Watchl
+        #   @param status [Symbol, Dataleon::Models::CompanyRegistration::AmlSuspicion::Status] Status of the suspicion review process. Possible values: "true_positive", "false
+        #
+        #   @param type [Symbol, Dataleon::Models::CompanyRegistration::AmlSuspicion::Type] Category of the suspicion. Possible values: "crime", "sanction", "pep", "adverse
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        #
+        # @see Dataleon::Models::CompanyRegistration::AmlSuspicion#status
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TRUE_POSITIVE = :true_positive
+          FALSE_POSITIVE = :false_positive
+          PENDING = :pending
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         #
         # @see Dataleon::Models::CompanyRegistration::AmlSuspicion#type
         module Type
           extend Dataleon::Internal::Type::Enum
 
-          WATCHLIST = :Watchlist
-          PEP = :PEP
-          SANCTIONS = :Sanctions
-          RISKY_ENTITY = :RiskyEntity
-          CRIME = :Crime
+          CRIME = :crime
+          SANCTION = :sanction
+          PEP = :pep
+          ADVERSE_NEWS = :adverse_news
+          OTHER = :other
 
           # @!method self.values
           #   @return [Array<Symbol>]
@@ -241,6 +273,12 @@ module Dataleon
         #   @return [String, nil]
         optional :address, String
 
+        # @!attribute closure_date
+        #   Closure date of the company, if applicable.
+        #
+        #   @return [Date, nil]
+        optional :closure_date, Date
+
         # @!attribute commercial_name
         #   Trade or commercial name of the company.
         #
@@ -265,11 +303,29 @@ module Dataleon
         #   @return [String, nil]
         optional :email, String
 
+        # @!attribute employees
+        #   Number of employees in the company.
+        #
+        #   @return [Integer, nil]
+        optional :employees, Integer
+
         # @!attribute employer_identification_number
         #   Employer Identification Number (EIN) or equivalent.
         #
         #   @return [String, nil]
         optional :employer_identification_number, String
+
+        # @!attribute insolvency_exists
+        #   Indicates whether an insolvency procedure exists for the company.
+        #
+        #   @return [Boolean, nil]
+        optional :insolvency_exists, Dataleon::Internal::Type::Boolean
+
+        # @!attribute insolvency_ongoing
+        #   Indicates whether an insolvency procedure is ongoing for the company.
+        #
+        #   @return [Boolean, nil]
+        optional :insolvency_ongoing, Dataleon::Internal::Type::Boolean
 
         # @!attribute legal_form
         #   Legal form or structure of the company (e.g., LLC, SARL).
@@ -331,7 +387,7 @@ module Dataleon
         #   @return [String, nil]
         optional :website_url, String
 
-        # @!method initialize(address: nil, commercial_name: nil, contact: nil, country: nil, email: nil, employer_identification_number: nil, legal_form: nil, name: nil, phone_number: nil, registration_date: nil, registration_id: nil, share_capital: nil, status: nil, tax_identification_number: nil, type: nil, website_url: nil)
+        # @!method initialize(address: nil, closure_date: nil, commercial_name: nil, contact: nil, country: nil, email: nil, employees: nil, employer_identification_number: nil, insolvency_exists: nil, insolvency_ongoing: nil, legal_form: nil, name: nil, phone_number: nil, registration_date: nil, registration_id: nil, share_capital: nil, status: nil, tax_identification_number: nil, type: nil, website_url: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::CompanyRegistration::Company} for more details.
         #
@@ -339,6 +395,8 @@ module Dataleon
         #   registration ID, and address.
         #
         #   @param address [String] Full registered address of the company.
+        #
+        #   @param closure_date [Date] Closure date of the company, if applicable.
         #
         #   @param commercial_name [String] Trade or commercial name of the company.
         #
@@ -348,7 +406,13 @@ module Dataleon
         #
         #   @param email [String] Contact email address for the company.
         #
+        #   @param employees [Integer] Number of employees in the company.
+        #
         #   @param employer_identification_number [String] Employer Identification Number (EIN) or equivalent.
+        #
+        #   @param insolvency_exists [Boolean] Indicates whether an insolvency procedure exists for the company.
+        #
+        #   @param insolvency_ongoing [Boolean] Indicates whether an insolvency procedure is ongoing for the company.
         #
         #   @param legal_form [String] Legal form or structure of the company (e.g., LLC, SARL).
         #
@@ -719,6 +783,13 @@ module Dataleon
 
       # @see Dataleon::Models::CompanyRegistration#technical_data
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        # @!attribute active_aml_suspicions
+        #   Flag indicating whether there are active research AML (Anti-Money Laundering)
+        #   suspicions for the object when you apply for a new entry or get an existing one.
+        #
+        #   @return [Boolean, nil]
+        optional :active_aml_suspicions, Dataleon::Internal::Type::Boolean
+
         # @!attribute api_version
         #   Version number of the API used.
         #
@@ -815,6 +886,12 @@ module Dataleon
         #   @return [Time, nil]
         optional :rejected_at, Time, nil?: true
 
+        # @!attribute session_duration
+        #   Duration of the user session in seconds.
+        #
+        #   @return [Integer, nil]
+        optional :session_duration, Integer
+
         # @!attribute started_at
         #   Timestamp when the process started.
         #
@@ -833,9 +910,14 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {Dataleon::Models::CompanyRegistration::TechnicalData} for more details.
+        #
         #   Technical metadata related to the request, such as IP address, QR code settings,
         #   and callback URLs.
+        #
+        #   @param active_aml_suspicions [Boolean] Flag indicating whether there are active research AML (Anti-Money Laundering) su
         #
         #   @param api_version [Integer] Version number of the API used.
         #
@@ -868,6 +950,8 @@ module Dataleon
         #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
         #
         #   @param rejected_at [Time, nil] Timestamp when the request or process was rejected; null if not rejected.
+        #
+        #   @param session_duration [Integer] Duration of the user session in seconds.
         #
         #   @param started_at [Time] Timestamp when the process started.
         #

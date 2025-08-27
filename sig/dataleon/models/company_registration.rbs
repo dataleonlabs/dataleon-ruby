@@ -114,11 +114,13 @@ module Dataleon
       type aml_suspicion =
         {
           caption: String,
-          checked: bool,
+          country: String,
+          gender: String,
           relation: String,
           schema: String,
           score: Float,
           source: String,
+          status: Dataleon::Models::CompanyRegistration::AmlSuspicion::status,
           type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
         }
 
@@ -127,9 +129,13 @@ module Dataleon
 
         def caption=: (String) -> String
 
-        attr_reader checked: bool?
+        attr_reader country: String?
 
-        def checked=: (bool) -> bool
+        def country=: (String) -> String
+
+        attr_reader gender: String?
+
+        def gender=: (String) -> String
 
         attr_reader relation: String?
 
@@ -147,6 +153,12 @@ module Dataleon
 
         def source=: (String) -> String
 
+        attr_reader status: Dataleon::Models::CompanyRegistration::AmlSuspicion::status?
+
+        def status=: (
+          Dataleon::Models::CompanyRegistration::AmlSuspicion::status
+        ) -> Dataleon::Models::CompanyRegistration::AmlSuspicion::status
+
         attr_reader type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_?
 
         def type=: (
@@ -155,34 +167,50 @@ module Dataleon
 
         def initialize: (
           ?caption: String,
-          ?checked: bool,
+          ?country: String,
+          ?gender: String,
           ?relation: String,
           ?schema: String,
           ?score: Float,
           ?source: String,
+          ?status: Dataleon::Models::CompanyRegistration::AmlSuspicion::status,
           ?type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
         ) -> void
 
         def to_hash: -> {
           caption: String,
-          checked: bool,
+          country: String,
+          gender: String,
           relation: String,
           schema: String,
           score: Float,
           source: String,
+          status: Dataleon::Models::CompanyRegistration::AmlSuspicion::status,
           type: Dataleon::Models::CompanyRegistration::AmlSuspicion::type_
         }
 
-        type type_ = :Watchlist | :PEP | :Sanctions | :RiskyEntity | :Crime
+        type status = :true_positive | :false_positive | :pending
+
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TRUE_POSITIVE: :true_positive
+          FALSE_POSITIVE: :false_positive
+          PENDING: :pending
+
+          def self?.values: -> ::Array[Dataleon::Models::CompanyRegistration::AmlSuspicion::status]
+        end
+
+        type type_ = :crime | :sanction | :pep | :adverse_news | :other
 
         module Type
           extend Dataleon::Internal::Type::Enum
 
-          WATCHLIST: :Watchlist
-          PEP: :PEP
-          SANCTIONS: :Sanctions
-          RISKY_ENTITY: :RiskyEntity
-          CRIME: :Crime
+          CRIME: :crime
+          SANCTION: :sanction
+          PEP: :pep
+          ADVERSE_NEWS: :adverse_news
+          OTHER: :other
 
           def self?.values: -> ::Array[Dataleon::Models::CompanyRegistration::AmlSuspicion::type_]
         end
@@ -215,11 +243,15 @@ module Dataleon
       type company =
         {
           address: String,
+          closure_date: Date,
           commercial_name: String,
           contact: Dataleon::CompanyRegistration::Company::Contact,
           country: String,
           email: String,
+          employees: Integer,
           employer_identification_number: String,
+          insolvency_exists: bool,
+          insolvency_ongoing: bool,
           legal_form: String,
           name: String,
           phone_number: String,
@@ -236,6 +268,10 @@ module Dataleon
         attr_reader address: String?
 
         def address=: (String) -> String
+
+        attr_reader closure_date: Date?
+
+        def closure_date=: (Date) -> Date
 
         attr_reader commercial_name: String?
 
@@ -255,9 +291,21 @@ module Dataleon
 
         def email=: (String) -> String
 
+        attr_reader employees: Integer?
+
+        def employees=: (Integer) -> Integer
+
         attr_reader employer_identification_number: String?
 
         def employer_identification_number=: (String) -> String
+
+        attr_reader insolvency_exists: bool?
+
+        def insolvency_exists=: (bool) -> bool
+
+        attr_reader insolvency_ongoing: bool?
+
+        def insolvency_ongoing=: (bool) -> bool
 
         attr_reader legal_form: String?
 
@@ -301,11 +349,15 @@ module Dataleon
 
         def initialize: (
           ?address: String,
+          ?closure_date: Date,
           ?commercial_name: String,
           ?contact: Dataleon::CompanyRegistration::Company::Contact,
           ?country: String,
           ?email: String,
+          ?employees: Integer,
           ?employer_identification_number: String,
+          ?insolvency_exists: bool,
+          ?insolvency_ongoing: bool,
           ?legal_form: String,
           ?name: String,
           ?phone_number: String,
@@ -320,11 +372,15 @@ module Dataleon
 
         def to_hash: -> {
           address: String,
+          closure_date: Date,
           commercial_name: String,
           contact: Dataleon::CompanyRegistration::Company::Contact,
           country: String,
           email: String,
+          employees: Integer,
           employer_identification_number: String,
+          insolvency_exists: bool,
+          insolvency_ongoing: bool,
           legal_form: String,
           name: String,
           phone_number: String,
@@ -636,6 +692,7 @@ module Dataleon
 
       type technical_data =
         {
+          active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
           callback_url: String,
@@ -652,12 +709,17 @@ module Dataleon
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
+          session_duration: Integer,
           started_at: Time,
           transfer_at: Time,
           transfer_mode: String
         }
 
       class TechnicalData < Dataleon::Internal::Type::BaseModel
+        attr_reader active_aml_suspicions: bool?
+
+        def active_aml_suspicions=: (bool) -> bool
+
         attr_reader api_version: Integer?
 
         def api_version=: (Integer) -> Integer
@@ -716,6 +778,10 @@ module Dataleon
 
         attr_accessor rejected_at: Time?
 
+        attr_reader session_duration: Integer?
+
+        def session_duration=: (Integer) -> Integer
+
         attr_reader started_at: Time?
 
         def started_at=: (Time) -> Time
@@ -729,6 +795,7 @@ module Dataleon
         def transfer_mode=: (String) -> String
 
         def initialize: (
+          ?active_aml_suspicions: bool,
           ?api_version: Integer,
           ?approved_at: Time,
           ?callback_url: String,
@@ -745,12 +812,14 @@ module Dataleon
           ?qr_code: String,
           ?raw_data: bool,
           ?rejected_at: Time?,
+          ?session_duration: Integer,
           ?started_at: Time,
           ?transfer_at: Time,
           ?transfer_mode: String
         ) -> void
 
         def to_hash: -> {
+          active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
           callback_url: String,
@@ -767,6 +836,7 @@ module Dataleon
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
+          session_duration: Integer,
           started_at: Time,
           transfer_at: Time,
           transfer_mode: String

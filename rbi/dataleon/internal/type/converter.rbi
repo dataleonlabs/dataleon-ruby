@@ -92,6 +92,60 @@ module Dataleon
 
           # @api private
           sig do
+            params(
+              type_info:
+                T.any(
+                  {
+                    const:
+                      T.nilable(
+                        T.any(NilClass, T::Boolean, Integer, Float, Symbol)
+                      ),
+                    enum:
+                      T.nilable(
+                        T.proc.returns(
+                          Dataleon::Internal::Type::Converter::Input
+                        )
+                      ),
+                    union:
+                      T.nilable(
+                        T.proc.returns(
+                          Dataleon::Internal::Type::Converter::Input
+                        )
+                      )
+                  },
+                  T.proc.returns(Dataleon::Internal::Type::Converter::Input),
+                  Dataleon::Internal::Type::Converter::Input
+                ),
+              spec:
+                T.any(
+                  {
+                    const:
+                      T.nilable(
+                        T.any(NilClass, T::Boolean, Integer, Float, Symbol)
+                      ),
+                    enum:
+                      T.nilable(
+                        T.proc.returns(
+                          Dataleon::Internal::Type::Converter::Input
+                        )
+                      ),
+                    union:
+                      T.nilable(
+                        T.proc.returns(
+                          Dataleon::Internal::Type::Converter::Input
+                        )
+                      )
+                  },
+                  T.proc.returns(Dataleon::Internal::Type::Converter::Input),
+                  Dataleon::Internal::Type::Converter::Input
+                )
+            ).returns(Dataleon::Internal::AnyHash)
+          end
+          def self.meta_info(type_info, spec)
+          end
+
+          # @api private
+          sig do
             params(translate_names: T::Boolean).returns(
               Dataleon::Internal::Type::Converter::CoerceState
             )

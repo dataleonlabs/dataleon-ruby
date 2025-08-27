@@ -57,19 +57,13 @@ module Dataleon
         #   List of tables extracted from the document, each containing operations.
         #
         #   @return [Array<Dataleon::Models::Individuals::GenericDocument::Table>, nil]
-        optional :tables,
-                 -> {
-                   Dataleon::Internal::Type::ArrayOf[Dataleon::Individuals::GenericDocument::Table]
-                 }
+        optional :tables, -> { Dataleon::Internal::Type::ArrayOf[Dataleon::Individuals::GenericDocument::Table] }
 
         # @!attribute values
         #   Extracted key-value pairs from the document, including confidence scores.
         #
         #   @return [Array<Dataleon::Models::Individuals::GenericDocument::Value>, nil]
-        optional :values,
-                 -> {
-                   Dataleon::Internal::Type::ArrayOf[Dataleon::Individuals::GenericDocument::Value]
-                 }
+        optional :values, -> { Dataleon::Internal::Type::ArrayOf[Dataleon::Individuals::GenericDocument::Value] }
 
         # @!method initialize(id: nil, checks: nil, created_at: nil, document_type: nil, name: nil, signed_url: nil, state: nil, status: nil, tables: nil, values: nil)
         #   Represents a general document with metadata, verification checks, and extracted

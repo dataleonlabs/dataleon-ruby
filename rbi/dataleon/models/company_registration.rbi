@@ -236,12 +236,19 @@ module Dataleon
         sig { params(caption: String).void }
         attr_writer :caption
 
-        # Indicates whether this suspicion has been manually reviewed or confirmed.
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :checked
+        # Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+        sig { returns(T.nilable(String)) }
+        attr_reader :country
 
-        sig { params(checked: T::Boolean).void }
-        attr_writer :checked
+        sig { params(country: String).void }
+        attr_writer :country
+
+        # Gender associated with the suspicion, if applicable.
+        sig { returns(T.nilable(String)) }
+        attr_reader :gender
+
+        sig { params(gender: String).void }
+        attr_writer :gender
 
         # Nature of the relationship between the entity and the suspicious activity (e.g.,
         # "linked", "associated").
@@ -258,22 +265,41 @@ module Dataleon
         sig { params(schema: String).void }
         attr_writer :schema
 
-        # Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+        # Risk score between 0.0 and 1 indicating the severity of the suspicion.
         sig { returns(T.nilable(Float)) }
         attr_reader :score
 
         sig { params(score: Float).void }
         attr_writer :score
 
-        # URL identifying the source system or service providing this suspicion.
+        # Source system or service providing this suspicion.
         sig { returns(T.nilable(String)) }
         attr_reader :source
 
         sig { params(source: String).void }
         attr_writer :source
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        sig do
+          returns(
+            T.nilable(
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          )
+        end
+        attr_reader :status
+
+        sig do
+          params(
+            status:
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::OrSymbol
+          ).void
+        end
+        attr_writer :status
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         sig do
           returns(
             T.nilable(
@@ -296,30 +322,38 @@ module Dataleon
         sig do
           params(
             caption: String,
-            checked: T::Boolean,
+            country: String,
+            gender: String,
             relation: String,
             schema: String,
             score: Float,
             source: String,
+            status:
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::OrSymbol,
             type: Dataleon::CompanyRegistration::AmlSuspicion::Type::OrSymbol
           ).returns(T.attached_class)
         end
         def self.new(
           # Human-readable description or title for the suspicious finding.
           caption: nil,
-          # Indicates whether this suspicion has been manually reviewed or confirmed.
-          checked: nil,
+          # Country associated with the suspicion (ISO 3166-1 alpha-2 code).
+          country: nil,
+          # Gender associated with the suspicion, if applicable.
+          gender: nil,
           # Nature of the relationship between the entity and the suspicious activity (e.g.,
           # "linked", "associated").
           relation: nil,
           # Version of the evaluation schema or rule engine used.
           schema: nil,
-          # Risk score between 0.0 and 1.0 indicating the severity of the suspicion.
+          # Risk score between 0.0 and 1 indicating the severity of the suspicion.
           score: nil,
-          # URL identifying the source system or service providing this suspicion.
+          # Source system or service providing this suspicion.
           source: nil,
-          # Watchlist category associated with the suspicion. Possible values include
-          # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+          # Status of the suspicion review process. Possible values: "true_positive",
+          # "false_positive", "pending".
+          status: nil,
+          # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+          # "adverse_news", "other".
           type: nil
         )
         end
@@ -328,11 +362,14 @@ module Dataleon
           override.returns(
             {
               caption: String,
-              checked: T::Boolean,
+              country: String,
+              gender: String,
               relation: String,
               schema: String,
               score: Float,
               source: String,
+              status:
+                Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol,
               type:
                 Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             }
@@ -341,8 +378,46 @@ module Dataleon
         def to_hash
         end
 
-        # Watchlist category associated with the suspicion. Possible values include
-        # Watchlist types like "PEP", "Sanctions", "RiskyEntity", or "Crime".
+        # Status of the suspicion review process. Possible values: "true_positive",
+        # "false_positive", "pending".
+        module Status
+          extend Dataleon::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Dataleon::CompanyRegistration::AmlSuspicion::Status)
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          TRUE_POSITIVE =
+            T.let(
+              :true_positive,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          FALSE_POSITIVE =
+            T.let(
+              :false_positive,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+          PENDING =
+            T.let(
+              :pending,
+              Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Dataleon::CompanyRegistration::AmlSuspicion::Status::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+
+        # Category of the suspicion. Possible values: "crime", "sanction", "pep",
+        # "adverse_news", "other".
         module Type
           extend Dataleon::Internal::Type::Enum
 
@@ -352,29 +427,29 @@ module Dataleon
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          WATCHLIST =
+          CRIME =
             T.let(
-              :Watchlist,
+              :crime,
+              Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
+            )
+          SANCTION =
+            T.let(
+              :sanction,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
           PEP =
             T.let(
-              :PEP,
+              :pep,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
-          SANCTIONS =
+          ADVERSE_NEWS =
             T.let(
-              :Sanctions,
+              :adverse_news,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
-          RISKY_ENTITY =
+          OTHER =
             T.let(
-              :RiskyEntity,
-              Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
-            )
-          CRIME =
-            T.let(
-              :Crime,
+              :other,
               Dataleon::CompanyRegistration::AmlSuspicion::Type::TaggedSymbol
             )
 
@@ -460,6 +535,13 @@ module Dataleon
         sig { params(address: String).void }
         attr_writer :address
 
+        # Closure date of the company, if applicable.
+        sig { returns(T.nilable(Date)) }
+        attr_reader :closure_date
+
+        sig { params(closure_date: Date).void }
+        attr_writer :closure_date
+
         # Trade or commercial name of the company.
         sig { returns(T.nilable(String)) }
         attr_reader :commercial_name
@@ -494,12 +576,33 @@ module Dataleon
         sig { params(email: String).void }
         attr_writer :email
 
+        # Number of employees in the company.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :employees
+
+        sig { params(employees: Integer).void }
+        attr_writer :employees
+
         # Employer Identification Number (EIN) or equivalent.
         sig { returns(T.nilable(String)) }
         attr_reader :employer_identification_number
 
         sig { params(employer_identification_number: String).void }
         attr_writer :employer_identification_number
+
+        # Indicates whether an insolvency procedure exists for the company.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :insolvency_exists
+
+        sig { params(insolvency_exists: T::Boolean).void }
+        attr_writer :insolvency_exists
+
+        # Indicates whether an insolvency procedure is ongoing for the company.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :insolvency_ongoing
+
+        sig { params(insolvency_ongoing: T::Boolean).void }
+        attr_writer :insolvency_ongoing
 
         # Legal form or structure of the company (e.g., LLC, SARL).
         sig { returns(T.nilable(String)) }
@@ -576,11 +679,15 @@ module Dataleon
         sig do
           params(
             address: String,
+            closure_date: Date,
             commercial_name: String,
             contact: Dataleon::CompanyRegistration::Company::Contact::OrHash,
             country: String,
             email: String,
+            employees: Integer,
             employer_identification_number: String,
+            insolvency_exists: T::Boolean,
+            insolvency_ongoing: T::Boolean,
             legal_form: String,
             name: String,
             phone_number: String,
@@ -596,6 +703,8 @@ module Dataleon
         def self.new(
           # Full registered address of the company.
           address: nil,
+          # Closure date of the company, if applicable.
+          closure_date: nil,
           # Trade or commercial name of the company.
           commercial_name: nil,
           # Contact information for the company, including email, phone number, and address.
@@ -604,8 +713,14 @@ module Dataleon
           country: nil,
           # Contact email address for the company.
           email: nil,
+          # Number of employees in the company.
+          employees: nil,
           # Employer Identification Number (EIN) or equivalent.
           employer_identification_number: nil,
+          # Indicates whether an insolvency procedure exists for the company.
+          insolvency_exists: nil,
+          # Indicates whether an insolvency procedure is ongoing for the company.
+          insolvency_ongoing: nil,
           # Legal form or structure of the company (e.g., LLC, SARL).
           legal_form: nil,
           # Legal registered name of the company.
@@ -633,11 +748,15 @@ module Dataleon
           override.returns(
             {
               address: String,
+              closure_date: Date,
               commercial_name: String,
               contact: Dataleon::CompanyRegistration::Company::Contact,
               country: String,
               email: String,
+              employees: Integer,
               employer_identification_number: String,
+              insolvency_exists: T::Boolean,
+              insolvency_ongoing: T::Boolean,
               legal_form: String,
               name: String,
               phone_number: String,
@@ -1261,6 +1380,14 @@ module Dataleon
             )
           end
 
+        # Flag indicating whether there are active research AML (Anti-Money Laundering)
+        # suspicions for the object when you apply for a new entry or get an existing one.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :active_aml_suspicions
+
+        sig { params(active_aml_suspicions: T::Boolean).void }
+        attr_writer :active_aml_suspicions
+
         # Version number of the API used.
         sig { returns(T.nilable(Integer)) }
         attr_reader :api_version
@@ -1364,6 +1491,13 @@ module Dataleon
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
 
+        # Duration of the user session in seconds.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :session_duration
+
+        sig { params(session_duration: Integer).void }
+        attr_writer :session_duration
+
         # Timestamp when the process started.
         sig { returns(T.nilable(Time)) }
         attr_reader :started_at
@@ -1389,6 +1523,7 @@ module Dataleon
         # and callback URLs.
         sig do
           params(
+            active_aml_suspicions: T::Boolean,
             api_version: Integer,
             approved_at: Time,
             callback_url: String,
@@ -1405,12 +1540,16 @@ module Dataleon
             qr_code: String,
             raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
+            session_duration: Integer,
             started_at: Time,
             transfer_at: Time,
             transfer_mode: String
           ).returns(T.attached_class)
         end
         def self.new(
+          # Flag indicating whether there are active research AML (Anti-Money Laundering)
+          # suspicions for the object when you apply for a new entry or get an existing one.
+          active_aml_suspicions: nil,
           # Version number of the API used.
           api_version: nil,
           # Timestamp when the request or process was approved.
@@ -1443,6 +1582,8 @@ module Dataleon
           raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
+          # Duration of the user session in seconds.
+          session_duration: nil,
           # Timestamp when the process started.
           started_at: nil,
           # Date/time of data transfer.
@@ -1455,6 +1596,7 @@ module Dataleon
         sig do
           override.returns(
             {
+              active_aml_suspicions: T::Boolean,
               api_version: Integer,
               approved_at: Time,
               callback_url: String,
@@ -1471,6 +1613,7 @@ module Dataleon
               qr_code: String,
               raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
+              session_duration: Integer,
               started_at: Time,
               transfer_at: Time,
               transfer_mode: String
