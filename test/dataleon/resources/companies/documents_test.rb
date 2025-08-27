@@ -23,7 +23,7 @@ class Dataleon::Test::Resources::Companies::DocumentsTest < Dataleon::Test::Reso
   def test_upload_required_params
     skip("Prism tests are disabled")
 
-    response = @dataleon.companies.documents.upload("company_id", document_type: :bank_statements)
+    response = @dataleon.companies.documents.upload("company_id", document_type: :liasse_fiscale)
 
     assert_pattern do
       response => Dataleon::Individuals::GenericDocument
