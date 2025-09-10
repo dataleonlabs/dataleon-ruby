@@ -801,6 +801,13 @@ module Dataleon
         sig { params(maiden_name: String).void }
         attr_writer :maiden_name
 
+        # Nationality of the individual (ISO 3166-1 alpha-3 country code).
+        sig { returns(T.nilable(String)) }
+        attr_reader :nationality
+
+        sig { params(nationality: String).void }
+        attr_writer :nationality
+
         # Contact phone number including country code.
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number
@@ -820,6 +827,7 @@ module Dataleon
             gender: String,
             last_name: String,
             maiden_name: String,
+            nationality: String,
             phone_number: String
           ).returns(T.attached_class)
         end
@@ -840,6 +848,8 @@ module Dataleon
           last_name: nil,
           # Maiden name of the person, if applicable.
           maiden_name: nil,
+          # Nationality of the individual (ISO 3166-1 alpha-3 country code).
+          nationality: nil,
           # Contact phone number including country code.
           phone_number: nil
         )
@@ -856,6 +866,7 @@ module Dataleon
               gender: String,
               last_name: String,
               maiden_name: String,
+              nationality: String,
               phone_number: String
             }
           )
@@ -1088,6 +1099,13 @@ module Dataleon
         sig { params(export_type: String).void }
         attr_writer :export_type
 
+        # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        sig { returns(T.nilable(Float)) }
+        attr_reader :filtering_score_aml_suspicions
+
+        sig { params(filtering_score_aml_suspicions: Float).void }
+        attr_writer :filtering_score_aml_suspicions
+
         # Timestamp when the process finished.
         sig { returns(T.nilable(Time)) }
         attr_reader :finished_at
@@ -1184,6 +1202,7 @@ module Dataleon
             disable_notification: T::Boolean,
             disable_notification_date: T.nilable(Time),
             export_type: String,
+            filtering_score_aml_suspicions: Float,
             finished_at: Time,
             ip: String,
             language: String,
@@ -1217,6 +1236,8 @@ module Dataleon
           disable_notification_date: nil,
           # Export format defined by the API (e.g., "json", "xml").
           export_type: nil,
+          # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+          filtering_score_aml_suspicions: nil,
           # Timestamp when the process finished.
           finished_at: nil,
           # IP address of the our system handling the request.
@@ -1257,6 +1278,7 @@ module Dataleon
               disable_notification: T::Boolean,
               disable_notification_date: T.nilable(Time),
               export_type: String,
+              filtering_score_aml_suspicions: Float,
               finished_at: Time,
               ip: String,
               language: String,

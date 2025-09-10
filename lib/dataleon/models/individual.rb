@@ -497,13 +497,19 @@ module Dataleon
         #   @return [String, nil]
         optional :maiden_name, String
 
+        # @!attribute nationality
+        #   Nationality of the individual (ISO 3166-1 alpha-3 country code).
+        #
+        #   @return [String, nil]
+        optional :nationality, String
+
         # @!attribute phone_number
         #   Contact phone number including country code.
         #
         #   @return [String, nil]
         optional :phone_number, String
 
-        # @!method initialize(birthday: nil, email: nil, face_image_signed_url: nil, first_name: nil, full_name: nil, gender: nil, last_name: nil, maiden_name: nil, phone_number: nil)
+        # @!method initialize(birthday: nil, email: nil, face_image_signed_url: nil, first_name: nil, full_name: nil, gender: nil, last_name: nil, maiden_name: nil, nationality: nil, phone_number: nil)
         #   Personal details of the individual, such as name, date of birth, and contact
         #   info.
         #
@@ -522,6 +528,8 @@ module Dataleon
         #   @param last_name [String] Last (family) name of the person.
         #
         #   @param maiden_name [String] Maiden name of the person, if applicable.
+        #
+        #   @param nationality [String] Nationality of the individual (ISO 3166-1 alpha-3 country code).
         #
         #   @param phone_number [String] Contact phone number including country code.
       end
@@ -674,6 +682,12 @@ module Dataleon
         #   @return [String, nil]
         optional :export_type, String
 
+        # @!attribute filtering_score_aml_suspicions
+        #   Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        #
+        #   @return [Float, nil]
+        optional :filtering_score_aml_suspicions, Float
+
         # @!attribute finished_at
         #   Timestamp when the process finished.
         #
@@ -752,7 +766,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::Individual::TechnicalData} for more details.
         #
@@ -773,6 +787,8 @@ module Dataleon
         #   @param disable_notification_date [Time, nil] Timestamp when notifications were disabled; null if never disabled.
         #
         #   @param export_type [String] Export format defined by the API (e.g., "json", "xml").
+        #
+        #   @param filtering_score_aml_suspicions [Float] Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
         #
         #   @param finished_at [Time] Timestamp when the process finished.
         #

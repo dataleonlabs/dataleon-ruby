@@ -163,6 +163,7 @@ module Dataleon
           active_aml_suspicions: bool,
           callback_url: String,
           callback_url_notification: String,
+          filtering_score_aml_suspicions: Float,
           language: String,
           raw_data: bool
         }
@@ -180,6 +181,10 @@ module Dataleon
 
         def callback_url_notification=: (String) -> String
 
+        attr_reader filtering_score_aml_suspicions: Float?
+
+        def filtering_score_aml_suspicions=: (Float) -> Float
+
         attr_reader language: String?
 
         def language=: (String) -> String
@@ -192,6 +197,7 @@ module Dataleon
           ?active_aml_suspicions: bool,
           ?callback_url: String,
           ?callback_url_notification: String,
+          ?filtering_score_aml_suspicions: Float,
           ?language: String,
           ?raw_data: bool
         ) -> void
@@ -200,6 +206,7 @@ module Dataleon
           active_aml_suspicions: bool,
           callback_url: String,
           callback_url_notification: String,
+          filtering_score_aml_suspicions: Float,
           language: String,
           raw_data: bool
         }
