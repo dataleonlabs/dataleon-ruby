@@ -83,13 +83,19 @@ module Dataleon
         #   @return [String, nil]
         optional :maiden_name, String
 
+        # @!attribute nationality
+        #   Nationality of the individual (ISO 3166-1 alpha-3 country code).
+        #
+        #   @return [String, nil]
+        optional :nationality, String
+
         # @!attribute phone_number
         #   Phone number of the individual.
         #
         #   @return [String, nil]
         optional :phone_number, String
 
-        # @!method initialize(birthday: nil, email: nil, first_name: nil, gender: nil, last_name: nil, maiden_name: nil, phone_number: nil)
+        # @!method initialize(birthday: nil, email: nil, first_name: nil, gender: nil, last_name: nil, maiden_name: nil, nationality: nil, phone_number: nil)
         #   Personal information about the individual.
         #
         #   @param birthday [String] Date of birth in DD/MM/YYYY format.
@@ -103,6 +109,8 @@ module Dataleon
         #   @param last_name [String] Last name (family name) of the individual.
         #
         #   @param maiden_name [String] Maiden name, if applicable.
+        #
+        #   @param nationality [String] Nationality of the individual (ISO 3166-1 alpha-3 country code).
         #
         #   @param phone_number [String] Phone number of the individual.
 
@@ -141,6 +149,12 @@ module Dataleon
         #   @return [String, nil]
         optional :callback_url_notification, String
 
+        # @!attribute filtering_score_aml_suspicions
+        #   Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        #
+        #   @return [Float, nil]
+        optional :filtering_score_aml_suspicions, Float
+
         # @!attribute language
         #   Preferred language for communication (e.g., "eng", "fra").
         #
@@ -153,7 +167,7 @@ module Dataleon
         #   @return [Boolean, nil]
         optional :raw_data, Dataleon::Internal::Type::Boolean
 
-        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, language: nil, raw_data: nil)
+        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, filtering_score_aml_suspicions: nil, language: nil, raw_data: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::IndividualCreateParams::TechnicalData} for more details.
         #
@@ -164,6 +178,8 @@ module Dataleon
         #   @param callback_url [String] URL to call back upon completion of processing.
         #
         #   @param callback_url_notification [String] URL for receive notifications about the processing state or status.
+        #
+        #   @param filtering_score_aml_suspicions [Float] Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
         #
         #   @param language [String] Preferred language for communication (e.g., "eng", "fra").
         #

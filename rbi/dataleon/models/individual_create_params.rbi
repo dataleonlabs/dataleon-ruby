@@ -145,6 +145,13 @@ module Dataleon
         sig { params(maiden_name: String).void }
         attr_writer :maiden_name
 
+        # Nationality of the individual (ISO 3166-1 alpha-3 country code).
+        sig { returns(T.nilable(String)) }
+        attr_reader :nationality
+
+        sig { params(nationality: String).void }
+        attr_writer :nationality
+
         # Phone number of the individual.
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number
@@ -161,6 +168,7 @@ module Dataleon
             gender: Dataleon::IndividualCreateParams::Person::Gender::OrSymbol,
             last_name: String,
             maiden_name: String,
+            nationality: String,
             phone_number: String
           ).returns(T.attached_class)
         end
@@ -177,6 +185,8 @@ module Dataleon
           last_name: nil,
           # Maiden name, if applicable.
           maiden_name: nil,
+          # Nationality of the individual (ISO 3166-1 alpha-3 country code).
+          nationality: nil,
           # Phone number of the individual.
           phone_number: nil
         )
@@ -192,6 +202,7 @@ module Dataleon
                 Dataleon::IndividualCreateParams::Person::Gender::OrSymbol,
               last_name: String,
               maiden_name: String,
+              nationality: String,
               phone_number: String
             }
           )
@@ -264,6 +275,13 @@ module Dataleon
         sig { params(callback_url_notification: String).void }
         attr_writer :callback_url_notification
 
+        # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        sig { returns(T.nilable(Float)) }
+        attr_reader :filtering_score_aml_suspicions
+
+        sig { params(filtering_score_aml_suspicions: Float).void }
+        attr_writer :filtering_score_aml_suspicions
+
         # Preferred language for communication (e.g., "eng", "fra").
         sig { returns(T.nilable(String)) }
         attr_reader :language
@@ -284,6 +302,7 @@ module Dataleon
             active_aml_suspicions: T::Boolean,
             callback_url: String,
             callback_url_notification: String,
+            filtering_score_aml_suspicions: Float,
             language: String,
             raw_data: T::Boolean
           ).returns(T.attached_class)
@@ -297,6 +316,8 @@ module Dataleon
           callback_url: nil,
           # URL for receive notifications about the processing state or status.
           callback_url_notification: nil,
+          # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+          filtering_score_aml_suspicions: nil,
           # Preferred language for communication (e.g., "eng", "fra").
           language: nil,
           # Flag indicating whether to include raw data in the response.
@@ -310,6 +331,7 @@ module Dataleon
               active_aml_suspicions: T::Boolean,
               callback_url: String,
               callback_url_notification: String,
+              filtering_score_aml_suspicions: Float,
               language: String,
               raw_data: T::Boolean
             }

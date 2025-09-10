@@ -700,6 +700,7 @@ module Dataleon
           disable_notification: bool,
           disable_notification_date: Time?,
           export_type: String,
+          filtering_score_aml_suspicions: Float,
           finished_at: Time,
           ip: String,
           language: String,
@@ -745,6 +746,10 @@ module Dataleon
         attr_reader export_type: String?
 
         def export_type=: (String) -> String
+
+        attr_reader filtering_score_aml_suspicions: Float?
+
+        def filtering_score_aml_suspicions=: (Float) -> Float
 
         attr_reader finished_at: Time?
 
@@ -803,6 +808,7 @@ module Dataleon
           ?disable_notification: bool,
           ?disable_notification_date: Time?,
           ?export_type: String,
+          ?filtering_score_aml_suspicions: Float,
           ?finished_at: Time,
           ?ip: String,
           ?language: String,
@@ -827,6 +833,7 @@ module Dataleon
           disable_notification: bool,
           disable_notification_date: Time?,
           export_type: String,
+          filtering_score_aml_suspicions: Float,
           finished_at: Time,
           ip: String,
           language: String,

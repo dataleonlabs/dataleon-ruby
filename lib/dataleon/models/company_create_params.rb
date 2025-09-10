@@ -195,6 +195,12 @@ module Dataleon
         #   @return [String, nil]
         optional :callback_url_notification, String
 
+        # @!attribute filtering_score_aml_suspicions
+        #   Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        #
+        #   @return [Float, nil]
+        optional :filtering_score_aml_suspicions, Float
+
         # @!attribute language
         #   Preferred language for responses or notifications (e.g., "eng", "fra").
         #
@@ -207,7 +213,7 @@ module Dataleon
         #   @return [Boolean, nil]
         optional :raw_data, Dataleon::Internal::Type::Boolean
 
-        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, language: nil, raw_data: nil)
+        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, filtering_score_aml_suspicions: nil, language: nil, raw_data: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::CompanyCreateParams::TechnicalData} for more details.
         #
@@ -218,6 +224,8 @@ module Dataleon
         #   @param callback_url [String] URL to receive a callback once the company is processed.
         #
         #   @param callback_url_notification [String] URL to receive notifications about the processing state and status.
+        #
+        #   @param filtering_score_aml_suspicions [Float] Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
         #
         #   @param language [String] Preferred language for responses or notifications (e.g., "eng", "fra").
         #
