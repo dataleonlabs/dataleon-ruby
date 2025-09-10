@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-09-10)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** api update ([6413660](https://github.com/dataleonlabs/dataleon-ruby/commit/641366028b90c0982a2ab33de4ead0ac80d99658))
+
 ## 0.1.0-alpha.1 (2025-08-27)
 
 Full Changelog: [v0.0.1-alpha.1...v0.1.0-alpha.1](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.0.1-alpha.1...v0.1.0-alpha.1)
