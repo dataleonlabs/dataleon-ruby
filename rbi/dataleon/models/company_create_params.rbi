@@ -302,6 +302,13 @@ module Dataleon
         sig { params(callback_url_notification: String).void }
         attr_writer :callback_url_notification
 
+        # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        sig { returns(T.nilable(Float)) }
+        attr_reader :filtering_score_aml_suspicions
+
+        sig { params(filtering_score_aml_suspicions: Float).void }
+        attr_writer :filtering_score_aml_suspicions
+
         # Preferred language for responses or notifications (e.g., "eng", "fra").
         sig { returns(T.nilable(String)) }
         attr_reader :language
@@ -322,6 +329,7 @@ module Dataleon
             active_aml_suspicions: T::Boolean,
             callback_url: String,
             callback_url_notification: String,
+            filtering_score_aml_suspicions: Float,
             language: String,
             raw_data: T::Boolean
           ).returns(T.attached_class)
@@ -335,6 +343,8 @@ module Dataleon
           callback_url: nil,
           # URL to receive notifications about the processing state and status.
           callback_url_notification: nil,
+          # Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+          filtering_score_aml_suspicions: nil,
           # Preferred language for responses or notifications (e.g., "eng", "fra").
           language: nil,
           # Flag indicating whether to include raw data in the response.
@@ -348,6 +358,7 @@ module Dataleon
               active_aml_suspicions: T::Boolean,
               callback_url: String,
               callback_url_notification: String,
+              filtering_score_aml_suspicions: Float,
               language: String,
               raw_data: T::Boolean
             }

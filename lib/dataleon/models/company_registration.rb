@@ -832,6 +832,12 @@ module Dataleon
         #   @return [String, nil]
         optional :export_type, String
 
+        # @!attribute filtering_score_aml_suspicions
+        #   Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
+        #
+        #   @return [Float, nil]
+        optional :filtering_score_aml_suspicions, Float
+
         # @!attribute finished_at
         #   Timestamp when the process finished.
         #
@@ -910,7 +916,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::CompanyRegistration::TechnicalData} for more details.
         #
@@ -932,6 +938,8 @@ module Dataleon
         #   @param disable_notification_date [Time, nil] Timestamp when notifications were disabled; null if never disabled.
         #
         #   @param export_type [String] Export format defined by the API (e.g., "json", "xml").
+        #
+        #   @param filtering_score_aml_suspicions [Float] Minimum filtering score (between 0 and 1) for AML suspicions to be considered.
         #
         #   @param finished_at [Time] Timestamp when the process finished.
         #
