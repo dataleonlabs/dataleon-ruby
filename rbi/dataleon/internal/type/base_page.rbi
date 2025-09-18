@@ -30,7 +30,7 @@ module Dataleon
           params(
             client: Dataleon::Internal::Transport::BaseClient,
             req: Dataleon::Internal::Transport::BaseClient::RequestComponents,
-            headers: T.any(T::Hash[String, String], Net::HTTPHeader),
+            headers: T::Hash[String, String],
             page_data: T.anything
           ).void
         end
