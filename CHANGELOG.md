@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-09-27)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* expose response headers for both streams and errors ([ebb2504](https://github.com/dataleonlabs/dataleon-ruby/commit/ebb2504fa38612b5190c63cac4d6e60e66bcddbe))
+
+
+### Bug Fixes
+
+* shorten multipart boundary sep to less than RFC specificed max length ([9e558ee](https://github.com/dataleonlabs/dataleon-ruby/commit/9e558ee95b15722045ce4a262ee3f2e5f73bc3c0))
+
+
+### Performance Improvements
+
+* faster code formatting ([27804b2](https://github.com/dataleonlabs/dataleon-ruby/commit/27804b27cd7a0c1a59944c5b2f013c036c7e94eb))
+
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([c535098](https://github.com/dataleonlabs/dataleon-ruby/commit/c5350986f63181050f11ed546727b8a0d819585a))
+* **internal:** codegen related update ([32f1bc3](https://github.com/dataleonlabs/dataleon-ruby/commit/32f1bc3178d0a146dbb0cea870bc94c9e7c7d919))
+
 ## 0.1.0-alpha.2 (2025-09-10)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
