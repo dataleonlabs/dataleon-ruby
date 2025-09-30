@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-09-30)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Bug Fixes
+
+* always send `filename=...` for multipart requests where a file is expected ([31a5af0](https://github.com/dataleonlabs/dataleon-ruby/commit/31a5af0186e3d03adbfae5d66485923171db9029))
+
+
+### Chores
+
+* allow fast-format to use bsd sed as well ([be7168e](https://github.com/dataleonlabs/dataleon-ruby/commit/be7168e38a0b8f4acb0833bda45cf98083824890))
+
 ## 0.1.0-alpha.3 (2025-09-27)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
