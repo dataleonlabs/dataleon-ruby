@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-10-01)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Bug Fixes
+
+* coroutine leaks from connection pool ([06da7fc](https://github.com/dataleonlabs/dataleon-ruby/commit/06da7fcb30b16624046a39e01933adf66305830e))
+
 ## 0.1.0-alpha.4 (2025-09-30)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
