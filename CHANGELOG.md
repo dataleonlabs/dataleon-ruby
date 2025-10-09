@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-10-09)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Chores
+
+* ignore linter error for tests having large collections ([a1dea27](https://github.com/dataleonlabs/dataleon-ruby/commit/a1dea27cf8d7dfa861fad0efd4b67535b9c1b361))
+
 ## 0.1.0-alpha.5 (2025-10-01)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
