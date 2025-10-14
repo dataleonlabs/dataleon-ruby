@@ -165,6 +165,7 @@ module Dataleon
           callback_url_notification: String,
           filtering_score_aml_suspicions: Float,
           language: String,
+          portal_steps: ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step],
           raw_data: bool
         }
 
@@ -189,6 +190,12 @@ module Dataleon
 
         def language=: (String) -> String
 
+        attr_reader portal_steps: ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step]?
+
+        def portal_steps=: (
+          ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step]
+        ) -> ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step]
+
         attr_reader raw_data: bool?
 
         def raw_data=: (bool) -> bool
@@ -199,6 +206,7 @@ module Dataleon
           ?callback_url_notification: String,
           ?filtering_score_aml_suspicions: Float,
           ?language: String,
+          ?portal_steps: ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step],
           ?raw_data: bool
         ) -> void
 
@@ -208,8 +216,28 @@ module Dataleon
           callback_url_notification: String,
           filtering_score_aml_suspicions: Float,
           language: String,
+          portal_steps: ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step],
           raw_data: bool
         }
+
+        type portal_step =
+          :identity_verification
+          | :document_signing
+          | :proof_of_address
+          | :selfie
+          | :face_match
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          IDENTITY_VERIFICATION: :identity_verification
+          DOCUMENT_SIGNING: :document_signing
+          PROOF_OF_ADDRESS: :proof_of_address
+          SELFIE: :selfie
+          FACE_MATCH: :face_match
+
+          def self?.values: -> ::Array[Dataleon::Models::CompanyCreateParams::TechnicalData::portal_step]
+        end
       end
     end
   end
