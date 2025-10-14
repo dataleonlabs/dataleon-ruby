@@ -724,6 +724,13 @@ module Dataleon
         #   @return [Boolean, nil]
         optional :notification_confirmation, Dataleon::Internal::Type::Boolean
 
+        # @!attribute portal_steps
+        #   List of steps to include in the portal workflow.
+        #
+        #   @return [Array<Symbol, Dataleon::Models::Individual::TechnicalData::PortalStep>, nil]
+        optional :portal_steps,
+                 -> { Dataleon::Internal::Type::ArrayOf[enum: Dataleon::Individual::TechnicalData::PortalStep] }
+
         # @!attribute qr_code
         #   Indicates whether QR code is enabled ("true" or "false").
         #
@@ -766,7 +773,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, portal_steps: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::Individual::TechnicalData} for more details.
         #
@@ -802,6 +809,8 @@ module Dataleon
         #
         #   @param notification_confirmation [Boolean] Flag indicating if notification confirmation is required or received.
         #
+        #   @param portal_steps [Array<Symbol, Dataleon::Models::Individual::TechnicalData::PortalStep>] List of steps to include in the portal workflow.
+        #
         #   @param qr_code [String] Indicates whether QR code is enabled ("true" or "false").
         #
         #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
@@ -815,6 +824,19 @@ module Dataleon
         #   @param transfer_at [Time] Date/time of data transfer.
         #
         #   @param transfer_mode [String] Mode of data transfer.
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          IDENTITY_VERIFICATION = :identity_verification
+          DOCUMENT_SIGNING = :document_signing
+          PROOF_OF_ADDRESS = :proof_of_address
+          SELFIE = :selfie
+          FACE_MATCH = :face_match
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end

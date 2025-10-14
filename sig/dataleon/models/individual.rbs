@@ -584,6 +584,7 @@ module Dataleon
           location_ip: String,
           need_review_at: Time?,
           notification_confirmation: bool,
+          portal_steps: ::Array[Dataleon::Models::Individual::TechnicalData::portal_step],
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
@@ -650,6 +651,12 @@ module Dataleon
 
         def notification_confirmation=: (bool) -> bool
 
+        attr_reader portal_steps: ::Array[Dataleon::Models::Individual::TechnicalData::portal_step]?
+
+        def portal_steps=: (
+          ::Array[Dataleon::Models::Individual::TechnicalData::portal_step]
+        ) -> ::Array[Dataleon::Models::Individual::TechnicalData::portal_step]
+
         attr_reader qr_code: String?
 
         def qr_code=: (String) -> String
@@ -692,6 +699,7 @@ module Dataleon
           ?location_ip: String,
           ?need_review_at: Time?,
           ?notification_confirmation: bool,
+          ?portal_steps: ::Array[Dataleon::Models::Individual::TechnicalData::portal_step],
           ?qr_code: String,
           ?raw_data: bool,
           ?rejected_at: Time?,
@@ -717,6 +725,7 @@ module Dataleon
           location_ip: String,
           need_review_at: Time?,
           notification_confirmation: bool,
+          portal_steps: ::Array[Dataleon::Models::Individual::TechnicalData::portal_step],
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
@@ -725,6 +734,25 @@ module Dataleon
           transfer_at: Time,
           transfer_mode: String
         }
+
+        type portal_step =
+          :identity_verification
+          | :document_signing
+          | :proof_of_address
+          | :selfie
+          | :face_match
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          IDENTITY_VERIFICATION: :identity_verification
+          DOCUMENT_SIGNING: :document_signing
+          PROOF_OF_ADDRESS: :proof_of_address
+          SELFIE: :selfie
+          FACE_MATCH: :face_match
+
+          def self?.values: -> ::Array[Dataleon::Models::Individual::TechnicalData::portal_step]
+        end
       end
     end
   end

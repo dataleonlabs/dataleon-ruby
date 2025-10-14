@@ -161,13 +161,20 @@ module Dataleon
         #   @return [String, nil]
         optional :language, String
 
+        # @!attribute portal_steps
+        #   List of steps to include in the portal workflow.
+        #
+        #   @return [Array<Symbol, Dataleon::Models::IndividualUpdateParams::TechnicalData::PortalStep>, nil]
+        optional :portal_steps,
+                 -> { Dataleon::Internal::Type::ArrayOf[enum: Dataleon::IndividualUpdateParams::TechnicalData::PortalStep] }
+
         # @!attribute raw_data
         #   Flag indicating whether to include raw data in the response.
         #
         #   @return [Boolean, nil]
         optional :raw_data, Dataleon::Internal::Type::Boolean
 
-        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, filtering_score_aml_suspicions: nil, language: nil, raw_data: nil)
+        # @!method initialize(active_aml_suspicions: nil, callback_url: nil, callback_url_notification: nil, filtering_score_aml_suspicions: nil, language: nil, portal_steps: nil, raw_data: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::IndividualUpdateParams::TechnicalData} for more details.
         #
@@ -183,7 +190,22 @@ module Dataleon
         #
         #   @param language [String] Preferred language for communication (e.g., "eng", "fra").
         #
+        #   @param portal_steps [Array<Symbol, Dataleon::Models::IndividualUpdateParams::TechnicalData::PortalStep>] List of steps to include in the portal workflow.
+        #
         #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          IDENTITY_VERIFICATION = :identity_verification
+          DOCUMENT_SIGNING = :document_signing
+          PROOF_OF_ADDRESS = :proof_of_address
+          SELFIE = :selfie
+          FACE_MATCH = :face_match
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end

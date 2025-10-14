@@ -289,6 +289,28 @@ module Dataleon
         sig { params(language: String).void }
         attr_writer :language
 
+        # List of steps to include in the portal workflow.
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                Dataleon::IndividualCreateParams::TechnicalData::PortalStep::OrSymbol
+              ]
+            )
+          )
+        end
+        attr_reader :portal_steps
+
+        sig do
+          params(
+            portal_steps:
+              T::Array[
+                Dataleon::IndividualCreateParams::TechnicalData::PortalStep::OrSymbol
+              ]
+          ).void
+        end
+        attr_writer :portal_steps
+
         # Flag indicating whether to include raw data in the response.
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :raw_data
@@ -304,6 +326,10 @@ module Dataleon
             callback_url_notification: String,
             filtering_score_aml_suspicions: Float,
             language: String,
+            portal_steps:
+              T::Array[
+                Dataleon::IndividualCreateParams::TechnicalData::PortalStep::OrSymbol
+              ],
             raw_data: T::Boolean
           ).returns(T.attached_class)
         end
@@ -320,6 +346,8 @@ module Dataleon
           filtering_score_aml_suspicions: nil,
           # Preferred language for communication (e.g., "eng", "fra").
           language: nil,
+          # List of steps to include in the portal workflow.
+          portal_steps: nil,
           # Flag indicating whether to include raw data in the response.
           raw_data: nil
         )
@@ -333,11 +361,64 @@ module Dataleon
               callback_url_notification: String,
               filtering_score_aml_suspicions: Float,
               language: String,
+              portal_steps:
+                T::Array[
+                  Dataleon::IndividualCreateParams::TechnicalData::PortalStep::OrSymbol
+                ],
               raw_data: T::Boolean
             }
           )
         end
         def to_hash
+        end
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                Dataleon::IndividualCreateParams::TechnicalData::PortalStep
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          IDENTITY_VERIFICATION =
+            T.let(
+              :identity_verification,
+              Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+            )
+          DOCUMENT_SIGNING =
+            T.let(
+              :document_signing,
+              Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+            )
+          PROOF_OF_ADDRESS =
+            T.let(
+              :proof_of_address,
+              Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+            )
+          SELFIE =
+            T.let(
+              :selfie,
+              Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+            )
+          FACE_MATCH =
+            T.let(
+              :face_match,
+              Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Dataleon::IndividualCreateParams::TechnicalData::PortalStep::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

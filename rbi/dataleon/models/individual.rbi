@@ -1145,6 +1145,28 @@ module Dataleon
         sig { params(notification_confirmation: T::Boolean).void }
         attr_writer :notification_confirmation
 
+        # List of steps to include in the portal workflow.
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+              ]
+            )
+          )
+        end
+        attr_reader :portal_steps
+
+        sig do
+          params(
+            portal_steps:
+              T::Array[
+                Dataleon::Individual::TechnicalData::PortalStep::OrSymbol
+              ]
+          ).void
+        end
+        attr_writer :portal_steps
+
         # Indicates whether QR code is enabled ("true" or "false").
         sig { returns(T.nilable(String)) }
         attr_reader :qr_code
@@ -1209,6 +1231,10 @@ module Dataleon
             location_ip: String,
             need_review_at: T.nilable(Time),
             notification_confirmation: T::Boolean,
+            portal_steps:
+              T::Array[
+                Dataleon::Individual::TechnicalData::PortalStep::OrSymbol
+              ],
             qr_code: String,
             raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
@@ -1250,6 +1276,8 @@ module Dataleon
           need_review_at: nil,
           # Flag indicating if notification confirmation is required or received.
           notification_confirmation: nil,
+          # List of steps to include in the portal workflow.
+          portal_steps: nil,
           # Indicates whether QR code is enabled ("true" or "false").
           qr_code: nil,
           # Flag indicating whether to include raw data in the response.
@@ -1285,6 +1313,10 @@ module Dataleon
               location_ip: String,
               need_review_at: T.nilable(Time),
               notification_confirmation: T::Boolean,
+              portal_steps:
+                T::Array[
+                  Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+                ],
               qr_code: String,
               raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
@@ -1296,6 +1328,52 @@ module Dataleon
           )
         end
         def to_hash
+        end
+
+        module PortalStep
+          extend Dataleon::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Dataleon::Individual::TechnicalData::PortalStep)
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          IDENTITY_VERIFICATION =
+            T.let(
+              :identity_verification,
+              Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+            )
+          DOCUMENT_SIGNING =
+            T.let(
+              :document_signing,
+              Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+            )
+          PROOF_OF_ADDRESS =
+            T.let(
+              :proof_of_address,
+              Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+            )
+          SELFIE =
+            T.let(
+              :selfie,
+              Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+            )
+          FACE_MATCH =
+            T.let(
+              :face_match,
+              Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Dataleon::Individual::TechnicalData::PortalStep::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end
