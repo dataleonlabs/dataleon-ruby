@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-10-15)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Bug Fixes
+
+* should not reuse buffers for `IO.copy_stream` interop ([1e4aa0f](https://github.com/dataleonlabs/dataleon-ruby/commit/1e4aa0fd0451c10ee19d39b0e8c09c3e3a6011c0))
+
 ## 0.1.0-alpha.6 (2025-10-14)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
