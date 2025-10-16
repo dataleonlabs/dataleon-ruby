@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-10-16)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Bug Fixes
+
+* absolutely qualified uris should always override the default ([8104691](https://github.com/dataleonlabs/dataleon-ruby/commit/810469171a273400a933fa153e0e5d2ee51ef366))
+
 ## 0.1.0-alpha.7 (2025-10-15)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
