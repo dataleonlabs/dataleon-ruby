@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2025-11-05)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* handle thread interrupts in the core HTTP client ([a5fbf02](https://github.com/dataleonlabs/dataleon-ruby/commit/a5fbf02417a91437f77154b8264ad70ed5092ba9))
+
+
+### Bug Fixes
+
+* better thread safety via early initializing SSL store during HTTP client creation ([4c5d69f](https://github.com/dataleonlabs/dataleon-ruby/commit/4c5d69f2c7071091ae99514eb1d47a02de14a009))
+
+
+### Chores
+
+* bump dependency version and update sorbet types ([5ffbe59](https://github.com/dataleonlabs/dataleon-ruby/commit/5ffbe59f7f0b4eb5d3b23f0424344ced0cdbaa79))
+
 ## 0.1.0-alpha.8 (2025-10-16)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
