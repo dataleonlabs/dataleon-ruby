@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-11-21)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Chores
+
+* explicitly require "base64" gem ([c0b49fe](https://github.com/dataleonlabs/dataleon-ruby/commit/c0b49fe5379c7717e4e8fb01a9bb48c5a98590c9))
+
 ## 0.1.0-alpha.9 (2025-11-05)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
