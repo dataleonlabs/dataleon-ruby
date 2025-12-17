@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-12-17)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Bug Fixes
+
+* calling `break` out of streams should be instantaneous ([cbd124f](https://github.com/dataleonlabs/dataleon-ruby/commit/cbd124f5c46c4927a35f7c79e49d9628d75151ac))
+
+
+### Chores
+
+* explicitly require "base64" gem ([c0b49fe](https://github.com/dataleonlabs/dataleon-ruby/commit/c0b49fe5379c7717e4e8fb01a9bb48c5a98590c9))
+
 ## 0.1.0-alpha.9 (2025-11-05)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
