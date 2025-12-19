@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-12-19)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Bug Fixes
+
+* issue where json.parse errors when receiving HTTP 204 with nobody ([2bb84e5](https://github.com/dataleonlabs/dataleon-ruby/commit/2bb84e59e28fb9af2bbbde1fa782a46125598c8e))
+
 ## 0.1.0-alpha.10 (2025-12-17)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
