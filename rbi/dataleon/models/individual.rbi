@@ -593,6 +593,13 @@ module Dataleon
         sig { params(country: String).void }
         attr_writer :country
 
+        # Date of entitlement or validity start date, in YYYY-MM-DD format.
+        sig { returns(T.nilable(String)) }
+        attr_reader :entitlement_date
+
+        sig { params(entitlement_date: String).void }
+        attr_writer :entitlement_date
+
         # Expiration date of the document, in YYYY-MM-DD format.
         sig { returns(T.nilable(String)) }
         attr_reader :expiration_date
@@ -668,6 +675,7 @@ module Dataleon
             birth_place: String,
             birthday: String,
             country: String,
+            entitlement_date: String,
             expiration_date: String,
             first_name: String,
             front_document_signed_url: String,
@@ -691,6 +699,8 @@ module Dataleon
           birthday: nil,
           # Country code issuing the document (ISO 3166-1 alpha-2).
           country: nil,
+          # Date of entitlement or validity start date, in YYYY-MM-DD format.
+          entitlement_date: nil,
           # Expiration date of the document, in YYYY-MM-DD format.
           expiration_date: nil,
           # First name as shown on the document.
@@ -722,6 +732,7 @@ module Dataleon
               birth_place: String,
               birthday: String,
               country: String,
+              entitlement_date: String,
               expiration_date: String,
               first_name: String,
               front_document_signed_url: String,
