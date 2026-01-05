@@ -303,6 +303,7 @@ module Dataleon
           birth_place: String,
           birthday: String,
           country: String,
+          entitlement_date: String,
           expiration_date: String,
           first_name: String,
           front_document_signed_url: String,
@@ -335,6 +336,10 @@ module Dataleon
         attr_reader country: String?
 
         def country=: (String) -> String
+
+        attr_reader entitlement_date: String?
+
+        def entitlement_date=: (String) -> String
 
         attr_reader expiration_date: String?
 
@@ -380,6 +385,7 @@ module Dataleon
           ?birth_place: String,
           ?birthday: String,
           ?country: String,
+          ?entitlement_date: String,
           ?expiration_date: String,
           ?first_name: String,
           ?front_document_signed_url: String,
@@ -398,6 +404,7 @@ module Dataleon
           birth_place: String,
           birthday: String,
           country: String,
+          entitlement_date: String,
           expiration_date: String,
           first_name: String,
           front_document_signed_url: String,
