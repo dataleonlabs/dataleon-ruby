@@ -353,6 +353,12 @@ module Dataleon
         #   @return [String, nil]
         optional :country, String
 
+        # @!attribute entitlement_date
+        #   Date of entitlement or validity start date, in YYYY-MM-DD format.
+        #
+        #   @return [String, nil]
+        optional :entitlement_date, String
+
         # @!attribute expiration_date
         #   Expiration date of the document, in YYYY-MM-DD format.
         #
@@ -413,7 +419,7 @@ module Dataleon
         #   @return [String, nil]
         optional :type, String
 
-        # @!method initialize(id: nil, back_document_signed_url: nil, birth_place: nil, birthday: nil, country: nil, expiration_date: nil, first_name: nil, front_document_signed_url: nil, gender: nil, issue_date: nil, last_name: nil, mrz_line_1: nil, mrz_line_2: nil, mrz_line_3: nil, type: nil)
+        # @!method initialize(id: nil, back_document_signed_url: nil, birth_place: nil, birthday: nil, country: nil, entitlement_date: nil, expiration_date: nil, first_name: nil, front_document_signed_url: nil, gender: nil, issue_date: nil, last_name: nil, mrz_line_1: nil, mrz_line_2: nil, mrz_line_3: nil, type: nil)
         #   Reference to the individual's identity document.
         #
         #   @param id [String] Unique identifier for the document.
@@ -425,6 +431,8 @@ module Dataleon
         #   @param birthday [String] Date of birth in DD/MM/YYYY format as shown on the document.
         #
         #   @param country [String] Country code issuing the document (ISO 3166-1 alpha-2).
+        #
+        #   @param entitlement_date [String] Date of entitlement or validity start date, in YYYY-MM-DD format.
         #
         #   @param expiration_date [String] Expiration date of the document, in YYYY-MM-DD format.
         #
