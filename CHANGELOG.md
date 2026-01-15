@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2026-01-15)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **api:** api update ([54a4762](https://github.com/dataleonlabs/dataleon-ruby/commit/54a4762a2b250c8153ce0bbb1960a092a81bd841))
+
+
+### Chores
+
+* move `cgi` into dependencies for ruby 4 ([8a66179](https://github.com/dataleonlabs/dataleon-ruby/commit/8a6617943bc96abfd9726b7f031ba5d007e1459f))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([876b9fd](https://github.com/dataleonlabs/dataleon-ruby/commit/876b9fd30758a8d9eff2b60610bd90da787e3ac3))
+
 ## 0.1.0-alpha.12 (2026-01-05)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
