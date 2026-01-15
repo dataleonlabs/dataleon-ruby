@@ -47,6 +47,7 @@ module Dataleon
           REGISTRATION_COMPANY_CERTIFICATE = :registration_company_certificate
           KBIS = :kbis
           RIB = :rib
+          CHECK = :check
           LIVRET_FAMILLE = :livret_famille
           BIRTH_CERTIFICATE = :birth_certificate
           PAYSLIP = :payslip

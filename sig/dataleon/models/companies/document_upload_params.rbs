@@ -48,6 +48,7 @@ module Dataleon
           | :registration_company_certificate
           | :kbis
           | :rib
+          | :check
           | :livret_famille
           | :birth_certificate
           | :payslip
@@ -85,6 +86,7 @@ module Dataleon
           REGISTRATION_COMPANY_CERTIFICATE: :registration_company_certificate
           KBIS: :kbis
           RIB: :rib
+          CHECK: :check
           LIVRET_FAMILLE: :livret_famille
           BIRTH_CERTIFICATE: :birth_certificate
           PAYSLIP: :payslip
