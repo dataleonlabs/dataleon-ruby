@@ -124,6 +124,11 @@ module Dataleon
               :rib,
               Dataleon::Individuals::DocumentUploadParams::DocumentType::TaggedSymbol
             )
+          CHECK =
+            T.let(
+              :check,
+              Dataleon::Individuals::DocumentUploadParams::DocumentType::TaggedSymbol
+            )
           LIVRET_FAMILLE =
             T.let(
               :livret_famille,
