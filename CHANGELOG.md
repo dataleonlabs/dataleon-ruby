@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2026-01-17)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([9a222bf](https://github.com/dataleonlabs/dataleon-ruby/commit/9a222bfe3951175a2cae61d19b6b4c82ffdff73e))
+
 ## 0.1.0-alpha.13 (2026-01-15)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
