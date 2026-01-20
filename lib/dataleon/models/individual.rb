@@ -660,6 +660,12 @@ module Dataleon
         #   @return [Time, nil]
         optional :approved_at, Time
 
+        # @!attribute approved_by
+        #   Identifier of the actor who approved (e.g., user id or username).
+        #
+        #   @return [String, nil]
+        optional :approved_by, String, nil?: true
+
         # @!attribute callback_url
         #   URL to receive callback data from the AML system.
         #
@@ -726,6 +732,12 @@ module Dataleon
         #   @return [Time, nil]
         optional :need_review_at, Time, nil?: true
 
+        # @!attribute need_review_by
+        #   Identifier of the actor who requested review (e.g., user id or username).
+        #
+        #   @return [String, nil]
+        optional :need_review_by, String, nil?: true
+
         # @!attribute notification_confirmation
         #   Flag indicating if notification confirmation is required or received.
         #
@@ -757,6 +769,12 @@ module Dataleon
         #   @return [Time, nil]
         optional :rejected_at, Time, nil?: true
 
+        # @!attribute rejected_by
+        #   Identifier of the actor who rejected (e.g., user id or username).
+        #
+        #   @return [String, nil]
+        optional :rejected_by, String, nil?: true
+
         # @!attribute session_duration
         #   Duration of the user session in seconds.
         #
@@ -781,7 +799,7 @@ module Dataleon
         #   @return [String, nil]
         optional :transfer_mode, String
 
-        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, notification_confirmation: nil, portal_steps: nil, qr_code: nil, raw_data: nil, rejected_at: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
+        # @!method initialize(active_aml_suspicions: nil, api_version: nil, approved_at: nil, approved_by: nil, callback_url: nil, callback_url_notification: nil, disable_notification: nil, disable_notification_date: nil, export_type: nil, filtering_score_aml_suspicions: nil, finished_at: nil, ip: nil, language: nil, location_ip: nil, need_review_at: nil, need_review_by: nil, notification_confirmation: nil, portal_steps: nil, qr_code: nil, raw_data: nil, rejected_at: nil, rejected_by: nil, session_duration: nil, started_at: nil, transfer_at: nil, transfer_mode: nil)
         #   Some parameter documentations has been truncated, see
         #   {Dataleon::Models::Individual::TechnicalData} for more details.
         #
@@ -792,6 +810,8 @@ module Dataleon
         #   @param api_version [Integer] Version number of the API used.
         #
         #   @param approved_at [Time] Timestamp when the request or process was approved.
+        #
+        #   @param approved_by [String, nil] Identifier of the actor who approved (e.g., user id or username).
         #
         #   @param callback_url [String] URL to receive callback data from the AML system.
         #
@@ -815,6 +835,8 @@ module Dataleon
         #
         #   @param need_review_at [Time, nil] Timestamp indicating when the request or process needs review; null if none.
         #
+        #   @param need_review_by [String, nil] Identifier of the actor who requested review (e.g., user id or username).
+        #
         #   @param notification_confirmation [Boolean] Flag indicating if notification confirmation is required or received.
         #
         #   @param portal_steps [Array<Symbol, Dataleon::Models::Individual::TechnicalData::PortalStep>] List of steps to include in the portal workflow.
@@ -824,6 +846,8 @@ module Dataleon
         #   @param raw_data [Boolean] Flag indicating whether to include raw data in the response.
         #
         #   @param rejected_at [Time, nil] Timestamp when the request or process was rejected; null if not rejected.
+        #
+        #   @param rejected_by [String, nil] Identifier of the actor who rejected (e.g., user id or username).
         #
         #   @param session_duration [Integer] Duration of the user session in seconds.
         #
