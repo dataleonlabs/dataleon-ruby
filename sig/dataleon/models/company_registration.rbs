@@ -695,6 +695,7 @@ module Dataleon
           active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
+          approved_by: String?,
           callback_url: String,
           callback_url_notification: String,
           disable_notification: bool,
@@ -706,11 +707,13 @@ module Dataleon
           language: String,
           location_ip: String,
           need_review_at: Time?,
+          need_review_by: String?,
           notification_confirmation: bool,
           portal_steps: ::Array[Dataleon::Models::CompanyRegistration::TechnicalData::portal_step],
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
+          rejected_by: String?,
           session_duration: Integer,
           started_at: Time,
           transfer_at: Time,
@@ -729,6 +732,8 @@ module Dataleon
         attr_reader approved_at: Time?
 
         def approved_at=: (Time) -> Time
+
+        attr_accessor approved_by: String?
 
         attr_reader callback_url: String?
 
@@ -770,6 +775,8 @@ module Dataleon
 
         attr_accessor need_review_at: Time?
 
+        attr_accessor need_review_by: String?
+
         attr_reader notification_confirmation: bool?
 
         def notification_confirmation=: (bool) -> bool
@@ -789,6 +796,8 @@ module Dataleon
         def raw_data=: (bool) -> bool
 
         attr_accessor rejected_at: Time?
+
+        attr_accessor rejected_by: String?
 
         attr_reader session_duration: Integer?
 
@@ -810,6 +819,7 @@ module Dataleon
           ?active_aml_suspicions: bool,
           ?api_version: Integer,
           ?approved_at: Time,
+          ?approved_by: String?,
           ?callback_url: String,
           ?callback_url_notification: String,
           ?disable_notification: bool,
@@ -821,11 +831,13 @@ module Dataleon
           ?language: String,
           ?location_ip: String,
           ?need_review_at: Time?,
+          ?need_review_by: String?,
           ?notification_confirmation: bool,
           ?portal_steps: ::Array[Dataleon::Models::CompanyRegistration::TechnicalData::portal_step],
           ?qr_code: String,
           ?raw_data: bool,
           ?rejected_at: Time?,
+          ?rejected_by: String?,
           ?session_duration: Integer,
           ?started_at: Time,
           ?transfer_at: Time,
@@ -836,6 +848,7 @@ module Dataleon
           active_aml_suspicions: bool,
           api_version: Integer,
           approved_at: Time,
+          approved_by: String?,
           callback_url: String,
           callback_url_notification: String,
           disable_notification: bool,
@@ -847,11 +860,13 @@ module Dataleon
           language: String,
           location_ip: String,
           need_review_at: Time?,
+          need_review_by: String?,
           notification_confirmation: bool,
           portal_steps: ::Array[Dataleon::Models::CompanyRegistration::TechnicalData::portal_step],
           qr_code: String,
           raw_data: bool,
           rejected_at: Time?,
+          rejected_by: String?,
           session_duration: Integer,
           started_at: Time,
           transfer_at: Time,

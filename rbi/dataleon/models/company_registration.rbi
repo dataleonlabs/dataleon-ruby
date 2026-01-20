@@ -1402,6 +1402,10 @@ module Dataleon
         sig { params(approved_at: Time).void }
         attr_writer :approved_at
 
+        # Identifier of the actor who approved (e.g., user id or username).
+        sig { returns(T.nilable(String)) }
+        attr_accessor :approved_by
+
         # URL to receive callback data from the AML system.
         sig { returns(T.nilable(String)) }
         attr_reader :callback_url
@@ -1473,6 +1477,10 @@ module Dataleon
         sig { returns(T.nilable(Time)) }
         attr_accessor :need_review_at
 
+        # Identifier of the actor who requested review (e.g., user id or username).
+        sig { returns(T.nilable(String)) }
+        attr_accessor :need_review_by
+
         # Flag indicating if notification confirmation is required or received.
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :notification_confirmation
@@ -1520,6 +1528,10 @@ module Dataleon
         sig { returns(T.nilable(Time)) }
         attr_accessor :rejected_at
 
+        # Identifier of the actor who rejected (e.g., user id or username).
+        sig { returns(T.nilable(String)) }
+        attr_accessor :rejected_by
+
         # Duration of the user session in seconds.
         sig { returns(T.nilable(Integer)) }
         attr_reader :session_duration
@@ -1555,6 +1567,7 @@ module Dataleon
             active_aml_suspicions: T::Boolean,
             api_version: Integer,
             approved_at: Time,
+            approved_by: T.nilable(String),
             callback_url: String,
             callback_url_notification: String,
             disable_notification: T::Boolean,
@@ -1566,6 +1579,7 @@ module Dataleon
             language: String,
             location_ip: String,
             need_review_at: T.nilable(Time),
+            need_review_by: T.nilable(String),
             notification_confirmation: T::Boolean,
             portal_steps:
               T::Array[
@@ -1574,6 +1588,7 @@ module Dataleon
             qr_code: String,
             raw_data: T::Boolean,
             rejected_at: T.nilable(Time),
+            rejected_by: T.nilable(String),
             session_duration: Integer,
             started_at: Time,
             transfer_at: Time,
@@ -1588,6 +1603,8 @@ module Dataleon
           api_version: nil,
           # Timestamp when the request or process was approved.
           approved_at: nil,
+          # Identifier of the actor who approved (e.g., user id or username).
+          approved_by: nil,
           # URL to receive callback data from the AML system.
           callback_url: nil,
           # URL to receive notification updates about the processing status.
@@ -1610,6 +1627,8 @@ module Dataleon
           location_ip: nil,
           # Timestamp indicating when the request or process needs review; null if none.
           need_review_at: nil,
+          # Identifier of the actor who requested review (e.g., user id or username).
+          need_review_by: nil,
           # Flag indicating if notification confirmation is required or received.
           notification_confirmation: nil,
           # List of steps to include in the portal workflow.
@@ -1620,6 +1639,8 @@ module Dataleon
           raw_data: nil,
           # Timestamp when the request or process was rejected; null if not rejected.
           rejected_at: nil,
+          # Identifier of the actor who rejected (e.g., user id or username).
+          rejected_by: nil,
           # Duration of the user session in seconds.
           session_duration: nil,
           # Timestamp when the process started.
@@ -1637,6 +1658,7 @@ module Dataleon
               active_aml_suspicions: T::Boolean,
               api_version: Integer,
               approved_at: Time,
+              approved_by: T.nilable(String),
               callback_url: String,
               callback_url_notification: String,
               disable_notification: T::Boolean,
@@ -1648,6 +1670,7 @@ module Dataleon
               language: String,
               location_ip: String,
               need_review_at: T.nilable(Time),
+              need_review_by: T.nilable(String),
               notification_confirmation: T::Boolean,
               portal_steps:
                 T::Array[
@@ -1656,6 +1679,7 @@ module Dataleon
               qr_code: String,
               raw_data: T::Boolean,
               rejected_at: T.nilable(Time),
+              rejected_by: T.nilable(String),
               session_duration: Integer,
               started_at: Time,
               transfer_at: Time,
