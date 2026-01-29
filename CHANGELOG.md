@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2026-01-29)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Features
+
+* **api:** api update ([2804f04](https://github.com/dataleonlabs/dataleon-ruby/commit/2804f045a2e3e37dd8f4c13f1ea33210dc76b670))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([863f04f](https://github.com/dataleonlabs/dataleon-ruby/commit/863f04ff33c8a181a2995deb93ab283ee0e9c757))
+
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([9a222bf](https://github.com/dataleonlabs/dataleon-ruby/commit/9a222bfe3951175a2cae61d19b6b4c82ffdff73e))
+
 ## 0.1.0-alpha.13 (2026-01-15)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
