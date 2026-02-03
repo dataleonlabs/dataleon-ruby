@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2026-02-03)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Bug Fixes
+
+* **client:** always add content-length to post body, even when empty ([69a5870](https://github.com/dataleonlabs/dataleon-ruby/commit/69a5870f7d75570e3b0fc4b5c21c21e726ffed10))
+
 ## 0.1.0-alpha.14 (2026-01-29)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
