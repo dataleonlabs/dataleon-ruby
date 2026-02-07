@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2026-02-07)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* **client:** loosen json header parsing ([c95510d](https://github.com/dataleonlabs/dataleon-ruby/commit/c95510d9b65cce83f0988956f98491e8612cdd35))
+
+
+### Chores
+
+* **docs:** remove www prefix ([34a616e](https://github.com/dataleonlabs/dataleon-ruby/commit/34a616e4e22043cae5586368396f8fd6f000a857))
+
 ## 0.1.0-alpha.15 (2026-02-03)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
