@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2026-02-27)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Bug Fixes
+
+* properly mock time in ruby ci tests ([62a9952](https://github.com/dataleonlabs/dataleon-ruby/commit/62a995256633b5ddee808d0a94c824f9cff32268))
+
+
+### Chores
+
+* **internal:** remove mock server code ([efdb5f3](https://github.com/dataleonlabs/dataleon-ruby/commit/efdb5f341c128f8051b4d5e74fe811e4a26d6fd5))
+* update mock server docs ([8c2efcd](https://github.com/dataleonlabs/dataleon-ruby/commit/8c2efcddfe866ea4bdbd9d30dd2c6f8e9be16337))
+
 ## 0.1.0-alpha.16 (2026-02-07)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
