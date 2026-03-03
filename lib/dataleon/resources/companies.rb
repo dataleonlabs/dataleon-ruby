@@ -54,10 +54,11 @@ module Dataleon
       # @see Dataleon::Models::CompanyRetrieveParams
       def retrieve(company_id, params = {})
         parsed, options = Dataleon::CompanyRetrieveParams.dump_request(params)
+        query = Dataleon::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["companies/%1$s", company_id],
-          query: parsed,
+          query: query,
           model: Dataleon::CompanyRegistration,
           options: options
         )
@@ -123,10 +124,11 @@ module Dataleon
       # @see Dataleon::Models::CompanyListParams
       def list(params = {})
         parsed, options = Dataleon::CompanyListParams.dump_request(params)
+        query = Dataleon::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "companies",
-          query: parsed,
+          query: query,
           model: Dataleon::Internal::Type::ArrayOf[Dataleon::CompanyRegistration],
           options: options
         )
