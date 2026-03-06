@@ -7,6 +7,11 @@ module Dataleon
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
 
+      # @!attribute individual_id
+      #
+      #   @return [String]
+      required :individual_id, String
+
       # @!attribute document
       #   Include document information
       #
@@ -19,7 +24,9 @@ module Dataleon
       #   @return [String, nil]
       optional :scope, String
 
-      # @!method initialize(document: nil, scope: nil, request_options: {})
+      # @!method initialize(individual_id:, document: nil, scope: nil, request_options: {})
+      #   @param individual_id [String]
+      #
       #   @param document [Boolean] Include document information
       #
       #   @param scope [String] Scope filter (id or scope)

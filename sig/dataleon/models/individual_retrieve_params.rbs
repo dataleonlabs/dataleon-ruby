@@ -1,12 +1,14 @@
 module Dataleon
   module Models
     type individual_retrieve_params =
-      { document: bool, scope: String }
+      { individual_id: String, document: bool, scope: String }
       & Dataleon::Internal::Type::request_parameters
 
     class IndividualRetrieveParams < Dataleon::Internal::Type::BaseModel
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
+
+      attr_accessor individual_id: String
 
       attr_reader document: bool?
 
@@ -17,12 +19,14 @@ module Dataleon
       def scope=: (String) -> String
 
       def initialize: (
+        individual_id: String,
         ?document: bool,
         ?scope: String,
         ?request_options: Dataleon::request_opts
       ) -> void
 
       def to_hash: -> {
+        individual_id: String,
         document: bool,
         scope: String,
         request_options: Dataleon::RequestOptions

@@ -15,15 +15,23 @@ module Dataleon
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :company_id
+
         sig do
-          params(request_options: Dataleon::RequestOptions::OrHash).returns(
-            T.attached_class
-          )
+          params(
+            company_id: String,
+            request_options: Dataleon::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
-        def self.new(request_options: {})
+        def self.new(company_id:, request_options: {})
         end
 
-        sig { override.returns({ request_options: Dataleon::RequestOptions }) }
+        sig do
+          override.returns(
+            { company_id: String, request_options: Dataleon::RequestOptions }
+          )
+        end
         def to_hash
         end
       end
