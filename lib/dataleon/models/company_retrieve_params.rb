@@ -7,6 +7,11 @@ module Dataleon
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
 
+      # @!attribute company_id
+      #
+      #   @return [String]
+      required :company_id, String
+
       # @!attribute document
       #   Include document signed url
       #
@@ -19,7 +24,9 @@ module Dataleon
       #   @return [String, nil]
       optional :scope, String
 
-      # @!method initialize(document: nil, scope: nil, request_options: {})
+      # @!method initialize(company_id:, document: nil, scope: nil, request_options: {})
+      #   @param company_id [String]
+      #
       #   @param document [Boolean] Include document signed url
       #
       #   @param scope [String] Scope filter (id or scope)

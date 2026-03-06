@@ -2,15 +2,23 @@ module Dataleon
   module Models
     module Individuals
       type document_list_params =
-        {  } & Dataleon::Internal::Type::request_parameters
+        { individual_id: String } & Dataleon::Internal::Type::request_parameters
 
       class DocumentListParams < Dataleon::Internal::Type::BaseModel
         extend Dataleon::Internal::Type::RequestParameters::Converter
         include Dataleon::Internal::Type::RequestParameters
 
-        def initialize: (?request_options: Dataleon::request_opts) -> void
+        attr_accessor individual_id: String
 
-        def to_hash: -> { request_options: Dataleon::RequestOptions }
+        def initialize: (
+          individual_id: String,
+          ?request_options: Dataleon::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          individual_id: String,
+          request_options: Dataleon::RequestOptions
+        }
       end
     end
   end

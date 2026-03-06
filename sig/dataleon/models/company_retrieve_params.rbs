@@ -1,12 +1,14 @@
 module Dataleon
   module Models
     type company_retrieve_params =
-      { document: bool, scope: String }
+      { company_id: String, document: bool, scope: String }
       & Dataleon::Internal::Type::request_parameters
 
     class CompanyRetrieveParams < Dataleon::Internal::Type::BaseModel
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
+
+      attr_accessor company_id: String
 
       attr_reader document: bool?
 
@@ -17,12 +19,14 @@ module Dataleon
       def scope=: (String) -> String
 
       def initialize: (
+        company_id: String,
         ?document: bool,
         ?scope: String,
         ?request_options: Dataleon::request_opts
       ) -> void
 
       def to_hash: -> {
+        company_id: String,
         document: bool,
         scope: String,
         request_options: Dataleon::RequestOptions

@@ -11,6 +11,9 @@ module Dataleon
           T.any(Dataleon::IndividualUpdateParams, Dataleon::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :individual_id
+
       # Unique identifier of the workspace where the individual is being registered.
       sig { returns(String) }
       attr_accessor :workspace_id
@@ -48,6 +51,7 @@ module Dataleon
 
       sig do
         params(
+          individual_id: String,
           workspace_id: String,
           person: Dataleon::IndividualUpdateParams::Person::OrHash,
           source_id: String,
@@ -57,6 +61,7 @@ module Dataleon
         ).returns(T.attached_class)
       end
       def self.new(
+        individual_id:,
         # Unique identifier of the workspace where the individual is being registered.
         workspace_id:,
         # Personal information about the individual.
@@ -73,6 +78,7 @@ module Dataleon
       sig do
         override.returns(
           {
+            individual_id: String,
             workspace_id: String,
             person: Dataleon::IndividualUpdateParams::Person,
             source_id: String,
