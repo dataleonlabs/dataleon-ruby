@@ -2,6 +2,7 @@ module Dataleon
   module Models
     type company_update_params =
       {
+        company_id: String,
         company: Dataleon::CompanyUpdateParams::Company,
         workspace_id: String,
         source_id: String,
@@ -12,6 +13,8 @@ module Dataleon
     class CompanyUpdateParams < Dataleon::Internal::Type::BaseModel
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
+
+      attr_accessor company_id: String
 
       attr_accessor company: Dataleon::CompanyUpdateParams::Company
 
@@ -28,6 +31,7 @@ module Dataleon
       ) -> Dataleon::CompanyUpdateParams::TechnicalData
 
       def initialize: (
+        company_id: String,
         company: Dataleon::CompanyUpdateParams::Company,
         workspace_id: String,
         ?source_id: String,
@@ -36,6 +40,7 @@ module Dataleon
       ) -> void
 
       def to_hash: -> {
+        company_id: String,
         company: Dataleon::CompanyUpdateParams::Company,
         workspace_id: String,
         source_id: String,

@@ -11,6 +11,9 @@ module Dataleon
           T.any(Dataleon::IndividualRetrieveParams, Dataleon::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :individual_id
+
       # Include document information
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :document
@@ -27,12 +30,14 @@ module Dataleon
 
       sig do
         params(
+          individual_id: String,
           document: T::Boolean,
           scope: String,
           request_options: Dataleon::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        individual_id:,
         # Include document information
         document: nil,
         # Scope filter (id or scope)
@@ -44,6 +49,7 @@ module Dataleon
       sig do
         override.returns(
           {
+            individual_id: String,
             document: T::Boolean,
             scope: String,
             request_options: Dataleon::RequestOptions

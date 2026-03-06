@@ -8,6 +8,11 @@ module Dataleon
         extend Dataleon::Internal::Type::RequestParameters::Converter
         include Dataleon::Internal::Type::RequestParameters
 
+        # @!attribute company_id
+        #
+        #   @return [String]
+        required :company_id, String
+
         # @!attribute document_type
         #   Filter by document type for upload (must be one of the allowed values)
         #
@@ -26,7 +31,9 @@ module Dataleon
         #   @return [String, nil]
         optional :url, String
 
-        # @!method initialize(document_type:, file: nil, url: nil, request_options: {})
+        # @!method initialize(company_id:, document_type:, file: nil, url: nil, request_options: {})
+        #   @param company_id [String]
+        #
         #   @param document_type [Symbol, Dataleon::Models::Companies::DocumentUploadParams::DocumentType] Filter by document type for upload (must be one of the allowed values)
         #
         #   @param file [Pathname, StringIO, IO, String, Dataleon::FilePart] File to upload (required)

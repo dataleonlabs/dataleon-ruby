@@ -11,15 +11,23 @@ module Dataleon
           T.any(Dataleon::IndividualDeleteParams, Dataleon::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :individual_id
+
       sig do
-        params(request_options: Dataleon::RequestOptions::OrHash).returns(
-          T.attached_class
-        )
+        params(
+          individual_id: String,
+          request_options: Dataleon::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(request_options: {})
+      def self.new(individual_id:, request_options: {})
       end
 
-      sig { override.returns({ request_options: Dataleon::RequestOptions }) }
+      sig do
+        override.returns(
+          { individual_id: String, request_options: Dataleon::RequestOptions }
+        )
+      end
       def to_hash
       end
     end

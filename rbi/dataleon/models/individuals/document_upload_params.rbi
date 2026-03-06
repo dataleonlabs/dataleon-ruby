@@ -15,6 +15,9 @@ module Dataleon
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :individual_id
+
         # Filter by document type for upload (must be one of the allowed values)
         sig do
           returns(
@@ -39,6 +42,7 @@ module Dataleon
 
         sig do
           params(
+            individual_id: String,
             document_type:
               Dataleon::Individuals::DocumentUploadParams::DocumentType::OrSymbol,
             file: Dataleon::Internal::FileInput,
@@ -47,6 +51,7 @@ module Dataleon
           ).returns(T.attached_class)
         end
         def self.new(
+          individual_id:,
           # Filter by document type for upload (must be one of the allowed values)
           document_type:,
           # File to upload (required)
@@ -60,6 +65,7 @@ module Dataleon
         sig do
           override.returns(
             {
+              individual_id: String,
               document_type:
                 Dataleon::Individuals::DocumentUploadParams::DocumentType::OrSymbol,
               file: Dataleon::Internal::FileInput,

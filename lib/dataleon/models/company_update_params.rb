@@ -7,6 +7,11 @@ module Dataleon
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
 
+      # @!attribute company_id
+      #
+      #   @return [String]
+      required :company_id, String
+
       # @!attribute company
       #   Main information about the company being registered.
       #
@@ -32,9 +37,11 @@ module Dataleon
       #   @return [Dataleon::Models::CompanyUpdateParams::TechnicalData, nil]
       optional :technical_data, -> { Dataleon::CompanyUpdateParams::TechnicalData }
 
-      # @!method initialize(company:, workspace_id:, source_id: nil, technical_data: nil, request_options: {})
+      # @!method initialize(company_id:, company:, workspace_id:, source_id: nil, technical_data: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Dataleon::Models::CompanyUpdateParams} for more details.
+      #
+      #   @param company_id [String]
       #
       #   @param company [Dataleon::Models::CompanyUpdateParams::Company] Main information about the company being registered.
       #
