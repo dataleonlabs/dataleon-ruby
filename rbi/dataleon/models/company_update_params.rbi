@@ -11,6 +11,9 @@ module Dataleon
           T.any(Dataleon::CompanyUpdateParams, Dataleon::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :company_id
+
       # Main information about the company being registered.
       sig { returns(Dataleon::CompanyUpdateParams::Company) }
       attr_reader :company
@@ -45,6 +48,7 @@ module Dataleon
 
       sig do
         params(
+          company_id: String,
           company: Dataleon::CompanyUpdateParams::Company::OrHash,
           workspace_id: String,
           source_id: String,
@@ -53,6 +57,7 @@ module Dataleon
         ).returns(T.attached_class)
       end
       def self.new(
+        company_id:,
         # Main information about the company being registered.
         company:,
         # Unique identifier of the workspace in which the company is being created.
@@ -69,6 +74,7 @@ module Dataleon
       sig do
         override.returns(
           {
+            company_id: String,
             company: Dataleon::CompanyUpdateParams::Company,
             workspace_id: String,
             source_id: String,

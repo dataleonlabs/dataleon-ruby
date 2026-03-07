@@ -7,6 +7,11 @@ module Dataleon
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
 
+      # @!attribute individual_id
+      #
+      #   @return [String]
+      required :individual_id, String
+
       # @!attribute workspace_id
       #   Unique identifier of the workspace where the individual is being registered.
       #
@@ -32,9 +37,11 @@ module Dataleon
       #   @return [Dataleon::Models::IndividualUpdateParams::TechnicalData, nil]
       optional :technical_data, -> { Dataleon::IndividualUpdateParams::TechnicalData }
 
-      # @!method initialize(workspace_id:, person: nil, source_id: nil, technical_data: nil, request_options: {})
+      # @!method initialize(individual_id:, workspace_id:, person: nil, source_id: nil, technical_data: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Dataleon::Models::IndividualUpdateParams} for more details.
+      #
+      #   @param individual_id [String]
       #
       #   @param workspace_id [String] Unique identifier of the workspace where the individual is being registered.
       #

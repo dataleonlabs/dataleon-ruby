@@ -11,6 +11,9 @@ module Dataleon
           T.any(Dataleon::CompanyRetrieveParams, Dataleon::Internal::AnyHash)
         end
 
+      sig { returns(String) }
+      attr_accessor :company_id
+
       # Include document signed url
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :document
@@ -27,12 +30,14 @@ module Dataleon
 
       sig do
         params(
+          company_id: String,
           document: T::Boolean,
           scope: String,
           request_options: Dataleon::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        company_id:,
         # Include document signed url
         document: nil,
         # Scope filter (id or scope)
@@ -44,6 +49,7 @@ module Dataleon
       sig do
         override.returns(
           {
+            company_id: String,
             document: T::Boolean,
             scope: String,
             request_options: Dataleon::RequestOptions

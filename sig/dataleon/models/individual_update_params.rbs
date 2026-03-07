@@ -2,6 +2,7 @@ module Dataleon
   module Models
     type individual_update_params =
       {
+        individual_id: String,
         workspace_id: String,
         person: Dataleon::IndividualUpdateParams::Person,
         source_id: String,
@@ -12,6 +13,8 @@ module Dataleon
     class IndividualUpdateParams < Dataleon::Internal::Type::BaseModel
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
+
+      attr_accessor individual_id: String
 
       attr_accessor workspace_id: String
 
@@ -32,6 +35,7 @@ module Dataleon
       ) -> Dataleon::IndividualUpdateParams::TechnicalData
 
       def initialize: (
+        individual_id: String,
         workspace_id: String,
         ?person: Dataleon::IndividualUpdateParams::Person,
         ?source_id: String,
@@ -40,6 +44,7 @@ module Dataleon
       ) -> void
 
       def to_hash: -> {
+        individual_id: String,
         workspace_id: String,
         person: Dataleon::IndividualUpdateParams::Person,
         source_id: String,

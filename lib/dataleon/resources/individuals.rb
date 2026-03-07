@@ -54,10 +54,11 @@ module Dataleon
       # @see Dataleon::Models::IndividualRetrieveParams
       def retrieve(individual_id, params = {})
         parsed, options = Dataleon::IndividualRetrieveParams.dump_request(params)
+        query = Dataleon::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["individuals/%1$s", individual_id],
-          query: parsed,
+          query: query,
           model: Dataleon::Individual,
           options: options
         )
@@ -123,10 +124,11 @@ module Dataleon
       # @see Dataleon::Models::IndividualListParams
       def list(params = {})
         parsed, options = Dataleon::IndividualListParams.dump_request(params)
+        query = Dataleon::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "individuals",
-          query: parsed,
+          query: query,
           model: Dataleon::Internal::Type::ArrayOf[Dataleon::Individual],
           options: options
         )

@@ -7,7 +7,13 @@ module Dataleon
       extend Dataleon::Internal::Type::RequestParameters::Converter
       include Dataleon::Internal::Type::RequestParameters
 
-      # @!method initialize(request_options: {})
+      # @!attribute individual_id
+      #
+      #   @return [String]
+      required :individual_id, String
+
+      # @!method initialize(individual_id:, request_options: {})
+      #   @param individual_id [String]
       #   @param request_options [Dataleon::RequestOptions, Hash{Symbol=>Object}]
     end
   end

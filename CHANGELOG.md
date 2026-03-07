@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2026-03-07)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Chores
+
+* **ci:** add build step ([c6c0bfb](https://github.com/dataleonlabs/dataleon-ruby/commit/c6c0bfbf6b9cb01a67420a801b4546319f4112c4))
+* **ci:** skip uploading artifacts on stainless-internal branches ([80f4480](https://github.com/dataleonlabs/dataleon-ruby/commit/80f44805afaf438d62f3880c4fd6ea54b54ee2fe))
+* **internal:** codegen related update ([5c91bdf](https://github.com/dataleonlabs/dataleon-ruby/commit/5c91bdf92c419c85e99d0d2d1e97e8beb4de3b54))
+* **internal:** codegen related update ([0c0b389](https://github.com/dataleonlabs/dataleon-ruby/commit/0c0b3895c8eab5f47c809bdcd28369320cd967b3))
+
 ## 0.1.0-alpha.17 (2026-02-27)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
