@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2026-03-27)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Bug Fixes
+
+* **internal:** correct multipart form field name encoding ([be4a8d2](https://github.com/dataleonlabs/dataleon-ruby/commit/be4a8d250be8fcd5e1b5dd14bb4f36c7c1ccd6b9))
+
+
+### Chores
+
+* **ci:** add build step ([c6c0bfb](https://github.com/dataleonlabs/dataleon-ruby/commit/c6c0bfbf6b9cb01a67420a801b4546319f4112c4))
+* **ci:** skip lint on metadata-only changes ([727ff1b](https://github.com/dataleonlabs/dataleon-ruby/commit/727ff1b5d4616595315b715e20f51a83fc0c7c1b))
+* **ci:** skip uploading artifacts on stainless-internal branches ([80f4480](https://github.com/dataleonlabs/dataleon-ruby/commit/80f44805afaf438d62f3880c4fd6ea54b54ee2fe))
+* **internal:** codegen related update ([5c91bdf](https://github.com/dataleonlabs/dataleon-ruby/commit/5c91bdf92c419c85e99d0d2d1e97e8beb4de3b54))
+* **internal:** codegen related update ([0c0b389](https://github.com/dataleonlabs/dataleon-ruby/commit/0c0b3895c8eab5f47c809bdcd28369320cd967b3))
+* **internal:** tweak CI branches ([f0ebfaa](https://github.com/dataleonlabs/dataleon-ruby/commit/f0ebfaafb23d78b596f60dfdb7468bbce7674bda))
+* **internal:** update gitignore ([029e8d5](https://github.com/dataleonlabs/dataleon-ruby/commit/029e8d5da684e632aa9e0b3a9e8851c9b8581c96))
+
 ## 0.1.0-alpha.17 (2026-02-27)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
