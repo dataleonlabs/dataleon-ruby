@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2026-04-01)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Bug Fixes
+
+* align path encoding with RFC 3986 section 3.3 ([206c577](https://github.com/dataleonlabs/dataleon-ruby/commit/206c57750de1321168800ec8317b95509e5074a8))
+
 ## 0.1.0-alpha.19 (2026-04-01)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
