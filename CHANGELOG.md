@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2026-04-01)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Bug Fixes
+
+* variable name typo ([5f773e1](https://github.com/dataleonlabs/dataleon-ruby/commit/5f773e1828ab93bbadf00363f1390696523c73f0))
+
+
+### Chores
+
+* **ci:** support opting out of skipping builds on metadata-only commits ([088df62](https://github.com/dataleonlabs/dataleon-ruby/commit/088df62796784500c965258665f3e14324105550))
+
 ## 0.1.0-alpha.18 (2026-03-27)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)

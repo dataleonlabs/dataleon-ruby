@@ -26,7 +26,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "dataleon", "~> 0.1.0.pre.alpha.18"
+gem "dataleon", "~> 0.1.0.pre.alpha.19"
 ```
 
 <!-- x-release-please-end -->
