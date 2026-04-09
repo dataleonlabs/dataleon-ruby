@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2026-04-09)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Bug Fixes
+
+* multipart encoding for file arrays ([f892fea](https://github.com/dataleonlabs/dataleon-ruby/commit/f892fea3ac349b35c3b094395afbda1889c758a4))
+
 ## 0.1.0-alpha.20 (2026-04-01)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
