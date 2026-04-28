@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2026-04-28)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* support setting headers via env ([bf273be](https://github.com/dataleonlabs/dataleon-ruby/commit/bf273beb46fe4edee544de865c22311dbdfadf99))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([4538fac](https://github.com/dataleonlabs/dataleon-ruby/commit/4538fac681a449b367bb2234fdba97abf671e62d))
+
 ## 0.1.0-alpha.21 (2026-04-09)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
