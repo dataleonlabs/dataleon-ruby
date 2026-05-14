@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2026-05-14)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Bug Fixes
+
+* **client:** elide content type header on requests without body ([254f508](https://github.com/dataleonlabs/dataleon-ruby/commit/254f508093278545f1bdc3893a5f043ff05de329))
+
 ## 0.1.0-alpha.22 (2026-04-28)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
