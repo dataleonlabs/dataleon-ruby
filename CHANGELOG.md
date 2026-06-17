@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2026-06-17)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([69e071f](https://github.com/dataleonlabs/dataleon-ruby/commit/69e071f97576201dec133ccac9561ad179a9bbf1))
+
 ## 0.1.0-alpha.23 (2026-05-14)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
