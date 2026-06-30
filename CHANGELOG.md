@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2026-06-30)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Chores
+
+* **internal:** bound formatter parallelism to CPU count ([f1a1aec](https://github.com/dataleonlabs/dataleon-ruby/commit/f1a1aec25b21eaa4de52e55d349274fd9a43b62a))
+
 ## 0.1.0-alpha.24 (2026-06-17)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/dataleonlabs/dataleon-ruby/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
